@@ -5,9 +5,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import me.jezzadabomb.es.lib.BlockIds;
+import me.jezzadabomb.es.lib.Names;
 import me.jezzadabomb.es.lib.Strings;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class ModBlocks {
 
@@ -23,6 +25,9 @@ public class ModBlocks {
         GameRegistry.registerBlock(viewerGlass, Strings.VIEWER_GLASS);
         GameRegistry.registerBlock(chamberBlock, Strings.CHAMBER_WALL);
 
+        LanguageRegistry.addName(viewerGlass, Names.GLASS_VIEWER);
+        LanguageRegistry.addName(chamberBlock, Names.CHAMBER_WALL);
+        
         initBlockRecipes();
 
     }

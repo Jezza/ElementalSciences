@@ -30,16 +30,8 @@ public class BlockChamber extends BlockES
         setHardness(2.0f);
         setResistance(5.0f);
         setStepSound(soundStoneFootstep);
-        setCreativeTab(ElementalSciences.tabsES);
         setUnlocalizedName(Strings.CHAMBER_WALL);
         this.BlockID = BlockID;
-    }
-    
-    @Override
-    public void onBlockAdded(World world, int i, int j, int k)
-    {
-        super.onBlockAdded(world, i, j, k);
-        world.markBlockForUpdate(i, j, k);
     }
     
     public int idDropped(int par1, Random par2Random, int par3)

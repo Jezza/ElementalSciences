@@ -1,5 +1,6 @@
 package me.jezzadabomb.es.blocks;
 
+import me.jezzadabomb.es.ElementalSciences;
 import me.jezzadabomb.es.lib.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -19,6 +20,7 @@ public abstract class BlockES extends Block {
     public BlockES(int id, Material material) {
 
         super(id, material);
+        setCreativeTab(ElementalSciences.tabsES);
     }
 
     @Override

@@ -15,7 +15,7 @@ public class BlockViewerGlass extends BlockES
 {	
 	public BlockViewerGlass(int BlockID, String BlockName)
 	{
-		super(BlockID, Material.wood);
+		super(BlockID, Material.glass);
 		setHardness(2.0f);
         setResistance(5.0f);
         setStepSound(soundStoneFootstep);

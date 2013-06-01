@@ -2,7 +2,9 @@ package me.jezzadabomb.es;
 
 import me.jezzadabomb.es.blocks.ModBlocks;
 import me.jezzadabomb.es.creativetab.CreativeTabES;
+import me.jezzadabomb.es.lib.Names;
 import me.jezzadabomb.es.lib.Reference;
+import me.jezzadabomb.es.lib.Strings;
 import me.jezzadabomb.es.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
 
@@ -15,6 +17,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid=Reference.MOD_ID, name=Reference.MOD_NAME, version=Reference.VERSION)
 public class ElementalSciences {
@@ -34,7 +37,7 @@ public class ElementalSciences {
         
     @Init
     public void load(FMLInitializationEvent event) {
-    
+        LanguageRegistry.instance().addStringLocalization("itemGroup.ElementalSciences", "en_US", "Elemental Sciences");
     }
         
     @PostInit
