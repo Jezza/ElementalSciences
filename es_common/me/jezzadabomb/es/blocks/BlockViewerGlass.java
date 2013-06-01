@@ -19,7 +19,6 @@ public class BlockViewerGlass extends BlockES
 		setHardness(2.0f);
         setResistance(5.0f);
         setStepSound(soundStoneFootstep);
-        setCreativeTab(ElementalSciences.tabsES);
         setUnlocalizedName(BlockName);
 	}
 	
