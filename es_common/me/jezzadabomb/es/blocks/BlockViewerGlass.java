@@ -1,21 +1,25 @@
-package me.jezzadabomb.es;
+package me.jezzadabomb.es.blocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import me.jezzadabomb.es.ElementalSciences;
+import me.jezzadabomb.es.lib.Reference;
 import net.minecraft.block.material.Material;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
 
-public class BlockViewerGlass extends Block
+public class BlockViewerGlass extends BlockES
 {	
-	public BlockViewerGlass(int BlockID, String BlockName, int TextureID)
+	public BlockViewerGlass(int BlockID, String BlockName)
 	{
 		super(BlockID, Material.wood);
 		setHardness(2.0f);
         setResistance(5.0f);
         setStepSound(soundStoneFootstep);
-        setCreativeTab(ElementalSciences.tabGeneMachines);
+        setCreativeTab(ElementalSciences.tabsES);
         setUnlocalizedName(BlockName);
 	}
 	
@@ -33,11 +37,6 @@ public class BlockViewerGlass extends Block
 	public boolean renderAsNormalBlock() //Tells the game how to render the block
 	{
 	         return false;
-	}
-	@SideOnly(Side.CLIENT)
-	public void updateIcons(IconRegister iconRegister)
-	{
-	         blockIcon = iconRegister.registerIcon("ElementalSciences:GlassViewer");
 	}
 	
 	public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5) //Renders neighbouring blocks
