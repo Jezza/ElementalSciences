@@ -13,7 +13,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
-public class BlockScannerPad extends BlockES implements ITileEntityProvider{
+public class BlockScannerPadOn extends BlockES implements ITileEntityProvider{
 
     public int BlockID;
     
@@ -24,7 +24,7 @@ public class BlockScannerPad extends BlockES implements ITileEntityProvider{
     @SideOnly(Side.CLIENT)
     private Icon pad_bottom;
     
-    public BlockScannerPad(int BlockID, String BlockName)
+    public BlockScannerPadOn(int BlockID, String BlockName)
     {
         super(BlockID, Material.wood);
         setHardness(2.0f);
@@ -35,9 +35,10 @@ public class BlockScannerPad extends BlockES implements ITileEntityProvider{
         this.BlockID = BlockID;
     }
     
-    public TileEntity createNewTileEntity(World world)
-    {
-       return new TileScannerPad();
+    @Override
+    public TileEntity createNewTileEntity(World world) {
+        // TODO Auto-generated method stub
+        return null;
     }
     
     public boolean isOpaqueCube() //Tells the game if the block is transparent
@@ -54,8 +55,8 @@ public class BlockScannerPad extends BlockES implements ITileEntityProvider{
     public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
         if (!world.isRemote)
         {   
-            if (entity instanceof EntityPlayer){
-                world.setBlock(x, y, z, ModBlocks.scannerPad_on.blockID);
+            if (!(entity instanceof EntityPlayer)){
+                world.setBlock(x,y,z, ModBlocks.scannerPad.blockID);
             }
         }
     }
@@ -63,9 +64,9 @@ public class BlockScannerPad extends BlockES implements ITileEntityProvider{
     @Override
     public void registerIcons(IconRegister par1IconRegister)
     {
-        this.pad_top = par1IconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.getUnlocalizedName2() + "_top");
-        this.pad_side = par1IconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.getUnlocalizedName2() + "_side");
-        this.pad_bottom = par1IconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.getUnlocalizedName2() + "_bottom");
+        this.pad_top = par1IconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.getUnlocalizedName2().replace("_on", "") + "_top_On");
+        this.pad_side = par1IconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.getUnlocalizedName2().replace("_on", "") + "_side_On");
+        this.pad_bottom = par1IconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.getUnlocalizedName2().replace("_on", "") + "_bottom");
     }
     
     public Icon getBlockTextureFromSideAndMetadata(int par1, int par2)

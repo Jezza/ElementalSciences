@@ -8,7 +8,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileScannerPad extends TileEntity implements IInventory{
+public class TileScannerPad extends TileES implements IInventory{
     
     private ItemStack[] inventory;
     

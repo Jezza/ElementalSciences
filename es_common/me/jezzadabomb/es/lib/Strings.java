@@ -10,4 +10,9 @@ public class Strings {
     
     //Tile Entity Constants
     public final static String TE_SCANNER_PAD = "scannerPad";
+    
+    //NBT stuff
+    public static final String NBT_TE_DIRECTION_KEY = "teDirection";
+    public static final String NBT_TE_STATE_KEY = "teState";
+    public static final String NBT_TE_CUSTOM_NAME = "CustomName";
 }

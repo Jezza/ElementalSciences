@@ -13,5 +13,5 @@ public class BlockIds {
     public static int GLASS_VIEWER;
     public static int CHAMBER_BLOCK;
     public static int SCANNER_PAD;
-
+    public static int SCANNER_PAD_ON;
 }

@@ -23,17 +23,18 @@ public class ModBlocks {
 
         viewerGlass = new BlockViewerGlass(BlockIds.GLASS_VIEWER_DEFAULT,Strings.VIEWER_GLASS);
         chamberBlock = new BlockChamber(BlockIds.CHAMBER_BLOCK_DEFAULT,Strings.CHAMBER_WALL);
-        scannerPad = new BlockScannerPad(BlockIds.SCANNER_PAD_DEFAULT,Strings.SCANNER_PAD,0);
-        scannerPad_on = new BlockScannerPad(BlockIds.SCANNER_PAD_ON_DEFAULT,Strings.SCANNER_PAD,1);
+        scannerPad = new BlockScannerPad(BlockIds.SCANNER_PAD_DEFAULT,Strings.SCANNER_PAD);
+        scannerPad_on = new BlockScannerPadOn(BlockIds.SCANNER_PAD_ON,Strings.SCANNER_PAD_ON);
         
         GameRegistry.registerBlock(viewerGlass, Strings.VIEWER_GLASS);
         GameRegistry.registerBlock(chamberBlock, Strings.CHAMBER_WALL);
         GameRegistry.registerBlock(scannerPad, Strings.SCANNER_PAD);
-        GameRegistry.registerBlock(scannerPad_on,Strings.SCANNER_PAD_ON);
+        GameRegistry.registerBlock(scannerPad_on, Strings.SCANNER_PAD_ON);
 
         LanguageRegistry.addName(viewerGlass, Names.GLASS_VIEWER);
         LanguageRegistry.addName(chamberBlock, Names.CHAMBER_WALL);
         LanguageRegistry.addName(scannerPad, Names.SCANNER_PAD);
+        LanguageRegistry.addName(scannerPad_on, Names.SCANNER_PAD_ON);
         
         initBlockRecipes();
 
