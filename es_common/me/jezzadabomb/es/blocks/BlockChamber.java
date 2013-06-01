@@ -1,18 +1,8 @@
 package me.jezzadabomb.es.blocks;
 import java.util.Random;
 
-import me.jezzadabomb.es.ElementalSciences;
-import me.jezzadabomb.es.lib.Reference;
-import me.jezzadabomb.es.lib.Strings;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.Icon;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 
@@ -30,7 +20,7 @@ public class BlockChamber extends BlockES
         setHardness(2.0f);
         setResistance(5.0f);
         setStepSound(soundStoneFootstep);
-        setUnlocalizedName(Strings.CHAMBER_WALL);
+        setUnlocalizedName(BlockName);
         this.BlockID = BlockID;
     }
     

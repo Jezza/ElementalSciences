@@ -52,9 +52,9 @@ public abstract class BlockES extends Block {
 //        world.setBlockMetadataWithNotify(x, y, z, direction, 3);
 //
 //        if (itemStack.hasDisplayName()) {
-//            ((TileEE) world.getBlockTileEntity(x, y, z)).setCustomName(itemStack.getDisplayName());
+//            ((TileES) world.getBlockTileEntity(x, y, z)).setCustomName(itemStack.getDisplayName());
 //        }
 //
-//        ((TileEE) world.getBlockTileEntity(x, y, z)).setOrientation(direction);
+//        ((TileES) world.getBlockTileEntity(x, y, z)).setOrientation(direction);
 //    }
 }

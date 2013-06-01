@@ -1,10 +1,13 @@
 package me.jezzadabomb.es.proxy;
 
+import me.jezzadabomb.es.lib.Strings;
+import me.jezzadabomb.es.tileentity.TileScannerPad;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import cpw.mods.fml.common.network.IGuiHandler;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class CommonProxy implements IGuiHandler {
 
@@ -33,7 +36,7 @@ public class CommonProxy implements IGuiHandler {
     }
 
     public void registerTileEntities() {
-        
+        GameRegistry.registerTileEntity(TileScannerPad.class, Strings.TE_SCANNER_PAD);
     }
 
     public void transmuteBlock(ItemStack itemStack, EntityPlayer player, World world, int x, int y, int z, int sideHit) {

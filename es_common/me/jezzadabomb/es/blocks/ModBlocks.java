@@ -16,17 +16,21 @@ public class ModBlocks {
     /* Mod block instances */
     public static Block viewerGlass;
     public static Block chamberBlock;
+    public static Block scannerPad;
 
     public static void init() {
 
         viewerGlass = new BlockViewerGlass(BlockIds.GLASS_VIEWER_DEFAULT,Strings.VIEWER_GLASS);
         chamberBlock = new BlockChamber(BlockIds.CHAMBER_BLOCK_DEFAULT,Strings.CHAMBER_WALL);
-
+        scannerPad = new BlockScannerPad(BlockIds.SCANNER_PAD_DEFAULT,Strings.SCANNER_PAD);
+        
         GameRegistry.registerBlock(viewerGlass, Strings.VIEWER_GLASS);
         GameRegistry.registerBlock(chamberBlock, Strings.CHAMBER_WALL);
+        GameRegistry.registerBlock(scannerPad, Strings.SCANNER_PAD);
 
         LanguageRegistry.addName(viewerGlass, Names.GLASS_VIEWER);
         LanguageRegistry.addName(chamberBlock, Names.CHAMBER_WALL);
+        LanguageRegistry.addName(scannerPad, Names.SCANNER_PAD);
         
         initBlockRecipes();
 
@@ -36,5 +40,7 @@ public class ModBlocks {
 
         GameRegistry.addRecipe(new ItemStack(viewerGlass), new Object[] {"iii", "isi", "iii", Character.valueOf('i'), Block.glass, Character.valueOf('s'), Block.stone });
         GameRegistry.addRecipe(new ItemStack(chamberBlock), new Object[] {"isi", "sis", "isi", Character.valueOf('i'), Item.ingotIron, Character.valueOf('s'), Block.stone });
+        GameRegistry.addRecipe(new ItemStack(scannerPad), new Object[] {"sss", "sis", "sss", Character.valueOf('i'), Item.ingotIron, Character.valueOf('s'), Block.stone });
+        
     }
 }
