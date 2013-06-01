@@ -17,16 +17,19 @@ public class ModBlocks {
     public static Block viewerGlass;
     public static Block chamberBlock;
     public static Block scannerPad;
+    public static Block scannerPad_on;
 
     public static void init() {
 
         viewerGlass = new BlockViewerGlass(BlockIds.GLASS_VIEWER_DEFAULT,Strings.VIEWER_GLASS);
         chamberBlock = new BlockChamber(BlockIds.CHAMBER_BLOCK_DEFAULT,Strings.CHAMBER_WALL);
-        scannerPad = new BlockScannerPad(BlockIds.SCANNER_PAD_DEFAULT,Strings.SCANNER_PAD);
+        scannerPad = new BlockScannerPad(BlockIds.SCANNER_PAD_DEFAULT,Strings.SCANNER_PAD,0);
+        scannerPad_on = new BlockScannerPad(BlockIds.SCANNER_PAD_ON_DEFAULT,Strings.SCANNER_PAD,1);
         
         GameRegistry.registerBlock(viewerGlass, Strings.VIEWER_GLASS);
         GameRegistry.registerBlock(chamberBlock, Strings.CHAMBER_WALL);
         GameRegistry.registerBlock(scannerPad, Strings.SCANNER_PAD);
+        GameRegistry.registerBlock(scannerPad_on,Strings.SCANNER_PAD_ON);
 
         LanguageRegistry.addName(viewerGlass, Names.GLASS_VIEWER);
         LanguageRegistry.addName(chamberBlock, Names.CHAMBER_WALL);

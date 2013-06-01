@@ -113,7 +113,7 @@ public class TileScannerPad extends TileEntity implements IInventory{
     @Override
     public void readFromNBT(NBTTagCompound nbtTagCompound) {
 
-        super.readFromNBT(nbtTagCompound);
+        //super.readFromNBT(nbtTagCompound);
 
         // Read in the ItemStacks in the inventory from NBT
         NBTTagList tagList = nbtTagCompound.getTagList("Items");
@@ -130,7 +130,7 @@ public class TileScannerPad extends TileEntity implements IInventory{
     @Override
     public void writeToNBT(NBTTagCompound nbtTagCompound) {
 
-        super.writeToNBT(nbtTagCompound);
+        //super.writeToNBT(nbtTagCompound);
 
         // Write the ItemStacks in the inventory to NBT
         NBTTagList tagList = new NBTTagList();
