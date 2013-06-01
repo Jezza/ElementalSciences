@@ -15,7 +15,6 @@ public class TileScannerPad extends TileEntity implements IInventory{
     public TileScannerPad() {
         
         super();
-        System.out.println("Boobs");
         inventory = new ItemStack[1];
     }
 
@@ -150,7 +149,6 @@ public class TileScannerPad extends TileEntity implements IInventory{
     @Override
     public void updateEntity(){
         super.updateEntity();
-        System.out.println("Boobs");
     }
     
 }

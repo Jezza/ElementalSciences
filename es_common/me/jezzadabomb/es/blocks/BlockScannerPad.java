@@ -5,13 +5,14 @@ import cpw.mods.fml.relauncher.SideOnly;
 import me.jezzadabomb.es.lib.Reference;
 import me.jezzadabomb.es.tileentity.TileScannerPad;
 import net.minecraft.block.Block;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
-public class BlockScannerPad extends BlockES {
+public class BlockScannerPad extends BlockES implements ITileEntityProvider{
 
     public int BlockID;
     @SideOnly(Side.CLIENT)
@@ -30,6 +31,11 @@ public class BlockScannerPad extends BlockES {
         setStepSound(soundStoneFootstep);
         setUnlocalizedName(BlockName);
         this.BlockID = BlockID;
+    }
+    
+    public TileEntity createNewTileEntity(World world)
+    {
+       return new TileScannerPad();
     }
     
     public boolean isOpaqueCube() //Tells the game if the block is transparent
@@ -54,10 +60,4 @@ public class BlockScannerPad extends BlockES {
     {
         return par1 == 1 ? this.blockIcon : (par1 == 0 ? this.pad_bottom : this.pad_side);
     }
-    
-    public TileEntity createNewTileEntity(World world)
-    {
-       return new TileScannerPad();
-    }
-
 }
