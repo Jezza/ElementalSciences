@@ -1,0 +1,15 @@
+[
+{
+  "modid": "ElementalSciences",
+  "name": "Elemental Sciences",
+  "description": "Stargate Ancient Technology.",
+  "version": "0.0.002",
+  "mcversion": "1.4.7",
+  "logoFile": "/mods/elementalsciences/textures/logo/logo.png",
+  "url": "https://github.com/jezzadabomb338/ElementalSciences",
+  "authors": [ "Jezzadabomb338" ],
+  "dependencies": [
+     "MinecraftForge"
+  ]
+}
+]

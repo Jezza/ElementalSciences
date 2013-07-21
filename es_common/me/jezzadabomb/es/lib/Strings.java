@@ -7,6 +7,7 @@ public class Strings {
     public final static String VIEWER_GLASS = "viewerGlass";
     public final static String SCANNER_PAD = "scannerPad";
     public final static String SCANNER_PAD_ON = "scannerPad_on";
+    public static final String BLOCKMETA_NAME = "BlockMeta";
     
     //Tile Entity Constants
     public final static String TE_SCANNER_PAD = "scannerPad";

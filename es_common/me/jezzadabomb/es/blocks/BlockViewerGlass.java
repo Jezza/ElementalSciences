@@ -2,17 +2,16 @@ package me.jezzadabomb.es.blocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import me.jezzadabomb.es.ElementalSciences;
-import me.jezzadabomb.es.lib.Reference;
 import net.minecraft.block.material.Material;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.item.ItemStack;
 
 public class BlockViewerGlass extends BlockES
 {	
+    public int BlockID;
+    
 	public BlockViewerGlass(int BlockID, String BlockName)
 	{
 		super(BlockID, Material.glass);
@@ -20,7 +19,13 @@ public class BlockViewerGlass extends BlockES
         setResistance(5.0f);
         setStepSound(soundStoneFootstep);
         setUnlocalizedName(BlockName);
+        this.BlockID = BlockID;
 	}
+	
+	@Override
+    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLiving entityLiving, ItemStack itemStack) {
+        world.setBlock(x, y, z, BlockID);
+    }
 	
 	@SideOnly(Side.CLIENT)
 	public int getRenderBlockPass() //Put 0 for fully transparent or opaque blocks, and 1 for semi-transparent

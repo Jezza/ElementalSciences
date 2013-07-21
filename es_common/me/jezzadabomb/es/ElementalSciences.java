@@ -1,10 +1,9 @@
 package me.jezzadabomb.es;
 
 import me.jezzadabomb.es.blocks.ModBlocks;
+import me.jezzadabomb.es.core.handlers.LocalizationHandler;
 import me.jezzadabomb.es.creativetab.CreativeTabES;
-import me.jezzadabomb.es.lib.Names;
 import me.jezzadabomb.es.lib.Reference;
-import me.jezzadabomb.es.lib.Strings;
 import me.jezzadabomb.es.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
 
@@ -21,7 +20,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid=Reference.MOD_ID, name=Reference.MOD_NAME, version=Reference.VERSION)
 public class ElementalSciences {
-        // The instance of your mod that Forge uses.
+    // The instance of your mod that Forge uses.
     @Instance(Reference.MOD_ID)
     public static ElementalSciences instance;
 
@@ -32,7 +31,9 @@ public class ElementalSciences {
                 
     @PreInit
     public void preInit(FMLPreInitializationEvent event) {
-       ModBlocks.init();
+        LocalizationHandler.loadLanguages();
+        
+        ModBlocks.init();
     }
         
     @Init
