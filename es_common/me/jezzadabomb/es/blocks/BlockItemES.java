@@ -5,6 +5,8 @@ import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemStack;
 
 public class BlockItemES extends ItemBlock{
+
+    public static final String[] dyeColorNames = new String[] {"white", "orange", "magenta", "lightBlue", "yellow", "lime", "pink", "gray", "silver", "cyan", "purple", "blue", "brown", "green", "red", "black"};
     
     public BlockItemES(int id){
         super(id);
@@ -18,6 +20,6 @@ public class BlockItemES extends ItemBlock{
     
     public String getUnlocalizedName(ItemStack par1ItemStack)
     {
-        return super.getUnlocalizedName() + "." + ItemDye.dyeColorNames[BlockDyedQuartz.getDyeFromBlock(par1ItemStack.getItemDamage())];
+        return super.getUnlocalizedName() + "." + dyeColorNames[BlockPureColour.getDyeFromBlock(par1ItemStack.getItemDamage())];
     }
 }

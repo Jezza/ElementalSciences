@@ -9,15 +9,16 @@ import me.jezzadabomb.es.lib.Strings;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 
-public class BlockDyedQuartz extends BlockES {
+public class BlockPureColour extends BlockES {
 
     public int BlockID;
     
-    public BlockDyedQuartz(int id){
-        super(id, Material.wood);
+    public BlockPureColour(int id){
+        super(id, Material.rock);
         this.BlockID = id;
         this.setUnlocalizedName(Strings.DYED_QUARTZ_NAME);
     }
@@ -53,7 +54,7 @@ public class BlockDyedQuartz extends BlockES {
         icons = new Icon[16];
         for(int i = 0; i < icons.length ; i++){
             //System.out.println(Reference.MOD_ID.toLowerCase() + ":" + (this.getUnlocalizedName().replace("tile.", "")) + i );
-            icons[i] = iconReg.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + (this.getUnlocalizedName().replace("tile.", "")) + i);
+            icons[i] = iconReg.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + (this.getUnlocalizedName().replace("tile.", "")) + "_" + (ItemDye.dyeColorNames[i]));
         }
     }
 }

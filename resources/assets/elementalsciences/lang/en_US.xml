@@ -2,20 +2,24 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties version="1.0">
 	<comment>English (en_US) Localization File</comment>
-	<entry key="tile.dyedQuartz.white.name">White Dyed Quartz</entry>
-	<entry key="tile.dyedQuartz.orange.name">Orange Dyed Quartz</entry>
-	<entry key="tile.dyedQuartz.magenta.name">Magenta Dyed Quartz</entry>
-	<entry key="tile.dyedQuartz.lightBlue.name">Light Blue Dyed Quartz</entry>
-	<entry key="tile.dyedQuartz.yellow.name">Yellow Dyed Quartz</entry>
-	<entry key="tile.dyedQuartz.lime.name">Lime Dyed Quartz</entry>
-	<entry key="tile.dyedQuartz.pink.name">Pink Dyed Quartz</entry>
-	<entry key="tile.dyedQuartz.gray.name">Grey Dyed Quartz</entry>
-	<entry key="tile.dyedQuartz.silver.name">Light Grey Dyed Quartz</entry>
-	<entry key="tile.dyedQuartz.cyan.name">Cyan Dyed Quartz</entry>
-	<entry key="tile.dyedQuartz.purple.name">Purple Dyed Quartz</entry>
-	<entry key="tile.dyedQuartz.blue.name">Blue Dyed Quartz</entry>
-	<entry key="tile.dyedQuartz.brown.name">Brown Dyed Quartz</entry>
-	<entry key="tile.dyedQuartz.green.name">Green Dyed Quartz</entry>
-	<entry key="tile.dyedQuartz.red.name">Red Dyed Quartz</entry>
-	<entry key="tile.dyedQuartz.black.name">Black Dyed Quartz</entry>
+	<entry key="tile.pureColour.white.name">Pure White</entry>
+	<entry key="tile.pureColour.orange.name">Pure Orange</entry>
+	<entry key="tile.pureColour.magenta.name">Pure Magenta</entry>
+	<entry key="tile.pureColour.lightBlue.name">Pure Light Blue</entry>
+	<entry key="tile.pureColour.yellow.name">Pure Yellow</entry>
+	<entry key="tile.pureColour.lime.name">Pure Lime</entry>
+	<entry key="tile.pureColour.pink.name">Pure Pink</entry>
+	<entry key="tile.pureColour.gray.name">Pure Grey</entry>
+	<entry key="tile.pureColour.silver.name">Pure Light Grey</entry>
+	<entry key="tile.pureColour.cyan.name">Pure Cyan</entry>
+	<entry key="tile.pureColour.purple.name">Pure Purple</entry>
+	<entry key="tile.pureColour.blue.name">Pure Blue</entry>
+	<entry key="tile.pureColour.brown.name">Pure Brown</entry>
+	<entry key="tile.pureColour.green.name">Pure Green</entry>
+	<entry key="tile.pureColour.red.name">Pure Red</entry>
+	<entry key="tile.pureColour.black.name">Pure Black</entry>
+	<entry key="tile.strengthenedGlass.name">Strengthened Glass</entry>
+	<entry key="tile.chamberBlock.name">Chamber Wall</entry>
+	<entry key="tile.stchamberBlock.name">Strengthened Chamber Wall</entry>
+	<entry key="tile.rechamberBlock.name">Reinforced Chamber Wall</entry>
 </properties>
