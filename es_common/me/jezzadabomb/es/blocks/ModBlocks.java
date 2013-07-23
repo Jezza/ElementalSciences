@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import me.jezzadabomb.es.items.ItemBlockPureColour;
 import me.jezzadabomb.es.lib.BlockIds;
 import me.jezzadabomb.es.lib.Strings;
 
@@ -30,7 +31,7 @@ public class ModBlocks {
         GameRegistry.registerBlock(chamberBlock, Strings.CHAMBER_WALL);
         GameRegistry.registerBlock(stchamberBlock, Strings.ST_CHAMBER_WALL);
         GameRegistry.registerBlock(rechamberBlock, Strings.RE_CHAMBER_WALL);
-        GameRegistry.registerBlock(pureColour, BlockItemPureColour.class, Strings.DYED_QUARTZ_NAME);
+        GameRegistry.registerBlock(pureColour, ItemBlockPureColour.class, Strings.DYED_QUARTZ_NAME);
         
         initBlockRecipes();
 

@@ -1,18 +1,19 @@
-package me.jezzadabomb.es.blocks;
+package me.jezzadabomb.es.items;
 
 import java.util.List;
 
 import org.lwjgl.input.Keyboard;
 
+import me.jezzadabomb.es.blocks.BlockPureColour;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
-public class BlockItemPureColour extends ItemBlock{
+public class ItemBlockPureColour extends ItemBlock{
 
     public static final String[] dyeColorNames = new String[] {"white", "orange", "magenta", "lightBlue", "yellow", "lime", "pink", "gray", "silver", "cyan", "purple", "blue", "brown", "green", "red", "black"};
     
-    public BlockItemPureColour(int id){
+    public ItemBlockPureColour(int id){
         super(id);
         setMaxDamage(0);
         this.setHasSubtypes(true);
