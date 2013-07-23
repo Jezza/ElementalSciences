@@ -16,6 +16,7 @@ public class ModBlocks {
     public static Block chamberBlock;
     public static Block stchamberBlock;
     public static Block rechamberBlock;
+    public static Block pureColour;
 
     public static void init() {
 
@@ -23,13 +24,13 @@ public class ModBlocks {
         chamberBlock = new BlockChamber(BlockIds.CHAMBER_BLOCK_DEFAULT,Strings.CHAMBER_WALL);
         stchamberBlock = new BlockChamber(BlockIds.ST_CHAMBER_BLOCK_DEFAULT,Strings.ST_CHAMBER_WALL);
         rechamberBlock = new BlockChamber(BlockIds.RE_CHAMBER_BLOCK_DEFAULT,Strings.RE_CHAMBER_WALL);
-        Block pureColour = new BlockPureColour(BlockIds.DYED_QUARTZ);
+        pureColour = new BlockPureColour(BlockIds.DYED_QUARTZ);
         
         GameRegistry.registerBlock(strengthenedGlass, Strings.STRENGTHENED_GLASS);
         GameRegistry.registerBlock(chamberBlock, Strings.CHAMBER_WALL);
         GameRegistry.registerBlock(stchamberBlock, Strings.ST_CHAMBER_WALL);
         GameRegistry.registerBlock(rechamberBlock, Strings.RE_CHAMBER_WALL);
-        GameRegistry.registerBlock(pureColour, BlockItemES.class, Strings.DYED_QUARTZ_NAME);
+        GameRegistry.registerBlock(pureColour, BlockItemPureColour.class, Strings.DYED_QUARTZ_NAME);
         
         initBlockRecipes();
 
