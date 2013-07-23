@@ -6,40 +6,35 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import me.jezzadabomb.es.lib.Reference;
 import me.jezzadabomb.es.lib.Strings;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
-import net.minecraft.world.World;
 
-public class BlockMetaBlock extends BlockES {
+public class BlockDyedQuartz extends BlockES {
 
     public int BlockID;
     
-    public BlockMetaBlock(int id){
+    public BlockDyedQuartz(int id){
         super(id, Material.wood);
         this.BlockID = id;
-        this.setUnlocalizedName(Strings.BLOCKMETA_NAME);
+        this.setUnlocalizedName(Strings.DYED_QUARTZ_NAME);
     }
     
     public Icon[] icons;
-
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister iconReg){
-        icons = new Icon[8];
-        for(int i = 0; i < icons.length ; i++){
-            icons[i] = iconReg.registerIcon(Reference.MOD_ID + ":" + (this.getUnlocalizedName2()) + i );
-        }
-    }
     
     @SideOnly(Side.CLIENT)
-    public Icon getBlockTextureFromSideAndMetadata(int i, int j){
-        return icons[j];
+    public Icon getIcon(int par1, int par2)
+    {
+        return this.icons[par2 % this.icons.length];
     }
-
+    
+    public static int getDyeFromBlock(int par0)
+    {
+        return ~par0 & 15;
+    }
+    
     @Override
     public int damageDropped(int par1)
     {
@@ -47,10 +42,18 @@ public class BlockMetaBlock extends BlockES {
     }
     
     @SuppressWarnings({ "unchecked", "rawtypes" })
-    @SideOnly(Side.CLIENT)
     public void getSubBlocks(int id, CreativeTabs creativeTab, List list){
-        for(int i = 0; i < 8 ; i++){
+        for(int i = 0; i < 16 ; i++){
             list.add(new ItemStack(id, 1, i));
+        }
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IconRegister iconReg){
+        icons = new Icon[16];
+        for(int i = 0; i < icons.length ; i++){
+            //System.out.println(Reference.MOD_ID.toLowerCase() + ":" + (this.getUnlocalizedName().replace("tile.", "")) + i );
+            icons[i] = iconReg.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + (this.getUnlocalizedName().replace("tile.", "")) + i);
         }
     }
 }

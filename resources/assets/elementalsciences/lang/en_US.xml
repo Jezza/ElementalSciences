@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties version="1.0">
+	<comment>English (en_US) Localization File</comment>
+	<entry key="tile.dyedQuartz.white.name">White Dyed Quartz</entry>
+	<entry key="tile.dyedQuartz.orange.name">Orange Dyed Quartz</entry>
+	<entry key="tile.dyedQuartz.magenta.name">Magenta Dyed Quartz</entry>
+	<entry key="tile.dyedQuartz.lightBlue.name">Light Blue Dyed Quartz</entry>
+	<entry key="tile.dyedQuartz.yellow.name">Yellow Dyed Quartz</entry>
+	<entry key="tile.dyedQuartz.lime.name">Lime Dyed Quartz</entry>
+	<entry key="tile.dyedQuartz.pink.name">Pink Dyed Quartz</entry>
+	<entry key="tile.dyedQuartz.gray.name">Grey Dyed Quartz</entry>
+	<entry key="tile.dyedQuartz.silver.name">Light Grey Dyed Quartz</entry>
+	<entry key="tile.dyedQuartz.cyan.name">Cyan Dyed Quartz</entry>
+	<entry key="tile.dyedQuartz.purple.name">Purple Dyed Quartz</entry>
+	<entry key="tile.dyedQuartz.blue.name">Blue Dyed Quartz</entry>
+	<entry key="tile.dyedQuartz.brown.name">Brown Dyed Quartz</entry>
+	<entry key="tile.dyedQuartz.green.name">Green Dyed Quartz</entry>
+	<entry key="tile.dyedQuartz.red.name">Red Dyed Quartz</entry>
+	<entry key="tile.dyedQuartz.black.name">Black Dyed Quartz</entry>
+</properties>

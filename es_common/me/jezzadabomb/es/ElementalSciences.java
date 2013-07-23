@@ -8,6 +8,7 @@ import me.jezzadabomb.es.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
 
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.PostInit;
@@ -29,19 +30,19 @@ public class ElementalSciences {
         
     public static CreativeTabs tabsES = new CreativeTabES(CreativeTabs.getNextID(), Reference.MOD_ID);
                 
-    @PreInit
+    @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         LocalizationHandler.loadLanguages();
         
         ModBlocks.init();
     }
         
-    @Init
+    @EventHandler
     public void load(FMLInitializationEvent event) {
         LanguageRegistry.instance().addStringLocalization("itemGroup.ElementalSciences", "en_US", "Elemental Sciences");
     }
         
-    @PostInit
+    @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
                 // Stub Method
     }

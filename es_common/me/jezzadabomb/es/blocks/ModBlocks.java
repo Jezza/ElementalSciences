@@ -14,21 +14,29 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class ModBlocks {
 
     /* Mod block instances */
-    public static Block viewerGlass;
+    public static Block strengthenedGlass;
     public static Block chamberBlock;
+    public static Block stchamberBlock;
+    public static Block rechamberBlock;
 
     public static void init() {
 
-        viewerGlass = new BlockViewerGlass(BlockIds.GLASS_VIEWER_DEFAULT,Strings.VIEWER_GLASS);
+        strengthenedGlass = new BlockStrengthenedGlass(BlockIds.GLASS_VIEWER_DEFAULT,Strings.STRENGTHENED_GLASS);
         chamberBlock = new BlockChamber(BlockIds.CHAMBER_BLOCK_DEFAULT,Strings.CHAMBER_WALL);
-        Block metaBlock = new BlockMetaBlock(BlockIds.BLOCKMETA_DEFAULT);
+        stchamberBlock = new BlockChamber(BlockIds.ST_CHAMBER_BLOCK_DEFAULT,Strings.ST_CHAMBER_WALL);
+        rechamberBlock = new BlockChamber(BlockIds.RE_CHAMBER_BLOCK_DEFAULT,Strings.RE_CHAMBER_WALL);
+        Block dyedQuartz = new BlockDyedQuartz(BlockIds.DYED_QUARTZ);
         
-        GameRegistry.registerBlock(viewerGlass, Strings.VIEWER_GLASS);
+        GameRegistry.registerBlock(strengthenedGlass, Strings.STRENGTHENED_GLASS);
         GameRegistry.registerBlock(chamberBlock, Strings.CHAMBER_WALL);
-        GameRegistry.registerBlock(metaBlock, BlockItemES.class, Strings.BLOCKMETA_NAME);
+        GameRegistry.registerBlock(stchamberBlock, Strings.ST_CHAMBER_WALL);
+        GameRegistry.registerBlock(rechamberBlock, Strings.RE_CHAMBER_WALL);
+        GameRegistry.registerBlock(dyedQuartz, BlockItemES.class, Strings.DYED_QUARTZ_NAME);
 
-        LanguageRegistry.addName(viewerGlass, Names.GLASS_VIEWER);
+        LanguageRegistry.addName(strengthenedGlass, Names.GLASS_VIEWER);
         LanguageRegistry.addName(chamberBlock, Names.CHAMBER_WALL);
+        LanguageRegistry.addName(stchamberBlock, Names.ST_CHAMBER_WALL);
+        LanguageRegistry.addName(rechamberBlock, Names.RE_CHAMBER_WALL);
         
         initBlockRecipes();
 
@@ -36,7 +44,7 @@ public class ModBlocks {
 
     private static void initBlockRecipes() {
 
-        GameRegistry.addRecipe(new ItemStack(viewerGlass), new Object[] {"iii", "isi", "iii", Character.valueOf('i'), Block.glass, Character.valueOf('s'), Block.stone });
+        GameRegistry.addRecipe(new ItemStack(strengthenedGlass), new Object[] {"iii", "isi", "iii", Character.valueOf('i'), Block.glass, Character.valueOf('s'), Block.stone });
         GameRegistry.addRecipe(new ItemStack(chamberBlock), new Object[] {"isi", "sis", "isi", Character.valueOf('i'), Item.ingotIron, Character.valueOf('s'), Block.stone });
         
     }
