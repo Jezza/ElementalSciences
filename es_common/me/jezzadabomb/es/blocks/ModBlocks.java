@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import me.jezzadabomb.es.items.ItemBlockChamber;
 import me.jezzadabomb.es.items.ItemBlockPureColour;
 import me.jezzadabomb.es.lib.BlockIds;
 import me.jezzadabomb.es.lib.Strings;
@@ -18,19 +19,16 @@ public class ModBlocks {
     public static Block stchamberBlock;
     public static Block rechamberBlock;
     public static Block pureColour;
+    public static Block assemblyController;
 
     public static void init() {
 
         strengthenedGlass = new BlockStrengthenedGlass(BlockIds.GLASS_VIEWER_DEFAULT,Strings.STRENGTHENED_GLASS);
-        chamberBlock = new BlockChamber(BlockIds.CHAMBER_BLOCK_DEFAULT,Strings.CHAMBER_WALL);
-        stchamberBlock = new BlockChamber(BlockIds.ST_CHAMBER_BLOCK_DEFAULT,Strings.ST_CHAMBER_WALL);
-        rechamberBlock = new BlockChamber(BlockIds.RE_CHAMBER_BLOCK_DEFAULT,Strings.RE_CHAMBER_WALL);
+        chamberBlock = new BlockChamber(BlockIds.CHAMBER_BLOCK_DEFAULT);
         pureColour = new BlockPureColour(BlockIds.DYED_QUARTZ);
         
         GameRegistry.registerBlock(strengthenedGlass, Strings.STRENGTHENED_GLASS);
-        GameRegistry.registerBlock(chamberBlock, Strings.CHAMBER_WALL);
-        GameRegistry.registerBlock(stchamberBlock, Strings.ST_CHAMBER_WALL);
-        GameRegistry.registerBlock(rechamberBlock, Strings.RE_CHAMBER_WALL);
+        GameRegistry.registerBlock(chamberBlock, ItemBlockChamber.class ,Strings.CHAMBER_WALL);
         GameRegistry.registerBlock(pureColour, ItemBlockPureColour.class, Strings.DYED_QUARTZ_NAME);
         
         initBlockRecipes();

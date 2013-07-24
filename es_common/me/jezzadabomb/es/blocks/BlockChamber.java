@@ -1,58 +1,68 @@
 package me.jezzadabomb.es.blocks;
 
-import java.util.Random;
+import java.util.List;
+
+import me.jezzadabomb.es.items.ItemBlockChamber;
 import me.jezzadabomb.es.lib.Strings;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import me.jezzadabomb.es.lib.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
-import net.minecraft.world.World;
 
 
 public class BlockChamber extends BlockES
 {
-
-    public int MetaBlock;
-    public int BlockID;
-    public World world;
-    public int x; 
-    public int y; 
-    public int z; 
     public boolean setOutput = false;
-    public boolean check[] = new boolean[9];
     
     Icon blockIcon;
     
-    public BlockChamber(int BlockID, String BlockName)
+    public BlockChamber(int BlockID)
     {
         super(BlockID, Material.anvil);
-        if(BlockName == Strings.CHAMBER_WALL){
-            setHardness(5.0f);
-            setResistance(20.0f);
-        }else if(BlockName == Strings.ST_CHAMBER_WALL){
-            setHardness(12.5f);
-            setResistance(500.0f);
-        }else if(BlockName == Strings.RE_CHAMBER_WALL){
-            setHardness(20.0f);
-            setResistance(2000.0f);
-        }
+        setHardness(5.0f);
+        setResistance(20.0f);
         setStepSound(soundStoneFootstep);
-        setUnlocalizedName(BlockName);
-        this.BlockID = BlockID;
+        setUnlocalizedName(Strings.CHAMBER_WALL);
     }
-
-//    @Override
-//    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLiving entityLiving, ItemStack itemStack) {
-//        world.setBlock(x, y, z, BlockID);
-//    }
     
-    public int idDropped(int par1, Random par2Random, int par3)
+    public Icon[] icons;
+    
+    @SideOnly(Side.CLIENT)
+    public Icon getIcon(int par1, int par2)
     {
-        return BlockID;
+        if(par2 == 3){
+            if(par1 == 1){
+                return this.icons[par2 % this.icons.length];
+            }
+            return this.icons[0 % this.icons.length];    
+        }else{
+            return this.icons[par2 % this.icons.length];    
+        }
+    }
+    
+    @Override
+    public int damageDropped(int par1)
+    {
+        return par1;
+    }
+    
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    public void getSubBlocks(int id, CreativeTabs creativeTab, List list){
+        for(int i = 0; i < 4 ; i++){
+            list.add(new ItemStack(id, 1, i));
+        }
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IconRegister iconReg){
+        icons = new Icon[4];
+        for(int i = 0; i < icons.length ; i++){
+            //System.out.println(Reference.MOD_ID.toLowerCase() + ":" + (this.getUnlocalizedName().replace("tile.", "")) + i );
+            icons[i] = iconReg.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + (this.getUnlocalizedName().replace("tile.", "")) + "_" + (ItemBlockChamber.chamberNames[i]));
+        }
     }
 }

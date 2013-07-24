@@ -19,7 +19,8 @@
 	<entry key="tile.pureColour.red.name">Pure Red</entry>
 	<entry key="tile.pureColour.black.name">Pure Black</entry>
 	<entry key="tile.strengthenedGlass.name">Strengthened Glass</entry>
-	<entry key="tile.chamberBlock.name">Chamber Wall</entry>
-	<entry key="tile.stchamberBlock.name">Strengthened Chamber Wall</entry>
-	<entry key="tile.rechamberBlock.name">Reinforced Chamber Wall</entry>
+	<entry key="tile.chamberBlock.de.name">Chamber Wall</entry>
+	<entry key="tile.chamberBlock.st.name">Strengthened Chamber Wall</entry>
+	<entry key="tile.chamberBlock.re.name">Reinforced Chamber Wall</entry>
+	<entry key="tile.chamberBlock.con.name">Chamber Controller</entry>
 </properties>
