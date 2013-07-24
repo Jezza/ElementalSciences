@@ -6,13 +6,9 @@ import me.jezzadabomb.es.creativetab.CreativeTabES;
 import me.jezzadabomb.es.lib.Reference;
 import me.jezzadabomb.es.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
-
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.Mod.PostInit;
-import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -27,7 +23,7 @@ public class ElementalSciences {
 
     @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
     public static CommonProxy proxy;
-        
+    
     public static CreativeTabs tabsES = new CreativeTabES(CreativeTabs.getNextID(), Reference.MOD_ID);
                 
     @EventHandler

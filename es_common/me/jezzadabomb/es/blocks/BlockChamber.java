@@ -2,6 +2,8 @@ package me.jezzadabomb.es.blocks;
 
 import java.util.List;
 
+import org.lwjgl.input.Keyboard;
+
 import me.jezzadabomb.es.items.ItemBlockChamber;
 import me.jezzadabomb.es.lib.Strings;
 import cpw.mods.fml.relauncher.Side;
@@ -10,8 +12,10 @@ import me.jezzadabomb.es.lib.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import net.minecraft.world.World;
 
 
 public class BlockChamber extends BlockES
@@ -42,6 +46,16 @@ public class BlockChamber extends BlockES
         }else{
             return this.icons[par2 % this.icons.length];    
         }
+    }
+    @Override
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
+    {
+        if(Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)){return false;}
+        
+        if(world.getBlockMetadata(x, y, z) == 3){
+        
+        }
+        return true;
     }
     
     @Override

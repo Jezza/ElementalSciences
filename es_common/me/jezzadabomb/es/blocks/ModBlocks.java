@@ -19,15 +19,17 @@ public class ModBlocks {
     public static Block stchamberBlock;
     public static Block rechamberBlock;
     public static Block pureColour;
-    public static Block assemblyController;
+    public static Block gravCompressor;
 
     public static void init() {
 
         strengthenedGlass = new BlockStrengthenedGlass(BlockIds.GLASS_VIEWER_DEFAULT,Strings.STRENGTHENED_GLASS);
+        gravCompressor = new BlockGravityCompressor(BlockIds.GRAVITY_COMPRESSOR_DEFAULT);
         chamberBlock = new BlockChamber(BlockIds.CHAMBER_BLOCK_DEFAULT);
         pureColour = new BlockPureColour(BlockIds.DYED_QUARTZ);
         
         GameRegistry.registerBlock(strengthenedGlass, Strings.STRENGTHENED_GLASS);
+        GameRegistry.registerBlock(gravCompressor, Strings.GRAVITY_COMPRESSOR);
         GameRegistry.registerBlock(chamberBlock, ItemBlockChamber.class ,Strings.CHAMBER_WALL);
         GameRegistry.registerBlock(pureColour, ItemBlockPureColour.class, Strings.DYED_QUARTZ_NAME);
         

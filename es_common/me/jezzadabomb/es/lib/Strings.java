@@ -10,6 +10,7 @@ public class Strings {
     public final static String SCANNER_PAD = "scannerPad";
     public final static String SCANNER_PAD_ON = "scannerPad_on";
     public static final String DYED_QUARTZ_NAME = "pureColour";
+    public static final String GRAVITY_COMPRESSOR = "gravCompressor";
     
     //Tile Entity Constants
     public final static String TE_SCANNER_PAD = "scannerPad";

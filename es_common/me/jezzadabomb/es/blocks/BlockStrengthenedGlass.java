@@ -3,9 +3,7 @@ package me.jezzadabomb.es.blocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
-import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 
 public class BlockStrengthenedGlass extends BlockES
 {	
@@ -20,11 +18,6 @@ public class BlockStrengthenedGlass extends BlockES
         setUnlocalizedName(BlockName);
         this.BlockID = BlockID;
 	}
-	
-//	@Override
-//    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLiving entityLiving, ItemStack itemStack) {
-//        world.setBlock(x, y, z, BlockID);
-//    }
 	
 	@SideOnly(Side.CLIENT)
 	public int getRenderBlockPass() //Put 0 for fully transparent or opaque blocks, and 1 for semi-transparent

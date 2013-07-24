@@ -1,0 +1,26 @@
+---- Changelog ----
+The temporary changelog file for ES, until I work out a better system.
+
+---- v0.0.005 ----
++ Incremented the version number twice.
++ Decrement the version number once.
++ Began framework for something special for later on. :D
+
+---- v0.0.004 ----
++ Incremented the version number.
++ Pure Colour Blocks now shares an id, not the same ID as Chamber Walls though..
++ Found out how fun it is to add Tool Tips, expect tons more. :)
+
+Notes: Can't really do too much with the same id of Chamber Walls and Pure Colour, I want to keep them separate. 
+
+---- v0.0.003 ----
++ Pure Colour, a feature for a later feature.. :P
++ Changed most things about the Chamber Walls, they now share an id.
+- Removed an idea I was mucking around with.. Maybe for later? :P
+Notes: 
+
+---- v0.0.002 ----
+Notes: This is really before I started doing anything, I just wanted to increment the version. :P
+
+---- v0.0.001 ----
+Notes: Started most of the shit.
