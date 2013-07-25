@@ -9,6 +9,7 @@ import me.jezzadabomb.es.lib.Strings;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Icon;
@@ -55,8 +56,9 @@ public class BlockGravityCompressor extends BlockPadBase {
     @Override
     protected Entity getEntity(World world, int x, int y, int z) {
         List list = null;
-        list = world.getEntitiesWithinAABBExcludingEntity((Entity) null, this.getSensitiveAABB(x, y, z));
-        //System.out.println(list.toString());
+//        list = world.getEntitiesWithinAABB(EntityLivingBase.class, this.getSensitiveAABB(x, y, z));
+        list = world.getEntitiesWithinAABB(Entity.class, this.getSensitiveAABB(x, y, z));
+        System.out.println(list.toString());
         if (list != null && !list.isEmpty()) {
             Iterator iterator = list.iterator();
             while (iterator.hasNext()) {
@@ -67,7 +69,6 @@ public class BlockGravityCompressor extends BlockPadBase {
                 }
             }
         }
-
         return null;
     }
 
@@ -109,7 +110,6 @@ public class BlockGravityCompressor extends BlockPadBase {
             double d1 = (double) ((float) y + height);
             double d2 = (double) ((float) z + par5Random.nextFloat());
             double d3 = -height;
-            
             world.spawnParticle("portal", d0, d1, d2, 0, d3, 0);
         }
     }
