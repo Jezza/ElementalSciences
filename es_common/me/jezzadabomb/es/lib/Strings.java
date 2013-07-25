@@ -12,6 +12,9 @@ public class Strings {
     public static final String DYED_QUARTZ_NAME = "pureColour";
     public static final String GRAVITY_COMPRESSOR = "gravCompressor";
     
+    //Texture Constants
+    public final static String DEFAULT_CHAMBER_TEXTURE = "chamberBlock_de";
+    
     //Tile Entity Constants
     public final static String TE_SCANNER_PAD = "scannerPad";
     

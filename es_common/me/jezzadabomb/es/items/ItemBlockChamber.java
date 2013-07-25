@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 
 import org.lwjgl.input.Keyboard;
 
-public class ItemBlockChamber extends ItemBlock{
+public class ItemBlockChamber extends ItemBlockES{
 
     public static final String[] chamberNames = new String[] {"de", "st", "re", "con"};
     
@@ -17,26 +17,14 @@ public class ItemBlockChamber extends ItemBlock{
         setMaxDamage(0);
         this.setHasSubtypes(true);
     }
-
-    public int getMetadata (int meta){
-        return meta;
-    }
     
-    @SuppressWarnings({ "unchecked", "rawtypes" })
-    public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-        if(par1ItemStack.getItemDamage() == 3){
-        if(Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)){
-            par3List.add("The controller for the");           
-            par3List.add("assembly chamber.");           
-        }else{
-            par3List.add("Left Shift For More Info.");
-        }
-        super.addInformation(par1ItemStack, par2EntityPlayer, par3List, par4);
-        }
-    }
-    
+    @Override
     public String getUnlocalizedName(ItemStack par1ItemStack)
     {
         return super.getUnlocalizedName() + "." + chamberNames[par1ItemStack.getItemDamage()];
+    }
+
+    @Override
+    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
     }
 }

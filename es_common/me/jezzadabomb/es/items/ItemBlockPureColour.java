@@ -9,7 +9,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
-public class ItemBlockPureColour extends ItemBlock{
+public class ItemBlockPureColour extends ItemBlockES{
 
     public static final String[] dyeColorNames = new String[] {"white", "orange", "magenta", "lightBlue", "yellow", "lime", "pink", "gray", "silver", "cyan", "purple", "blue", "brown", "green", "red", "black"};
     
@@ -18,9 +18,10 @@ public class ItemBlockPureColour extends ItemBlock{
         setMaxDamage(0);
         this.setHasSubtypes(true);
     }
-
-    public int getMetadata (int meta){
-        return meta;
+    
+    public String getUnlocalizedName(ItemStack par1ItemStack)
+    {
+        return super.getUnlocalizedName() + "." + dyeColorNames[BlockPureColour.getDyeFromBlock(par1ItemStack.getItemDamage())];
     }
     
     @SuppressWarnings({ "unchecked", "rawtypes" })
@@ -33,11 +34,5 @@ public class ItemBlockPureColour extends ItemBlock{
         }else{
             par3List.add("Left Shift For More Info.");
         }
-        super.addInformation(par1ItemStack, par2EntityPlayer, par3List, par4);
-    }
-    
-    public String getUnlocalizedName(ItemStack par1ItemStack)
-    {
-        return super.getUnlocalizedName() + "." + dyeColorNames[BlockPureColour.getDyeFromBlock(par1ItemStack.getItemDamage())];
     }
 }

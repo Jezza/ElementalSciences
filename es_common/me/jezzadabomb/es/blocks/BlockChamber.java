@@ -38,14 +38,7 @@ public class BlockChamber extends BlockES
     @SideOnly(Side.CLIENT)
     public Icon getIcon(int par1, int par2)
     {
-        if(par2 == 3){
-            if(par1 == 1){
-                return this.icons[par2 % this.icons.length];
-            }
-            return this.icons[0 % this.icons.length];    
-        }else{
-            return this.icons[par2 % this.icons.length];    
-        }
+        return (par2 == 3) ? (par1 == 1) ? this.icons[par2 % this.icons.length] : this.icons[0 % this.icons.length] : this.icons[par2 % this.icons.length];
     }
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
@@ -54,6 +47,8 @@ public class BlockChamber extends BlockES
         
         if(world.getBlockMetadata(x, y, z) == 3){
         
+        }else{
+        return false;
         }
         return true;
     }
