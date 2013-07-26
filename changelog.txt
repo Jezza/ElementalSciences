@@ -1,10 +1,12 @@
 ---- Changelog ----
 The temporary changelog file for ES, until I work out a better system.
 
-Key as of v0.0.006:
-* Fixed Bug
-+ Added something
-- Removed something
+
+==== Key as of v0.0.006: ====
+|   * Fixed Bug             |
+|   + Added something       |
+|   - Removed something     |
+=============================
 
 ---- v0.0.006 ----
 + Finalized the grav compressor, only thing left for that is particles, and final velocity tweaks.
