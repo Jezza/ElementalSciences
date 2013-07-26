@@ -1,6 +1,24 @@
 ---- Changelog ----
 The temporary changelog file for ES, until I work out a better system.
 
+Key as of v0.0.006:
+* Fixed Bug
++ Added something
+- Removed something
+
+---- v0.0.006 ----
++ Finalized the grav compressor, only thing left for that is particles, and final velocity tweaks.
++ Finished framework for pads, expect at least 1 more pad in the future. At least. ;)
+* Kinda worked out a way to work out if something is worth a version number increment, "Guess".
+- Removed uncessary usage.
++ Made some things more efficient.
++ Thinking I should finally make my Ideas.txt file, because I had something awesome planned. Can't remember it. :(
+* Fixed some meta bugs.
+* Fixed velocity bug.
+* Fixed Item's velocity when thrown downward on pad.
++ OH, just remembered the idea. You'll like this one. ;) 
+
+
 ---- v0.0.005 ----
 + Incremented the version number twice.
 + Decrement the version number once.
