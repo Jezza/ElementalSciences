@@ -4,6 +4,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import org.lwjgl.input.Keyboard;
+
 import me.jezzadabomb.es.lib.Reference;
 import me.jezzadabomb.es.lib.Strings;
 import net.minecraft.block.material.Material;
@@ -25,10 +27,10 @@ public class BlockGravityCompressor extends BlockPadBase {
     
     public double MaxXVel = 3;
     public double MaxZVel = 3;
-    public double MaxYVel = 1;
-    public double MinXVel = -1;
-    public double MinZVel = -1;
-    public double MinYVel = -1;
+    public double MaxYVel = 0.5;
+    public double MinXVel = -3;
+    public double MinZVel = -3;
+    public double MinYVel = -0.5;
     
     
     public BlockGravityCompressor(int id) {
@@ -44,8 +46,8 @@ public class BlockGravityCompressor extends BlockPadBase {
 
     @Override
     public AxisAlignedBB getSensitiveAABB(int par1, int par2, int par3) {
-        float f = 0.5F;
-        double h = 4D;
+        float f = 0F;
+        double h = 3.5D;
         return AxisAlignedBB.getAABBPool().getAABB((double) ((float) par1 + f), (double) par2, (double) ((float) par3 + f), (double) ((float) (par1 + 1) - f), (double) par2 + h, (double) ((float) (par3 + 1) - f));
     }
 
@@ -78,10 +80,17 @@ public class BlockGravityCompressor extends BlockPadBase {
 
     public void applyMotion(Entity entity, double velX, double velY, double velZ, boolean set) {
         
-        printDebug(String.valueOf(entity.motionX));
-        printDebug(String.valueOf(entity.motionY));
-        printDebug(String.valueOf(entity.motionZ));
-        
+//        printDebug(String.valueOf(entity.motionX));
+//        printDebug(String.valueOf(entity.motionY));
+//        printDebug(String.valueOf(entity.motionZ));
+//        printDebug(String.valueOf(MaxYVel));
+//        printDebug(String.valueOf(MaxXVel));
+//        printDebug(String.valueOf(MaxZVel));
+//        printDebug(String.valueOf(MinYVel));
+//        printDebug(String.valueOf(MinXVel));
+//        printDebug(String.valueOf(MinZVel));
+
+        if(!Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)){
         if (set) {
             entity.setVelocity(velX, velY, velZ);
         } else {
@@ -115,11 +124,12 @@ public class BlockGravityCompressor extends BlockPadBase {
                 entity.setVelocity(motionX * 2, motionY + 0.2, motionZ * 2);
             }else if(motionY > 0){
                 System.out.println("Y Motion > 0");
-                entity.setVelocity(motionX * 2, motionY + 0.2, motionZ * 2);
+                entity.setVelocity(motionX * 2, motionY + 0.3, motionZ * 2);
             }else{
                 System.out.println("Y Motion is 0");
                 entity.setVelocity(motionX *2, motionY + 0.2, motionZ * 2);
             }
+        }
         }
         entity.velocityChanged = true;
         entity.fallDistance = 0;
