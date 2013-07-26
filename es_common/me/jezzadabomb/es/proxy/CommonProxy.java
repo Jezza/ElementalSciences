@@ -32,7 +32,7 @@ public class CommonProxy implements IGuiHandler {
     }
 
     public void registerTileEntities() {
-        
+
     }
 
     public void sendRequestEventPacket(byte eventType, int originX, int originY, int originZ, byte sideHit, byte rangeX, byte rangeY, byte rangeZ, String data) {
@@ -42,9 +42,9 @@ public class CommonProxy implements IGuiHandler {
     public void handleTileEntityPacket(int x, int y, int z, ForgeDirection orientation, byte state, String customName) {
 
     }
-    
+
     public void handleTileWithItemPacket(int x, int y, int z, ForgeDirection orientation, byte state, String customName, int itemID, int metaData) {
-        
+
     }
 
     @Override

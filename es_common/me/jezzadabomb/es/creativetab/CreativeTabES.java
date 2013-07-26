@@ -6,7 +6,7 @@ import me.jezzadabomb.es.blocks.ModBlocks;
 import net.minecraft.creativetab.CreativeTabs;
 
 public class CreativeTabES extends CreativeTabs {
- 
+
     public CreativeTabES(int par1, String par2Str) {
 
         super(par1, par2Str);

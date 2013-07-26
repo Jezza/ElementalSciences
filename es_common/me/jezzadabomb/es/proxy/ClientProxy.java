@@ -10,7 +10,7 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void registerKeyBindingHandler() {
 
-        //KeyBindingRegistry.registerKeyBinding(new KeyBindingHandler());
+        // KeyBindingRegistry.registerKeyBinding(new KeyBindingHandler());
     }
 
     @Override
@@ -21,7 +21,7 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void registerSoundHandler() {
 
-        //MinecraftForge.EVENT_BUS.register(new SoundHandler());
+        // MinecraftForge.EVENT_BUS.register(new SoundHandler());
     }
 
     @Override
@@ -42,9 +42,9 @@ public class ClientProxy extends CommonProxy {
         TileEntity tileEntity = FMLClientHandler.instance().getClient().theWorld.getBlockTileEntity(x, y, z);
 
     }
-    
+
     @Override
     public void handleTileWithItemPacket(int x, int y, int z, ForgeDirection orientation, byte state, String customName, int itemID, int metaData) {
-        
+
     }
 }

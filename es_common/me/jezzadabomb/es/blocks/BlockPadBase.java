@@ -13,68 +13,61 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public abstract class BlockPadBase extends BlockES
-{
+public abstract class BlockPadBase extends BlockES {
     private String pressurePlateIconName;
 
-    protected BlockPadBase(int par1, Material par3Material)
-    {
+    protected BlockPadBase(int par1, Material par3Material) {
         super(par1, par3Material);
     }
 
     /**
      * How many world ticks before ticking
      */
-    public int tickRate(World par1World)
-    {
+    public int tickRate(World par1World) {
         return 1;
     }
 
     /**
-     * Is this block (a) opaque and (b) a full 1m cube?  This determines whether or not to render the shared face of two
-     * adjacent blocks and also whether the player can attach torches, redstone wire, etc to this block.
+     * Is this block (a) opaque and (b) a full 1m cube? This determines whether
+     * or not to render the shared face of two adjacent blocks and also whether
+     * the player can attach torches, redstone wire, etc to this block.
      */
-    public boolean isOpaqueCube()
-    {
+    public boolean isOpaqueCube() {
         return false;
     }
 
     /**
-     * If this block doesn't render as an ordinary block it will return False (examples: signs, buttons, stairs, etc)
+     * If this block doesn't render as an ordinary block it will return False
+     * (examples: signs, buttons, stairs, etc)
      */
-    public boolean renderAsNormalBlock()
-    {
+    public boolean renderAsNormalBlock() {
         return false;
     }
 
-    public boolean getBlocksMovement(IBlockAccess par1IBlockAccess, int par2, int par3, int par4)
-    {
+    public boolean getBlocksMovement(IBlockAccess par1IBlockAccess, int par2, int par3, int par4) {
         return true;
     }
 
     /**
      * Ticks the block if it's been scheduled
      */
-    public void updateTick(World world, int x, int y, int z, Random par5Random)
-    {
-        if (!world.isRemote)
-        {
+    public void updateTick(World world, int x, int y, int z, Random par5Random) {
+        if (!world.isRemote) {
             Entity entity = getEntity(world, x, y, z);
             this.onActive(world, x, y, z, entity);
         }
     }
 
     public abstract void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity);
-    
+
     public abstract void onActive(World world, int x, int y, int z, Entity entity);
 
     public abstract AxisAlignedBB getSensitiveAABB(int par1, int par2, int par3);
 
-    public int getMobilityFlag()
-    {
+    public int getMobilityFlag() {
         return 2;
     }
-    
+
     protected Entity getEntity(World world, int x, int y, int z) {
         List list = null;
         list = world.getEntitiesWithinAABBExcludingEntity((Entity) null, this.getSensitiveAABB(x, y, z));
@@ -94,13 +87,11 @@ public abstract class BlockPadBase extends BlockES
     }
 
     @SideOnly(Side.CLIENT)
-
     /**
      * When this method is called, your block should register all the icons it needs with the given IconRegister. This
      * is the only chance you get to register icons.
      */
-    public void registerIcons(IconRegister par1IconRegister)
-    {
+    public void registerIcons(IconRegister par1IconRegister) {
         this.blockIcon = par1IconRegister.registerIcon(this.pressurePlateIconName);
     }
 }
