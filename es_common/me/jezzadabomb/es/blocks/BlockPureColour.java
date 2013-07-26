@@ -55,7 +55,7 @@ public class BlockPureColour extends BlockES {
         icons = new Icon[16];
         for(int i = 0; i < icons.length ; i++){
             //System.out.println(Reference.MOD_ID.toLowerCase() + ":" + (this.getUnlocalizedName().replace("tile.", "")) + i );
-            icons[i] = iconReg.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + (this.getUnlocalizedName().replace("tile.", "")) + "_" + (ItemDye.dyeColorNames[i]));
+            icons[i] = iconReg.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + "colour/" + (this.getUnlocalizedName().replace("tile.", "")) + "_" + (ItemDye.dyeColorNames[i]));
         }
     }
 }

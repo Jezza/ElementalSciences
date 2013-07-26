@@ -28,8 +28,9 @@ public class ElementalSciences {
                 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        System.out.println("Loading Localizations.");
         LocalizationHandler.loadLanguages();
-        
+        System.out.println("Finished Loading Localizations.");
         ModBlocks.init();
     }
         

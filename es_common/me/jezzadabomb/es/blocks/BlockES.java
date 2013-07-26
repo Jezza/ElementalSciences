@@ -14,8 +14,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public abstract class BlockES extends Block {
-
-    public Icon defaultIron;
     
     public BlockES(int id, Material material) {
 
@@ -37,6 +35,5 @@ public abstract class BlockES extends Block {
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister) {
         blockIcon = iconRegister.registerIcon(Reference.MOD_ID + ":" + this.getUnlocalizedName().replace("tile.", ""));
-        defaultIron = iconRegister.registerIcon(Reference.MOD_ID + ":" + Strings.DEFAULT_CHAMBER_TEXTURE);
     }
 }

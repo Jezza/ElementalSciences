@@ -27,7 +27,7 @@ public abstract class BlockPadBase extends BlockES
      */
     public int tickRate(World par1World)
     {
-        return 5;
+        return 1;
     }
 
     /**
@@ -64,23 +64,11 @@ public abstract class BlockPadBase extends BlockES
         }
     }
 
-    public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
-    {
-        if (!world.isRemote)
-        {
-            printDebug(entity.toString());
-            onActive(world, x, y, z, entity);
-        }
-    }
+    public abstract void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity);
     
-    protected abstract void onActive(World world, int x, int y, int z, Entity entity);
+    public abstract void onActive(World world, int x, int y, int z, Entity entity);
 
-    protected AxisAlignedBB getSensitiveAABB(int par1, int par2, int par3)
-    {
-        float f = 0.125F;
-        double h = 2D;
-        return AxisAlignedBB.getAABBPool().getAABB((double)((float)par1 + f), (double)par2, (double)((float)par3 + f), (double)((float)(par1 + 1) - f), (double)par2 + h, (double)((float)(par3 + 1) - f));
-    }
+    public abstract AxisAlignedBB getSensitiveAABB(int par1, int par2, int par3);
 
     public int getMobilityFlag()
     {

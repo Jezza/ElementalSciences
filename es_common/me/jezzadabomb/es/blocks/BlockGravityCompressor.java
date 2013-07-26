@@ -22,7 +22,15 @@ public class BlockGravityCompressor extends BlockPadBase {
     public Icon walls;
     public Icon top;
     public Icon bottom;
-
+    
+    public double MaxXVel = 3;
+    public double MaxZVel = 3;
+    public double MaxYVel = 1;
+    public double MinXVel = -1;
+    public double MinZVel = -1;
+    public double MinYVel = -1;
+    
+    
     public BlockGravityCompressor(int id) {
         super(id, Material.anvil);
         setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.25F, 1.0F);
@@ -30,24 +38,21 @@ public class BlockGravityCompressor extends BlockPadBase {
     }
 
     @Override
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9) {
+    public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
         world.scheduleBlockUpdate(x, y, z, this.blockID, this.tickRate(world));
-        onActive(world, x, y, z, player);
-        return true;
     }
 
     @Override
-    protected AxisAlignedBB getSensitiveAABB(int par1, int par2, int par3) {
-        float f = 4F;
+    public AxisAlignedBB getSensitiveAABB(int par1, int par2, int par3) {
+        float f = 0.5F;
         double h = 4D;
         return AxisAlignedBB.getAABBPool().getAABB((double) ((float) par1 + f), (double) par2, (double) ((float) par3 + f), (double) ((float) (par1 + 1) - f), (double) par2 + h, (double) ((float) (par3 + 1) - f));
     }
 
     @Override
-    protected void onActive(World world, int x, int y, int z, Entity entity) {
+    public void onActive(World world, int x, int y, int z, Entity entity) {
         if (entity != null) {
-            System.out.println("Yes");
-            applyMotion(entity, 0, 1, 0, true);
+            applyMotion(entity, 0, entity.motionY / 2, 0, false);
         }
         world.scheduleBlockUpdate(x, y, z, this.blockID, this.tickRate(world));
     }
@@ -56,9 +61,8 @@ public class BlockGravityCompressor extends BlockPadBase {
     @Override
     protected Entity getEntity(World world, int x, int y, int z) {
         List list = null;
-//        list = world.getEntitiesWithinAABB(EntityLivingBase.class, this.getSensitiveAABB(x, y, z));
+        // list = world.getEntitiesWithinAABB(EntityLivingBase.class, this.getSensitiveAABB(x, y, z));
         list = world.getEntitiesWithinAABB(Entity.class, this.getSensitiveAABB(x, y, z));
-        System.out.println(list.toString());
         if (list != null && !list.isEmpty()) {
             Iterator iterator = list.iterator();
             while (iterator.hasNext()) {
@@ -73,16 +77,49 @@ public class BlockGravityCompressor extends BlockPadBase {
     }
 
     public void applyMotion(Entity entity, double velX, double velY, double velZ, boolean set) {
+        
+        printDebug(String.valueOf(entity.motionX));
+        printDebug(String.valueOf(entity.motionY));
+        printDebug(String.valueOf(entity.motionZ));
+        
         if (set) {
-            printDebug("Setting Motion: VelX: " + velX + ". VelY: " + velY + ". VelZ: " + velZ);
             entity.setVelocity(velX, velY, velZ);
         } else {
-            printDebug("Adding Motion: VelX: " + velX + ". VelY: " + velY + ". VelZ: " + velZ);
-            double motionX = entity.motionX + velX;
-            double motionY = entity.motionY + velY;
-            double motionZ = entity.motionZ + velZ;
-            entity.setVelocity(0, 0, 0);
-            entity.setVelocity(motionX, motionY, motionZ);
+            double motionY = entity.motionY;
+            double motionX = entity.motionX;
+            double motionZ = entity.motionZ;
+            
+            
+            if(motionY > MaxYVel){
+                motionY = MaxYVel;
+            }
+            if(motionX > MaxXVel){
+                motionX = MaxXVel;
+            }
+            if(motionZ > MaxZVel){
+                motionZ = MaxZVel;
+            }
+            
+            if(motionY < MinYVel){
+                motionY = MinYVel;
+            }
+            if(motionX < MinXVel){
+                motionX = MinXVel;
+            }
+            if(motionZ < MinZVel){
+                motionZ = MinZVel;
+            }
+            
+            if(motionY < 0){
+                System.out.println("Y Motion < 0");
+                entity.setVelocity(motionX * 2, motionY + 0.2, motionZ * 2);
+            }else if(motionY > 0){
+                System.out.println("Y Motion > 0");
+                entity.setVelocity(motionX * 2, motionY + 0.2, motionZ * 2);
+            }else{
+                System.out.println("Y Motion is 0");
+                entity.setVelocity(motionX *2, motionY + 0.2, motionZ * 2);
+            }
         }
         entity.velocityChanged = true;
         entity.fallDistance = 0;
@@ -91,7 +128,7 @@ public class BlockGravityCompressor extends BlockPadBase {
     @Override
     @SideOnly(Side.CLIENT)
     public Icon getIcon(int par1, int par2) {
-        return (par1 ==1) ? this.top : (par1 == 0) ? super.defaultIron : this.walls;
+        return (par1 == 1) ? this.top : (par1 == 0) ? this.bottom : this.walls;
     }
 
     @Override
@@ -99,13 +136,14 @@ public class BlockGravityCompressor extends BlockPadBase {
     public void registerIcons(IconRegister iconReg) {
         walls = iconReg.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + (this.getUnlocalizedName().replace("tile.", "")) + "_walls");
         top = iconReg.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + (this.getUnlocalizedName().replace("tile.", "")) + "_top");
+        bottom = iconReg.registerIcon(Reference.MOD_ID + ":" + Strings.DEFAULT_CHAMBER_TEXTURE);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(World world, int x, int y, int z, Random par5Random) {
         int height = 3;
-        for(int i = 0; i < 6; ++i){
+        for (int i = 0; i < 6; ++i) {
             double d0 = (double) ((float) x + par5Random.nextFloat());
             double d1 = (double) ((float) y + height);
             double d2 = (double) ((float) z + par5Random.nextFloat());
