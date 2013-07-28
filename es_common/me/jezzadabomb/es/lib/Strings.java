@@ -9,8 +9,9 @@ public class Strings {
     public final static String STRENGTHENED_GLASS = "strengthenedGlass";
     public final static String SCANNER_PAD = "scannerPad";
     public final static String SCANNER_PAD_ON = "scannerPad_on";
-    public static final String DYED_QUARTZ_NAME = "pureColour";
+    public static final String PURE_COLOUR = "pureColour";
     public static final String GRAVITY_COMPRESSOR = "gravCompressor";
+    public static final String COLLIDER_PIPE = "colliderPipe";
 
     // Texture Constants
     public final static String DEFAULT_CHAMBER_TEXTURE = "chamberBlock_de";

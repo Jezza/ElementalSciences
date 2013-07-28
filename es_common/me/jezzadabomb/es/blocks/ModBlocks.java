@@ -20,18 +20,21 @@ public class ModBlocks {
     public static Block rechamberBlock;
     public static Block pureColour;
     public static Block gravCompressor;
+    public static Block colliderPipe;
 
     public static void init() {
 
         strengthenedGlass = new BlockStrengthenedGlass(BlockIds.GLASS_VIEWER_DEFAULT, Strings.STRENGTHENED_GLASS);
         gravCompressor = new BlockGravityCompressor(BlockIds.GRAVITY_COMPRESSOR_DEFAULT);
         chamberBlock = new BlockChamber(BlockIds.CHAMBER_BLOCK_DEFAULT);
-        pureColour = new BlockPureColour(BlockIds.DYED_QUARTZ);
+        pureColour = new BlockPureColour(BlockIds.PURE_COLOUR_DEFAULT);
+        colliderPipe = new BlockPipe(BlockIds.COLLIDER_PIPE_DEFAULT);
 
         GameRegistry.registerBlock(strengthenedGlass, Strings.STRENGTHENED_GLASS);
         GameRegistry.registerBlock(gravCompressor, Strings.GRAVITY_COMPRESSOR);
+        GameRegistry.registerBlock(colliderPipe, Strings.COLLIDER_PIPE);
         GameRegistry.registerBlock(chamberBlock, ItemBlockChamber.class, Strings.CHAMBER_WALL);
-        GameRegistry.registerBlock(pureColour, ItemBlockPureColour.class, Strings.DYED_QUARTZ_NAME);
+        GameRegistry.registerBlock(pureColour, ItemBlockPureColour.class, Strings.PURE_COLOUR);
 
         initBlockRecipes();
 

@@ -21,7 +21,7 @@ public class BlockPureColour extends BlockES {
         super(id, Material.rock);
         setHardness(0.1f);
         this.BlockID = id;
-        this.setUnlocalizedName(Strings.DYED_QUARTZ_NAME);
+        this.setUnlocalizedName(Strings.PURE_COLOUR);
     }
 
     public Icon[] icons;

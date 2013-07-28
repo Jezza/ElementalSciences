@@ -6,8 +6,9 @@ public class BlockIds {
     public static int GLASS_VIEWER_DEFAULT = 2480;
     public static int CHAMBER_BLOCK_DEFAULT = 2481;
     public static int GRAVITY_COMPRESSOR_DEFAULT = 2482;
-    public static int DYED_QUARTZ = 2484;
-
+    public static int COLLIDER_PIPE_DEFAULT = 2483;
+    public static int PURE_COLOUR_DEFAULT = 2484;
+    
     /* Current block ids */
     public static int GLASS_VIEWER;
     public static int CHAMBER_BLOCK;

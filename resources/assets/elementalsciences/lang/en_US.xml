@@ -24,4 +24,5 @@
 	<entry key="tile.chamberBlock.re.name">Reinforced Chamber Wall</entry>
 	<entry key="tile.chamberBlock.con.name">Chamber Controller</entry>
 	<entry key="tile.gravCompressor.name">Gravity Field Compressor</entry>
+	<entry key="tile.colliderPipe.name">Hadron Collider Pipe</entry>
 </properties>
