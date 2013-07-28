@@ -8,6 +8,11 @@ The temporary changelog file for ES, until I work out a better system.
 |   - Removed something     |
 =============================
 
+---- v0.0.007 ----
++ Began work on the pipe framework for later.
+* Fixed grav compressors not liking items.
+Note: pipes are very buggy, and will get fixed... Eventually... Soon.... Probably not... Maybe...
+
 ---- v0.0.006 ----
 + Finalized the grav compressor, only thing left for that is particles, and final velocity tweaks.
 + Finished framework for pads, expect at least 1 more pad in the future. At least. ;)
