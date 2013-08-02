@@ -6,7 +6,14 @@ The temporary changelog file for ES, until I work out a better system.
 |   * Fixed Bug             |
 |   + Added something       |
 |   - Removed something     |
+|   > Something             |
 =============================
+
+---- v0.0.008 ----
+* Fixed a massive bug with the help of MinAlien.. :D
+* Fixed pipes.
+* Fixed another grav pad glitch.
+Notes: PIPES ARE NO LONGER BUGGY, well, as buggy... Finally got them working. By working, I mean, rendering correctly. At least, until I break them again. :/
 
 ---- v0.0.007 ----
 + Began work on the pipe framework for later.
