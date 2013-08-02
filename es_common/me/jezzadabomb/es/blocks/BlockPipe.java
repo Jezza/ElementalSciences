@@ -1,92 +1,122 @@
 package me.jezzadabomb.es.blocks;
 
-import java.util.Random;
-
-import me.jezzadabomb.es.lib.BlockIds;
+import me.jezzadabomb.es.blocks.BlockPipeComponent.PipeComponent;
+import me.jezzadabomb.es.core.helpers.Helper;
+import me.jezzadabomb.es.core.util.IconRegistry;
 import me.jezzadabomb.es.lib.Strings;
+import me.jezzadabomb.es.renders.RenderHadronPipe;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockPipe extends BlockES {
+public class BlockPipe extends BlockES implements PipeComponent {
 
     public int blockID;
-
-    public BlockPipe(int id) {
+    public double pipeWidth;
+    
+    public BlockPipe(int id, String name, double pipeWidth) {
         super(id, Material.anvil);
         this.blockID = id;
-        setBlockBounds(0.25F, 0.25F, 0.25F, 0.75F, 0.75F, 0.75F);
-        setUnlocalizedName(Strings.COLLIDER_PIPE);
+        this.pipeWidth = pipeWidth;
+        setBlockBounds(getMinX(), getMinZ(), getMinY(), getMaxX(), getMaxZ(), getMaxY());
+        setUnlocalizedName(name);
+    }
+    
+    public float getMinX(){
+        return ((float)(16/pipeWidth)/10);
+    }
+    
+    public float getMaxX(){
+        return 1f - getMinX();
+    }
+    public float getMinZ(){
+        return ((float)(16/pipeWidth)/10);
+    }
+    
+    public float getMaxZ(){
+        return 1f - getMinZ();
+    }
+    public float getMinY(){
+        return ((float)(16/pipeWidth)/10);
+    }
+    
+    public float getMaxY(){
+        return 1f - getMinY();
+    }
+    
+    @Override
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9) {
+        printDebug("Min X: " + getMinX());
+        printDebug("Max X: " + getMaxX());
+        printDebug(String.valueOf(par6));
+        printDebug(String.valueOf(par7));
+        printDebug(String.valueOf(par8));
+        printDebug(String.valueOf(par9));
+        return false;
     }
 
-    public void setBlockBoundsBasedOnState(IBlockAccess blockAccess, int x, int y, int z) {
-        boolean zpos = false;
-        boolean zneg = false;
-        boolean xpos = false;
-        boolean xneg = false;
-        boolean ypos = false;
-        boolean yneg = false;
-        if (this.blockID == blockAccess.getBlockId(x, y, z + 1) || (blockAccess.getBlockMetadata(x, y, z + 1)) == 3 && (blockAccess.getBlockId(x, y, z + 1) == BlockIds.CHAMBER_BLOCK_DEFAULT)) {
-            zpos = true;
+    @Override
+    public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
+        float[] min = { getMinX(), getMinZ(), getMinY() };
+        float[] max = { getMaxX(), getMaxZ(), getMaxY() };
+        if (Block.blocksList[world.getBlockId(x - 1, y, z)] instanceof PipeComponent) {
+            if (((PipeComponent) Helper.getBlockInstance(world, x - 1, y, z)).canTubeConnectOnSide(world, x - 1, y, z, Helper.dirXPos))
+                min[0] = 0.0F;
         }
-        if (this.blockID == blockAccess.getBlockId(x, y, z - 1) || (blockAccess.getBlockMetadata(x, y, z - 1)) == 3 && (blockAccess.getBlockId(x, y, z - 1) == BlockIds.CHAMBER_BLOCK_DEFAULT)) {
-            zneg = true;
+        if (Block.blocksList[world.getBlockId(x + 1, y, z)] instanceof PipeComponent) {
+            if (((PipeComponent) Helper.getBlockInstance(world, x + 1, y, z)).canTubeConnectOnSide(world, x + 1, y, z, Helper.dirXNeg))
+                max[0] = 1.0F;
         }
-        if (this.blockID == blockAccess.getBlockId(x + 1, y, z) || (blockAccess.getBlockMetadata(x + 1, y, z)) == 3 && (blockAccess.getBlockId(x + 1, y, z) == BlockIds.CHAMBER_BLOCK_DEFAULT)) {
-            xpos = true;
+        if (Block.blocksList[world.getBlockId(x, y - 1, z)] instanceof PipeComponent) {
+            if (((PipeComponent) Helper.getBlockInstance(world, x, y - 1, z)).canTubeConnectOnSide(world, x, y - 1, z, Helper.dirYPos))
+                min[1] = 0.0F;
         }
-        if (this.blockID == blockAccess.getBlockId(x - 1, y, z) || (blockAccess.getBlockMetadata(x - 1, y, z)) == 3 && (blockAccess.getBlockId(x - 1, y, z) == BlockIds.CHAMBER_BLOCK_DEFAULT)) {
-            xneg = true;
+        if (Block.blocksList[world.getBlockId(x, y + 1, z)] instanceof PipeComponent) {
+            if (((PipeComponent) Helper.getBlockInstance(world, x, y + 1, z)).canTubeConnectOnSide(world, x, y + 1, z, Helper.dirYNeg))
+                max[1] = 1.0F;
         }
-        if (this.blockID == blockAccess.getBlockId(x, y + 1, z) || (blockAccess.getBlockMetadata(x, y + 1, z)) == 3 && (blockAccess.getBlockId(x, y + 1, z) == BlockIds.CHAMBER_BLOCK_DEFAULT)) {
-            ypos = true;
+        if (Block.blocksList[world.getBlockId(x, y, z - 1)] instanceof PipeComponent) {
+            if (((PipeComponent) Helper.getBlockInstance(world, x, y, z - 1)).canTubeConnectOnSide(world, x, y, z - 1, Helper.dirZPos))
+                min[2] = 0.0F;
         }
-        if (this.blockID == blockAccess.getBlockId(x, y - 1, z) || (blockAccess.getBlockMetadata(x, y - 1, z)) == 3 && (blockAccess.getBlockId(x, y - 1, z) == BlockIds.CHAMBER_BLOCK_DEFAULT)) {
-            yneg = true;
+        if (Block.blocksList[world.getBlockId(x, y, z + 1)] instanceof PipeComponent) {
+            if (((PipeComponent) Helper.getBlockInstance(world, x, y, z + 1)).canTubeConnectOnSide(world, x, y, z + 1, Helper.dirZNeg))
+                max[2] = 1.0F;
         }
-        if (zpos || zneg || xpos || xneg || ypos || yneg) {
-            float zpos2 = 0;
-            float zneg2 = 0;
-            float xpos2 = 0;
-            float xneg2 = 0;
-            float ypos2 = 0;
-            float yneg2 = 0;
-            if (zpos) {
-                zpos2 = 0.25f;
-            }
-            if (zneg) {
-                zneg2 = 0.25f;
-            }
-            if (xpos) {
-                xpos2 = 0.25f;
-            }
-            if (xneg) {
-                xneg2 = 0.25f;
-            }
-            if (ypos) {
-                ypos2 = 0.25f;
-            }
-            if (yneg) {
-                yneg2 = 0.25f;
-            }
-            // printDebug("zpos" + String.valueOf(zpos2));
-            // printDebug("zneg" + String.valueOf(zneg2));
-            // printDebug("xpos" + String.valueOf(xpos2));
-            // printDebug("xneg" + String.valueOf(xneg2));
-            // printDebug("ypos" + String.valueOf(ypos2));
-            // printDebug("yneg" + String.valueOf(yneg2));
-            this.setBlockBounds(0.25F - xneg2, 0.25F - yneg2, 0.25F - zneg2, 0.75F + xpos2, 0.75F + ypos2, 0.75F + zpos2);
-        }
+        this.setBlockBounds(min[0], min[1], min[2], max[0], max[1], max[2]);
     }
 
-    public void setBlockBoundsForItemRender() {
-        this.setBlockBounds(0.25F, 0.25F, 0.25F, 0.75F, 0.75F, 0.75F);
+    @Override
+    public AxisAlignedBB getCollisionBoundingBoxFromPool(World w, int x, int y, int z) {
+        this.setBlockBoundsBasedOnState(w, x, y, z);
+        return AxisAlignedBB.getAABBPool().getAABB((double) x + this.minX, (double) y + this.minY, (double) z + this.minZ, (double) x + this.maxX, (double) y + this.maxY, (double) z + this.maxZ);
     }
 
+    @Override
+    public boolean canTubeConnectOnSide(IBlockAccess w, int x, int y, int z, int side) {
+        return true;
+    }
+
+//    @Override
+//    public void setBlockBoundsForItemRender() {
+//        this.setBlockBounds(0.25F, 0.00F, 0.25F, 0.75F, 1.00F, 0.75F);
+//    }
+
+    @Override
+    public boolean getBlocksMovement(IBlockAccess par1IBlockAccess, int par2, int par3, int par4){
+        return true;
+    }
+    
+    @Override
     public boolean isOpaqueCube() {
         return false;
     }
 
+    @Override
     public boolean renderAsNormalBlock() {
         return false;
     }
@@ -94,7 +124,7 @@ public class BlockPipe extends BlockES {
     public int maxLink() {
         return 24;
     }
-
+    
     public boolean compareID(World world, int x, int y, int z, int id) {
         if (id == world.getBlockId(x, y, z)) {
             return true;
@@ -322,7 +352,23 @@ public class BlockPipe extends BlockES {
         }
     }
 
+    @Override
+    public int getRenderType(){
+        return RenderHadronPipe.instance().getRenderId();
+    }
+    
+    @Override
+    public void registerIcons(IconRegister register){
+        IconRegistry.instance.loadAllBlocks(register);
+    }
+    
+    @Override
     public boolean canPlaceBlockAt(World world, int x, int y, int z) {
         return checkSurrounding(world, x, y, z, 2);
+    }
+
+    @Override
+    public PipeComponentType getIonComponentType() {
+        return PipeComponentType.TUBE;
     }
 }

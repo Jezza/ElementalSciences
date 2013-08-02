@@ -22,12 +22,12 @@ public class BlockChamber extends BlockES {
 
     Icon blockIcon;
 
-    public BlockChamber(int BlockID) {
+    public BlockChamber(int BlockID, String name) {
         super(BlockID, Material.anvil);
         setHardness(5.0f);
         setResistance(20.0f);
         setStepSound(soundStoneFootstep);
-        setUnlocalizedName(Strings.CHAMBER_WALL);
+        setUnlocalizedName(name);
     }
 
     public Icon[] icons;

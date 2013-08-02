@@ -2,7 +2,8 @@ package me.jezzadabomb.es;
 
 import me.jezzadabomb.es.blocks.ModBlocks;
 import me.jezzadabomb.es.core.handlers.LocalizationHandler;
-import me.jezzadabomb.es.creativetab.CreativeTabES;
+import me.jezzadabomb.es.creativetab.MachineTabES;
+import me.jezzadabomb.es.creativetab.MiscTabES;
 import me.jezzadabomb.es.lib.Reference;
 import me.jezzadabomb.es.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
@@ -24,19 +25,22 @@ public class ElementalSciences {
     @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
     public static CommonProxy proxy;
     
-    public static CreativeTabs tabsES = new CreativeTabES(CreativeTabs.getNextID(), Reference.MOD_ID);
-                
+    public static CreativeTabs machineTab = new MachineTabES(CreativeTabs.getNextID(), Reference.MOD_ID);
+    public static CreativeTabs miscTab = new MiscTabES(CreativeTabs.getNextID(), Reference.MOD_ID);
+    
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         System.out.println("Loading Localizations.");
         LocalizationHandler.loadLanguages();
         System.out.println("Finished Loading Localizations.");
         ModBlocks.init();
+        proxy.runClientSide();
     }
         
     @EventHandler
     public void load(FMLInitializationEvent event) {
         LanguageRegistry.instance().addStringLocalization("itemGroup.ElementalSciences", "en_US", "Elemental Sciences");
+        
     }
         
     @EventHandler

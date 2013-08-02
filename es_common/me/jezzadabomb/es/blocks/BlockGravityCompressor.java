@@ -31,10 +31,10 @@ public class BlockGravityCompressor extends BlockPadBase {
     public double MinZVel = -3;
     public double MinYVel = -0.5;
 
-    public BlockGravityCompressor(int id) {
+    public BlockGravityCompressor(int id, String name) {
         super(id, Material.anvil);
         setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.25F, 1.0F);
-        setUnlocalizedName(Strings.GRAVITY_COMPRESSOR);
+        setUnlocalizedName(name);
     }
 
     @Override

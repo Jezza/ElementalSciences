@@ -4,6 +4,7 @@ import java.util.List;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import me.jezzadabomb.es.ElementalSciences;
 import me.jezzadabomb.es.lib.Reference;
 import me.jezzadabomb.es.lib.Strings;
 import net.minecraft.block.material.Material;
@@ -17,11 +18,12 @@ public class BlockPureColour extends BlockES {
 
     public int BlockID;
 
-    public BlockPureColour(int id) {
+    public BlockPureColour(int id, String name) {
         super(id, Material.rock);
         setHardness(0.1f);
         this.BlockID = id;
-        this.setUnlocalizedName(Strings.PURE_COLOUR);
+        this.setUnlocalizedName(name);
+        setCreativeTab(ElementalSciences.miscTab);
     }
 
     public Icon[] icons;
