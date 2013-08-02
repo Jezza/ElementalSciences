@@ -3,6 +3,7 @@ package me.jezzadabomb.es.blocks;
 import me.jezzadabomb.es.blocks.BlockPipeComponent.PipeComponent;
 import me.jezzadabomb.es.core.helpers.Helper;
 import me.jezzadabomb.es.core.util.IconRegistry;
+import me.jezzadabomb.es.lib.Reference;
 import me.jezzadabomb.es.lib.Strings;
 import me.jezzadabomb.es.renders.RenderHadronPipe;
 import net.minecraft.block.Block;
@@ -355,11 +356,6 @@ public class BlockPipe extends BlockES implements PipeComponent {
     @Override
     public int getRenderType(){
         return RenderHadronPipe.instance().getRenderId();
-    }
-    
-    @Override
-    public void registerIcons(IconRegister register){
-        IconRegistry.instance.loadAllBlocks(register);
     }
     
     @Override

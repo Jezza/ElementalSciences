@@ -16,6 +16,16 @@ public class RenderHadronPipe extends BaseBlockRenderer {
         return INSTANCE;
     }
 
+    protected static void renderAsItem(Block block, RenderBlocks renderer){
+        Icon[] tmap = new Icon[6];
+        for(int i = 0; i < 6; i++){
+            if(block.getBlockTextureFromSide(i) != null){
+            tmap[i] = block.getBlockTextureFromSide(i);
+            }
+        }
+        renderAsItem(block, renderer, tmap);
+    }
+    
     @Override
     public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer){
         float min = 0.5F - 0.1875F;

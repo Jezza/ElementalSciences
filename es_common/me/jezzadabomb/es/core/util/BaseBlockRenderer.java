@@ -12,8 +12,10 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 public abstract class BaseBlockRenderer implements ISimpleBlockRenderingHandler{
     protected int rid;
 
-    protected BaseBlockRenderer()
-        { rid = RenderingRegistry.getNextAvailableRenderId(); }
+    public BaseBlockRenderer()
+        { 
+        rid = RenderingRegistry.getNextAvailableRenderId();
+        }
 
     @Override public int getRenderId()
         { return rid; }
@@ -30,6 +32,7 @@ public abstract class BaseBlockRenderer implements ISimpleBlockRenderingHandler{
         Icon[] tmap = new Icon[6];
         for(int i = 0; i < 6; i++){
             if(block.getBlockTextureFromSide(i) != null){
+                System.out.println("testing");
             tmap[i] = block.getBlockTextureFromSide(i);
             }
         }

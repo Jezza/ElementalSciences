@@ -1,6 +1,7 @@
 package me.jezzadabomb.es.blocks;
 
 import me.jezzadabomb.es.ElementalSciences;
+import me.jezzadabomb.es.core.util.IconRegistry;
 import me.jezzadabomb.es.lib.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -54,6 +55,7 @@ public abstract class BlockES extends Block {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister) {
+        IconRegistry.instance.loadAllBlocks(iconRegister);
         blockIcon = iconRegister.registerIcon(Reference.MOD_ID + ":" + this.getUnlocalizedName().replace("tile.", ""));
     }
 }
