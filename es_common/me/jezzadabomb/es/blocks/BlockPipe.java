@@ -3,6 +3,7 @@ package me.jezzadabomb.es.blocks;
 import me.jezzadabomb.es.blocks.BlockPipeComponent.PipeComponent;
 import me.jezzadabomb.es.core.helpers.Helper;
 import me.jezzadabomb.es.core.util.IconRegistry;
+import me.jezzadabomb.es.lib.BlockIds;
 import me.jezzadabomb.es.lib.Reference;
 import me.jezzadabomb.es.lib.Strings;
 import me.jezzadabomb.es.renders.RenderHadronPipe;
@@ -10,6 +11,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -18,7 +20,7 @@ public class BlockPipe extends BlockES implements PipeComponent {
 
     public int blockID;
     public double pipeWidth;
-    
+
     public BlockPipe(int id, String name, double pipeWidth) {
         super(id, Material.anvil);
         this.blockID = id;
@@ -27,28 +29,34 @@ public class BlockPipe extends BlockES implements PipeComponent {
         setUnlocalizedName(name);
     }
     
-    public float getMinX(){
-        return ((float)(16/pipeWidth)/10);
+    public boolean debugTest(){
+        return false;
     }
-    
-    public float getMaxX(){
+
+    public float getMinX() {
+        return ((float) (16 / pipeWidth) / 10);
+    }
+
+    public float getMaxX() {
         return 1f - getMinX();
     }
-    public float getMinZ(){
-        return ((float)(16/pipeWidth)/10);
+
+    public float getMinZ() {
+        return ((float) (16 / pipeWidth) / 10);
     }
-    
-    public float getMaxZ(){
+
+    public float getMaxZ() {
         return 1f - getMinZ();
     }
-    public float getMinY(){
-        return ((float)(16/pipeWidth)/10);
+
+    public float getMinY() {
+        return ((float) (16 / pipeWidth) / 10);
     }
-    
-    public float getMaxY(){
+
+    public float getMaxY() {
         return 1f - getMinY();
     }
-    
+
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9) {
         printDebug("Min X: " + getMinX());
@@ -74,7 +82,9 @@ public class BlockPipe extends BlockES implements PipeComponent {
         }
         if (Block.blocksList[world.getBlockId(x, y - 1, z)] instanceof PipeComponent) {
             if (((PipeComponent) Helper.getBlockInstance(world, x, y - 1, z)).canTubeConnectOnSide(world, x, y - 1, z, Helper.dirYPos))
-                min[1] = 0.0F;
+                if (!Helper.getBlockInstance(world, x, y - 1, z).equals(ModBlocks.hadronSensor)) {
+                    min[1] = 0.0F;
+                }
         }
         if (Block.blocksList[world.getBlockId(x, y + 1, z)] instanceof PipeComponent) {
             if (((PipeComponent) Helper.getBlockInstance(world, x, y + 1, z)).canTubeConnectOnSide(world, x, y + 1, z, Helper.dirYNeg))
@@ -102,16 +112,16 @@ public class BlockPipe extends BlockES implements PipeComponent {
         return true;
     }
 
-//    @Override
-//    public void setBlockBoundsForItemRender() {
-//        this.setBlockBounds(0.25F, 0.00F, 0.25F, 0.75F, 1.00F, 0.75F);
-//    }
+    // @Override
+    // public void setBlockBoundsForItemRender() {
+    // this.setBlockBounds(0.25F, 0.00F, 0.25F, 0.75F, 1.00F, 0.75F);
+    // }
 
     @Override
-    public boolean getBlocksMovement(IBlockAccess par1IBlockAccess, int par2, int par3, int par4){
+    public boolean getBlocksMovement(IBlockAccess par1IBlockAccess, int par2, int par3, int par4) {
         return true;
     }
-    
+
     @Override
     public boolean isOpaqueCube() {
         return false;
@@ -123,9 +133,12 @@ public class BlockPipe extends BlockES implements PipeComponent {
     }
 
     public int maxLink() {
-        return 24;
+        if(debugTest()){
+            return 100;
+        }
+        return 4;
     }
-    
+
     public boolean compareID(World world, int x, int y, int z, int id) {
         if (id == world.getBlockId(x, y, z)) {
             return true;
@@ -347,6 +360,30 @@ public class BlockPipe extends BlockES implements PipeComponent {
         }
         printDebug("checking: " + String.valueOf(localCounter));
         if (localCounter < maxLink()) {
+            if(debugTest()){
+                return true;
+            }
+            if(checkIfNearby(world, x, y, z, BlockIds.COLLIDER_PIPE_DEFAULT)){
+                return true;
+            }else if (checkIfNearby(world, x, y, z, BlockIds.HADRON_SENSOR_DEFAULT)) {
+                return true;
+            }else if(checkIfNearby(world, x, y, z, BlockIds.LINEAR_ACC_DEFAULT)) {
+                return true;
+            }
+            return false;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean checkIfNearby(World world, int x, int y, int z, int id) {
+        boolean local1 = getZPos(world, x, y, z, id);
+        boolean local2 = getZNeg(world, x, y, z, id);
+        boolean local3 = getXPos(world, x, y, z, id);
+        boolean local4 = getXNeg(world, x, y, z, id);
+        boolean local5 = getYPos(world, x, y, z, id);
+        boolean local6 = getYNeg(world, x, y, z, id);
+        if (local1||local2||local3||local4||local5||local6) {
             return true;
         } else {
             return false;
@@ -354,10 +391,10 @@ public class BlockPipe extends BlockES implements PipeComponent {
     }
 
     @Override
-    public int getRenderType(){
+    public int getRenderType() {
         return RenderHadronPipe.instance().getRenderId();
     }
-    
+
     @Override
     public boolean canPlaceBlockAt(World world, int x, int y, int z) {
         return checkSurrounding(world, x, y, z, 2);

@@ -1,6 +1,7 @@
 package me.jezzadabomb.es.renders;
 
 import me.jezzadabomb.es.blocks.BlockPipeComponent.PipeComponent;
+import me.jezzadabomb.es.blocks.ModBlocks;
 import me.jezzadabomb.es.core.helpers.Helper;
 import me.jezzadabomb.es.core.util.BaseBlockRenderer;
 import me.jezzadabomb.es.core.util.IconRegistry;
@@ -47,7 +48,7 @@ public class RenderHadronPipe extends BaseBlockRenderer {
             if(((PipeComponent)Helper.getBlockInstance(world, x-1, y, z)).canTubeConnectOnSide(world, x-1, y, z, Helper.dirXPos)){
                 block.setBlockBounds(bordermin, coremin, coremin, coremin, coremax, coremax);
                 renderer.setRenderBoundsFromBlock(block);
-                renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.0F, 1.0F, 1.0F);
+                renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.5F, 1.5F, 1.5F);
                 joints++;
             }
         }
@@ -55,23 +56,25 @@ public class RenderHadronPipe extends BaseBlockRenderer {
             if(((PipeComponent)Helper.getBlockInstance(world, x+1, y, z)).canTubeConnectOnSide(world, x+1, y, z, Helper.dirXNeg)){
                 block.setBlockBounds(coremax, coremin, coremin, bordermax, coremax, coremax);
                 renderer.setRenderBoundsFromBlock(block);
-                renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.0F, 1.0F, 1.0F);
+                renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.5F, 1.5F, 1.5F);
                 joints++;
             }
         }
         if(Helper.getBlockInstance(world, x, y-1, z) instanceof PipeComponent){
             if(((PipeComponent)Helper.getBlockInstance(world, x, y-1, z)).canTubeConnectOnSide(world, x, y-1, z, Helper.dirYPos)){
+                if(!Helper.getBlockInstance(world, x, y-1, z).equals(ModBlocks.hadronSensor)){
                 block.setBlockBounds(coremin, bordermin, coremin, coremax, coremin, coremax);
                 renderer.setRenderBoundsFromBlock(block);
-                renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.0F, 1.0F, 1.0F);
+                renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.5F, 1.5F, 1.5F);
                 joints++;
+                }
             }
         }
         if(Helper.getBlockInstance(world, x, y+1, z) instanceof PipeComponent){
             if(((PipeComponent)Helper.getBlockInstance(world, x, y+1, z)).canTubeConnectOnSide(world, x, y+1, z, Helper.dirYNeg)){
                 block.setBlockBounds(coremin, coremax, coremin, coremax, bordermax, coremax);
                 renderer.setRenderBoundsFromBlock(block);
-                renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.0F, 1.0F, 1.0F);
+                renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.5F, 1.5F, 1.5F);
                 joints++;
             }
         }
@@ -79,7 +82,7 @@ public class RenderHadronPipe extends BaseBlockRenderer {
             if(((PipeComponent)Helper.getBlockInstance(world, x, y, z-1)).canTubeConnectOnSide(world, x, y, z-1, Helper.dirZPos)){
                 block.setBlockBounds(coremin, coremin, bordermin, coremax, coremax, coremin);
                 renderer.setRenderBoundsFromBlock(block);
-                renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.0F, 1.0F, 1.0F);
+                renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.5F, 1.5F, 1.5F);
                 joints++;
             }
         }
@@ -87,11 +90,11 @@ public class RenderHadronPipe extends BaseBlockRenderer {
             if(((PipeComponent)Helper.getBlockInstance(world, x, y, z+1)).canTubeConnectOnSide(world, x, y, z+1, Helper.dirZNeg)){
                 block.setBlockBounds(coremin, coremin, coremax, coremax, coremax, bordermax);
                 renderer.setRenderBoundsFromBlock(block);
-                renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.0F, 1.0F, 1.0F);
+                renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.5F, 1.5F, 1.5F);
                 joints++;
             }
         }
-        if(joints > 2){
+        if(joints > 1){
             Icon joint = IconRegistry.colliderPipe_joint;
             coremin -= 0.0625F;
             coremax += 0.0625F;

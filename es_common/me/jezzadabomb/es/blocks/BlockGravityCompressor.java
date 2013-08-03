@@ -52,7 +52,7 @@ public class BlockGravityCompressor extends BlockPadBase {
     @Override
     public void onActive(World world, int x, int y, int z, Entity entity) {
         if (entity != null) {
-            applyMotion(entity, 0, entity.motionY / 2, 0, false);
+            applyMotion(entity, 0, 1, 0, false);
         }
         world.scheduleBlockUpdate(x, y, z, this.blockID, this.tickRate(world));
     }
