@@ -27,5 +27,5 @@
 	<entry key="tile.colliderPipe.name">Hadron Collider Pipe</entry>
 	<entry key="tile.linearEmitter.name">Linear Emitter</entry>
 	<entry key="tile.hadronSensor.name">Hadron Sensor</entry>
-	<entry key="death.attack.beta">%1$s was horrifically slaughtered by radiation.</entry>
+	<entry key="death.attack.beta">%1$s was horrifically slaughtered by beta radiation.</entry>
 </properties>
