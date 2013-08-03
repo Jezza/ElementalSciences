@@ -20,7 +20,7 @@ public class ModBlocks {
     public static Block pureColour;
     public static Block gravCompressor;
     public static Block colliderPipe;
-    public static Block linearAcc;
+    public static Block linearEmitter;
     public static Block hadronSensor;
     
     public static void init() {
@@ -30,14 +30,14 @@ public class ModBlocks {
         chamberBlock = new BlockChamber(BlockIds.CHAMBER_BLOCK_DEFAULT, Strings.CHAMBER_WALL);
         pureColour = new BlockPureColour(BlockIds.PURE_COLOUR_DEFAULT, Strings.PURE_COLOUR);
         colliderPipe = new BlockPipe(BlockIds.COLLIDER_PIPE_DEFAULT, Strings.COLLIDER_PIPE,6);
-        linearAcc = new BlockLinear(BlockIds.LINEAR_ACC_DEFAULT, Strings.LINEAR_ACC);
+        linearEmitter = new BlockLinearEmitter(BlockIds.LINEAR_EMITTER_DEFAULT, Strings.LINEAR_EMITTER);
         hadronSensor = new BlockHadronSensor(BlockIds.HADRON_SENSOR_DEFAULT, Strings.HADRON_SENSOR);
         
         //Single Data Blocks
         GameRegistry.registerBlock(strengthenedGlass, Strings.STRENGTHENED_GLASS);
         GameRegistry.registerBlock(gravCompressor, Strings.GRAVITY_COMPRESSOR);
         GameRegistry.registerBlock(colliderPipe, Strings.COLLIDER_PIPE);
-        GameRegistry.registerBlock(linearAcc, Strings.LINEAR_ACC);
+        GameRegistry.registerBlock(linearEmitter, Strings.LINEAR_EMITTER);
         GameRegistry.registerBlock(hadronSensor, Strings.HADRON_SENSOR);
         
         //Meta Blocks

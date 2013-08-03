@@ -12,7 +12,7 @@ public class Strings {
     public static final String PURE_COLOUR = "pureColour";
     public static final String GRAVITY_COMPRESSOR = "gravCompressor";
     public static final String COLLIDER_PIPE = "colliderPipe";
-    public static final String LINEAR_ACC = "linearAcc";
+    public static final String LINEAR_EMITTER = "linearEmitter";
     public static final String HADRON_SENSOR = "hadronSensor";
     public static final String HADRON_JOINT = "hadronJoint";
 

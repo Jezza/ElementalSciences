@@ -2,6 +2,7 @@ package me.jezzadabomb.es.blocks;
 
 import me.jezzadabomb.es.blocks.BlockPipeComponent.PipeComponent;
 import me.jezzadabomb.es.core.helpers.Helper;
+import me.jezzadabomb.es.core.util.DamageSourceRad;
 import me.jezzadabomb.es.core.util.IconRegistry;
 import me.jezzadabomb.es.lib.BlockIds;
 import me.jezzadabomb.es.lib.Reference;
@@ -10,9 +11,11 @@ import me.jezzadabomb.es.renders.RenderHadronPipe;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -28,9 +31,9 @@ public class BlockPipe extends BlockES implements PipeComponent {
         setBlockBounds(getMinX(), getMinZ(), getMinY(), getMaxX(), getMaxZ(), getMaxY());
         setUnlocalizedName(name);
     }
-    
-    public boolean debugTest(){
-        return false;
+
+    public boolean debugTest() {
+        return true;
     }
 
     public float getMinX() {
@@ -57,8 +60,20 @@ public class BlockPipe extends BlockES implements PipeComponent {
         return 1f - getMinY();
     }
 
+    public void damageEntity(World world, int x, int y, int z, Entity entity){
+        if (getJoints(world, x, y, z) < 2) {
+            entity.setFire(1);
+            entity.attackEntityFrom(DamageSourceRad.beta, 10F);
+        }
+    }
+
+    public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
+        damageEntity(world, x, y, z, entity);
+    }
+
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9) {
+        damageEntity(world, x, y, z, player);
         printDebug("Min X: " + getMinX());
         printDebug("Max X: " + getMaxX());
         printDebug(String.valueOf(par6));
@@ -66,6 +81,36 @@ public class BlockPipe extends BlockES implements PipeComponent {
         printDebug(String.valueOf(par8));
         printDebug(String.valueOf(par9));
         return false;
+    }
+
+    public int getJoints(World world, int x, int y, int z) {
+        int localCounter = 0;
+        if (Block.blocksList[world.getBlockId(x - 1, y, z)] instanceof PipeComponent) {
+            if (((PipeComponent) Helper.getBlockInstance(world, x - 1, y, z)).canTubeConnectOnSide(world, x - 1, y, z, Helper.dirXPos))
+                localCounter += 1;
+        }
+        if (Block.blocksList[world.getBlockId(x + 1, y, z)] instanceof PipeComponent) {
+            if (((PipeComponent) Helper.getBlockInstance(world, x + 1, y, z)).canTubeConnectOnSide(world, x + 1, y, z, Helper.dirXNeg))
+                localCounter += 1;
+        }
+        if (Block.blocksList[world.getBlockId(x, y - 1, z)] instanceof PipeComponent) {
+            if (((PipeComponent) Helper.getBlockInstance(world, x, y - 1, z)).canTubeConnectOnSide(world, x, y - 1, z, Helper.dirYPos))
+                localCounter += 1;
+        }
+        if (Block.blocksList[world.getBlockId(x, y + 1, z)] instanceof PipeComponent) {
+            if (((PipeComponent) Helper.getBlockInstance(world, x, y + 1, z)).canTubeConnectOnSide(world, x, y + 1, z, Helper.dirYNeg))
+                localCounter += 1;
+        }
+        if (Block.blocksList[world.getBlockId(x, y, z - 1)] instanceof PipeComponent) {
+            if (((PipeComponent) Helper.getBlockInstance(world, x, y, z - 1)).canTubeConnectOnSide(world, x, y, z - 1, Helper.dirZPos))
+                localCounter += 1;
+        }
+        if (Block.blocksList[world.getBlockId(x, y, z + 1)] instanceof PipeComponent) {
+            if (((PipeComponent) Helper.getBlockInstance(world, x, y, z + 1)).canTubeConnectOnSide(world, x, y, z + 1, Helper.dirZNeg))
+                localCounter += 1;
+        }
+        printDebug("Joints: " + String.valueOf(localCounter));
+        return localCounter;
     }
 
     @Override
@@ -82,9 +127,7 @@ public class BlockPipe extends BlockES implements PipeComponent {
         }
         if (Block.blocksList[world.getBlockId(x, y - 1, z)] instanceof PipeComponent) {
             if (((PipeComponent) Helper.getBlockInstance(world, x, y - 1, z)).canTubeConnectOnSide(world, x, y - 1, z, Helper.dirYPos))
-                if (!Helper.getBlockInstance(world, x, y - 1, z).equals(ModBlocks.hadronSensor)) {
-                    min[1] = 0.0F;
-                }
+                min[1] = 0.0F;
         }
         if (Block.blocksList[world.getBlockId(x, y + 1, z)] instanceof PipeComponent) {
             if (((PipeComponent) Helper.getBlockInstance(world, x, y + 1, z)).canTubeConnectOnSide(world, x, y + 1, z, Helper.dirYNeg))
@@ -112,11 +155,6 @@ public class BlockPipe extends BlockES implements PipeComponent {
         return true;
     }
 
-    // @Override
-    // public void setBlockBoundsForItemRender() {
-    // this.setBlockBounds(0.25F, 0.00F, 0.25F, 0.75F, 1.00F, 0.75F);
-    // }
-
     @Override
     public boolean getBlocksMovement(IBlockAccess par1IBlockAccess, int par2, int par3, int par4) {
         return true;
@@ -133,7 +171,7 @@ public class BlockPipe extends BlockES implements PipeComponent {
     }
 
     public int maxLink() {
-        if(debugTest()){
+        if (debugTest()) {
             return 100;
         }
         return 4;
@@ -360,14 +398,14 @@ public class BlockPipe extends BlockES implements PipeComponent {
         }
         printDebug("checking: " + String.valueOf(localCounter));
         if (localCounter < maxLink()) {
-            if(debugTest()){
+            if (debugTest()) {
                 return true;
             }
-            if(checkIfNearby(world, x, y, z, BlockIds.COLLIDER_PIPE_DEFAULT)){
+            if (checkIfNearby(world, x, y, z, BlockIds.COLLIDER_PIPE_DEFAULT)) {
                 return true;
-            }else if (checkIfNearby(world, x, y, z, BlockIds.HADRON_SENSOR_DEFAULT)) {
+            } else if (checkIfNearby(world, x, y, z, BlockIds.HADRON_SENSOR_DEFAULT)) {
                 return true;
-            }else if(checkIfNearby(world, x, y, z, BlockIds.LINEAR_ACC_DEFAULT)) {
+            } else if (checkIfNearby(world, x, y, z, BlockIds.LINEAR_EMITTER_DEFAULT)) {
                 return true;
             }
             return false;
@@ -383,7 +421,7 @@ public class BlockPipe extends BlockES implements PipeComponent {
         boolean local4 = getXNeg(world, x, y, z, id);
         boolean local5 = getYPos(world, x, y, z, id);
         boolean local6 = getYNeg(world, x, y, z, id);
-        if (local1||local2||local3||local4||local5||local6) {
+        if (local1 || local2 || local3 || local4 || local5 || local6) {
             return true;
         } else {
             return false;

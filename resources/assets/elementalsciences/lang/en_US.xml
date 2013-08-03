@@ -25,6 +25,7 @@
 	<entry key="tile.chamberBlock.con.name">Chamber Controller</entry>
 	<entry key="tile.gravCompressor.name">Gravity Field Compressor</entry>
 	<entry key="tile.colliderPipe.name">Hadron Collider Pipe</entry>
-	<entry key="tile.linearAcc.name">Linear Accelerator</entry>
+	<entry key="tile.linearEmitter.name">Linear Emitter</entry>
 	<entry key="tile.hadronSensor.name">Hadron Sensor</entry>
+	<entry key="death.attack.beta">%1$s was horrifically slaughtered by radiation.</entry>
 </properties>

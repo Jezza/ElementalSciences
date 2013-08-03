@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import me.jezzadabomb.es.blocks.BlockPipeComponent.PipeComponent;
 import me.jezzadabomb.es.lib.Reference;
-import me.jezzadabomb.es.tileentity.TileLinear;
+import me.jezzadabomb.es.tileentity.TileLinearEmitter;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -16,12 +16,12 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockLinear extends BlockESContainer implements PipeComponent {
+public class BlockLinearEmitter extends BlockESContainer implements PipeComponent {
 
-    public Icon facing;
+    public Icon face;
     public Icon other;
     
-    public BlockLinear(int id, String name) {
+    public BlockLinearEmitter(int id, String name) {
         super(id, Material.anvil);
         setUnlocalizedName(name);
     }
@@ -29,9 +29,11 @@ public class BlockLinear extends BlockESContainer implements PipeComponent {
     @Override
     public Icon getIcon(int side, int metadata)
     {
-        if(){
-            
+        int facing = (metadata & MASK_DIR);
+        if(side == getSideFromFacing(facing)){
+            return face;
         }
+        return other;
     }
     
     private static int getSideFromFacing(int facing)
@@ -58,7 +60,7 @@ public class BlockLinear extends BlockESContainer implements PipeComponent {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconReg) {
-        facing = iconReg.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + (this.getUnlocalizedName().replace("tile.", "")) + "_facing");
+        face = iconReg.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + (this.getUnlocalizedName().replace("tile.", "")) + "_face");
         other = iconReg.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + (this.getUnlocalizedName().replace("tile.", "")));
     }
     
@@ -69,6 +71,15 @@ public class BlockLinear extends BlockESContainer implements PipeComponent {
 
     @Override
     public boolean canTubeConnectOnSide(IBlockAccess w, int x, int y, int z, int side) {
-        return true;
+        int facing = (w.getBlockMetadata(x, y, z) & MASK_DIR);
+        if(side == getSideFromFacing(facing)){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public TileEntity createNewTileEntity(World world) {
+        return new TileLinearEmitter();
     }    
 }

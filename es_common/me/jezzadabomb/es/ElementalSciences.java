@@ -39,8 +39,8 @@ public class ElementalSciences {
         
     @EventHandler
     public void load(FMLInitializationEvent event) {
+        proxy.registerTileEntities();
         LanguageRegistry.instance().addStringLocalization("itemGroup.ElementalSciences", "en_US", "Elemental Sciences");
-        
     }
         
     @EventHandler

@@ -48,7 +48,7 @@ public class RenderHadronPipe extends BaseBlockRenderer {
             if(((PipeComponent)Helper.getBlockInstance(world, x-1, y, z)).canTubeConnectOnSide(world, x-1, y, z, Helper.dirXPos)){
                 block.setBlockBounds(bordermin, coremin, coremin, coremin, coremax, coremax);
                 renderer.setRenderBoundsFromBlock(block);
-                renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.5F, 1.5F, 1.5F);
+                renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.0F, 1.0F, 1.0F);
                 joints++;
             }
         }
@@ -56,7 +56,7 @@ public class RenderHadronPipe extends BaseBlockRenderer {
             if(((PipeComponent)Helper.getBlockInstance(world, x+1, y, z)).canTubeConnectOnSide(world, x+1, y, z, Helper.dirXNeg)){
                 block.setBlockBounds(coremax, coremin, coremin, bordermax, coremax, coremax);
                 renderer.setRenderBoundsFromBlock(block);
-                renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.5F, 1.5F, 1.5F);
+                renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.0F, 1.0F, 1.0F);
                 joints++;
             }
         }
@@ -65,7 +65,7 @@ public class RenderHadronPipe extends BaseBlockRenderer {
                 if(!Helper.getBlockInstance(world, x, y-1, z).equals(ModBlocks.hadronSensor)){
                 block.setBlockBounds(coremin, bordermin, coremin, coremax, coremin, coremax);
                 renderer.setRenderBoundsFromBlock(block);
-                renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.5F, 1.5F, 1.5F);
+                renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.0F, 1.0F, 1.0F);
                 joints++;
                 }
             }
@@ -74,7 +74,7 @@ public class RenderHadronPipe extends BaseBlockRenderer {
             if(((PipeComponent)Helper.getBlockInstance(world, x, y+1, z)).canTubeConnectOnSide(world, x, y+1, z, Helper.dirYNeg)){
                 block.setBlockBounds(coremin, coremax, coremin, coremax, bordermax, coremax);
                 renderer.setRenderBoundsFromBlock(block);
-                renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.5F, 1.5F, 1.5F);
+                renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.0F, 1.0F, 1.0F);
                 joints++;
             }
         }
@@ -82,7 +82,7 @@ public class RenderHadronPipe extends BaseBlockRenderer {
             if(((PipeComponent)Helper.getBlockInstance(world, x, y, z-1)).canTubeConnectOnSide(world, x, y, z-1, Helper.dirZPos)){
                 block.setBlockBounds(coremin, coremin, bordermin, coremax, coremax, coremin);
                 renderer.setRenderBoundsFromBlock(block);
-                renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.5F, 1.5F, 1.5F);
+                renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.0F, 1.0F, 1.0F);
                 joints++;
             }
         }
@@ -90,7 +90,7 @@ public class RenderHadronPipe extends BaseBlockRenderer {
             if(((PipeComponent)Helper.getBlockInstance(world, x, y, z+1)).canTubeConnectOnSide(world, x, y, z+1, Helper.dirZNeg)){
                 block.setBlockBounds(coremin, coremin, coremax, coremax, coremax, bordermax);
                 renderer.setRenderBoundsFromBlock(block);
-                renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.5F, 1.5F, 1.5F);
+                renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.0F, 1.0F, 1.0F);
                 joints++;
             }
         }

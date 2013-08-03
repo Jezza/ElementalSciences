@@ -42,6 +42,9 @@ public class BlockHadronSensor extends BlockES implements PipeComponent {
 
     @Override
     public boolean canTubeConnectOnSide(IBlockAccess w, int x, int y, int z, int side) {
+        if(side == 1){
+            return false;
+        }
         return true;
     }
 
