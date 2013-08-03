@@ -6,10 +6,24 @@ The temporary changelog file for ES, until I work out a better system.
 |   * Fixed Bug             |
 |   + Added something       |
 |   - Removed something     |
+|   < Changed something     |
 |   > Something             |
 =============================
 
+---- v0.0.009 ----
+* Pipes no longer connect to the top of the Hadron Sensor.
+* Pipes no longer connect to the wrong side of the Emitter.
+* Fixed a chunk of bugs.
+< Linear Accelerator is now know as Linear Emitter.
+< Linear Emitter is now a directional block, EG, A Furnace.
+> Linear Accelerator will be back, but as something cooler.
+< Texture Change!!! :D
+- Removed my broken heart: Aang and Katara. <3
+Notes: I don't know if I'm happy with the new textures for the pipe..
+
 ---- v0.0.008 ----
++ Added the Hadron Sensor, later use.
++ Added Linear Accelerator.
 * Fixed a massive bug with the help of MinAlien.. :D
 * Fixed pipes.
 * Fixed another grav pad glitch.
@@ -37,16 +51,21 @@ Note: pipes are very buggy, and will get fixed... Eventually... Soon.... Probabl
 + Incremented the version number twice.
 + Decrement the version number once.
 + Began framework for something special for later on. :D
+- Removed Tooltips, because some things don't deserve them.
 
 ---- v0.0.004 ----
 + Incremented the version number.
-+ Pure Colour Blocks now shares an id, not the same ID as Chamber Walls though..
++ Added Chamber Controller, also share the same ID as the Chamber Walls.
+< Pure Colour Blocks now share an ID, not the same ID as Chamber Walls though..
 + Found out how fun it is to add Tool Tips, expect tons more. :)
-
 Notes: Can't really do too much with the same id of Chamber Walls and Pure Colour, I want to keep them separate. 
 
 ---- v0.0.003 ----
-+ Pure Colour, a feature for a later feature.. :P
++ Added Pure Colour, a feature for a later feature.. :P
++ Added Chamber Wall.
++ Added Strengthened Chamber Wall.
++ Added Reinforced Chamber Wall.
++ Added Strengthened Glass.
 + Changed most things about the Chamber Walls, they now share an id.
 - Removed an idea I was mucking around with.. Maybe for later? :P
 Notes: 
