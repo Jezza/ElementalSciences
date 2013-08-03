@@ -109,7 +109,7 @@ public class BlockPipe extends BlockES implements PipeComponent {
             if (((PipeComponent) Helper.getBlockInstance(world, x, y, z + 1)).canTubeConnectOnSide(world, x, y, z + 1, Helper.dirZNeg))
                 localCounter += 1;
         }
-        printDebug("Joints: " + String.valueOf(localCounter));
+        //printDebug("Joints: " + String.valueOf(localCounter));
         return localCounter;
     }
 
