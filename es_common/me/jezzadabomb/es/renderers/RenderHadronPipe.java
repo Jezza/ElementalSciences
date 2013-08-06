@@ -1,4 +1,4 @@
-package me.jezzadabomb.es.renders;
+package me.jezzadabomb.es.renderers;
 
 import me.jezzadabomb.es.blocks.BlockPipeComponent.PipeComponent;
 import me.jezzadabomb.es.blocks.ModBlocks;

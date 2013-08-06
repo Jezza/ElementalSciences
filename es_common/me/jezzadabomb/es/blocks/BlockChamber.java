@@ -2,12 +2,7 @@ package me.jezzadabomb.es.blocks;
 
 import java.util.List;
 
-import org.lwjgl.input.Keyboard;
-
 import me.jezzadabomb.es.items.ItemBlockChamber;
-import me.jezzadabomb.es.lib.Strings;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import me.jezzadabomb.es.lib.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -16,6 +11,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
+
+import org.lwjgl.input.Keyboard;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockChamber extends BlockES {
     public boolean setOutput = false;

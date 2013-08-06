@@ -2,17 +2,16 @@ package me.jezzadabomb.es.blocks;
 
 import java.util.List;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import me.jezzadabomb.es.ElementalSciences;
 import me.jezzadabomb.es.lib.Reference;
-import me.jezzadabomb.es.lib.Strings;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockPureColour extends BlockES {
 

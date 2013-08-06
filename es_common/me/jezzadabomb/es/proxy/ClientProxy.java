@@ -1,6 +1,6 @@
 package me.jezzadabomb.es.proxy;
 
-import me.jezzadabomb.es.renders.RenderHadronPipe;
+import me.jezzadabomb.es.renderers.RenderHadronPipe;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy {

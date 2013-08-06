@@ -3,19 +3,13 @@ package me.jezzadabomb.es.blocks;
 import me.jezzadabomb.es.blocks.BlockPipeComponent.PipeComponent;
 import me.jezzadabomb.es.core.helpers.Helper;
 import me.jezzadabomb.es.core.util.DamageSourceRad;
-import me.jezzadabomb.es.core.util.IconRegistry;
 import me.jezzadabomb.es.lib.BlockIds;
-import me.jezzadabomb.es.lib.Reference;
-import me.jezzadabomb.es.lib.Strings;
-import me.jezzadabomb.es.renders.RenderHadronPipe;
+import me.jezzadabomb.es.renderers.RenderHadronPipe;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -34,6 +28,10 @@ public class BlockPipe extends BlockES implements PipeComponent {
 
     public boolean debugTest() {
         return true;
+    }
+    
+    public boolean getDebugDamage(){
+        return false;
     }
 
     public float getMinX() {
@@ -62,8 +60,10 @@ public class BlockPipe extends BlockES implements PipeComponent {
 
     public void damageEntity(World world, int x, int y, int z, Entity entity){
         if (getJoints(world, x, y, z) < 2) {
-            entity.setFire(1);
-            entity.attackEntityFrom(DamageSourceRad.beta, 10F);
+            if(getDebugDamage()){
+                entity.setFire(1);
+                entity.attackEntityFrom(DamageSourceRad.beta, 10F);
+            }
         }
     }
 

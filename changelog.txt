@@ -1,7 +1,6 @@
 ---- Changelog ----
 The temporary changelog file for ES, until I work out a better system.
 
-
 ==== Key as of v0.0.006: ====
 |   * Fixed Bug             |
 |   + Added something       |
@@ -9,6 +8,9 @@ The temporary changelog file for ES, until I work out a better system.
 |   < Changed something     |
 |   > Something             |
 =============================
+
+---- v0.0.010 ----
+< GLASS NOW HAS CONNECTED TEXUTRES! Thanks to mDiyo and fuj1n! :)
 
 ---- v0.0.009 ----
 * Pipes no longer connect to the top of the Hadron Sensor.

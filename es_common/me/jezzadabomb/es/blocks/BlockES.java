@@ -1,20 +1,12 @@
 package me.jezzadabomb.es.blocks;
 
 import me.jezzadabomb.es.ElementalSciences;
-import me.jezzadabomb.es.tileentity.TileES;
 import me.jezzadabomb.es.core.util.IconRegistry;
 import me.jezzadabomb.es.lib.Reference;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
-import net.minecraft.util.MathHelper;
-import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

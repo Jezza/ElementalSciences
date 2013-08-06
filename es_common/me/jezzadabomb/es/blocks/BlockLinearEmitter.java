@@ -1,20 +1,16 @@
 package me.jezzadabomb.es.blocks;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import me.jezzadabomb.es.blocks.BlockPipeComponent.PipeComponent;
 import me.jezzadabomb.es.lib.Reference;
 import me.jezzadabomb.es.tileentity.TileLinearEmitter;
-import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockLinearEmitter extends BlockESContainer implements PipeComponent {
 
