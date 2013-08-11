@@ -1,9 +1,10 @@
-package me.jezzadabomb.es.blocks;
+package me.jezzadabomb.es.api;
 
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import me.jezzadabomb.es.blocks.BlockES;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
@@ -16,8 +17,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 public abstract class BlockPadBase extends BlockES {
     private String pressurePlateIconName;
 
-    protected BlockPadBase(int par1, Material par3Material) {
-        super(par1, par3Material);
+    protected BlockPadBase(int par1, Material par3Material, String name) {
+        super(par1, par3Material, name);
     }
 
     /**
@@ -67,7 +68,7 @@ public abstract class BlockPadBase extends BlockES {
     public int getMobilityFlag() {
         return 2;
     }
-
+    @SuppressWarnings("rawtypes")
     protected Entity getEntity(World world, int x, int y, int z) {
         List list = null;
         list = world.getEntitiesWithinAABBExcludingEntity((Entity) null, this.getSensitiveAABB(x, y, z));

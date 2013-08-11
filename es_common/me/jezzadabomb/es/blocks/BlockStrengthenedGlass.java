@@ -15,12 +15,11 @@ public class BlockStrengthenedGlass extends BlockES {
     public int BlockID;
     public String type = "glass/";
 
-    public BlockStrengthenedGlass(int BlockID, String BlockName) {
-        super(BlockID, Material.glass);
+    public BlockStrengthenedGlass(int BlockID, String name) {
+        super(BlockID, Material.glass, name);
         setHardness(4.0f);
         setResistance(5.0f);
         setStepSound(soundGlassFootstep);
-        setUnlocalizedName(BlockName);
         this.BlockID = BlockID;
     }
 

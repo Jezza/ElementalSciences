@@ -7,11 +7,13 @@ import net.minecraft.util.Icon;
 public final class IconRegistry {
     
     public static Icon colliderPipe_joint;
+    public static Icon powerConduit_joint;
 
     public static final IconRegistry instance = new IconRegistry();
 
     public void loadAllBlocks(IconRegister register){
         colliderPipe_joint = loadBlock(register, "colliderPipe_joint");
+        powerConduit_joint = loadBlock(register, "powerConduit_joint");
     }
 
     private Icon loadBlock(IconRegister register, String name){

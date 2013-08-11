@@ -2,53 +2,38 @@ package me.jezzadabomb.es.blocks;
 
 import java.util.List;
 
-import me.jezzadabomb.es.items.ItemBlockChamber;
 import me.jezzadabomb.es.lib.Reference;
+import me.jezzadabomb.es.lib.Strings;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
-import net.minecraft.world.World;
-
-import org.lwjgl.input.Keyboard;
-
+import net.minecraft.world.IBlockAccess;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockChamber extends BlockES {
     public boolean setOutput = false;
 
+    public int Tmeta = 4;
+    
+    public Icon[] cticons = new Icon[Tmeta];
+    
     Icon blockIcon;
 
     public BlockChamber(int BlockID, String name) {
-        super(BlockID, Material.anvil);
+        super(BlockID, Material.anvil, name);
         setHardness(5.0f);
         setResistance(20.0f);
         setStepSound(soundStoneFootstep);
-        setUnlocalizedName(name);
     }
-
+    
     public Icon[] icons;
 
     @SideOnly(Side.CLIENT)
     public Icon getIcon(int side, int meta) {
-        return (meta == 3) ? (side == 1) ? this.icons[meta % this.icons.length] : this.icons[0 % this.icons.length] : this.icons[meta % this.icons.length];
-    }
-
-    @Override
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9) {
-        if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
-            return false;
-        }
-
-        if (world.getBlockMetadata(x, y, z) == 3) {
-
-        } else {
-            return false;
-        }
-        return true;
+        return this.cticons[meta];
     }
 
     @Override
@@ -58,18 +43,22 @@ public class BlockChamber extends BlockES {
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
     public void getSubBlocks(int id, CreativeTabs creativeTab, List list) {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < Tmeta; i++) {
             list.add(new ItemStack(id, 1, i));
         }
     }
 
+    @Override
+    public Icon getBlockTexture(IBlockAccess w, int x, int y, int z, int par5) {
+        return cticons[w.getBlockMetadata(x, y, z)];
+    }
+    
+    
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconReg) {
-        icons = new Icon[4];
-        for (int i = 0; i < icons.length; i++) {
-            // System.out.println(Reference.MOD_ID.toLowerCase() + ":" +
-            // (this.getUnlocalizedName().replace("tile.", "")) + i );
-            icons[i] = iconReg.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + (this.getUnlocalizedName().replace("tile.", "")) + "_" + (ItemBlockChamber.chamberNames[i]));
-        }
+        cticons[0] = iconReg.registerIcon(Reference.MOD_ID + ":ct/cw/" + Strings.CHAMBER_WALL);
+        cticons[1] = iconReg.registerIcon(Reference.MOD_ID + ":ct/scw/" + Strings.ST_CHAMBER_WALL);
+        cticons[2] = iconReg.registerIcon(Reference.MOD_ID + ":ct/rcw/" + Strings.RE_CHAMBER_WALL);
+        cticons[3] = iconReg.registerIcon(Reference.MOD_ID + ":ct/casing/" + Strings.CHAMBER_CASING);
     }
 }

@@ -2,6 +2,8 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties version="1.0">
 	<comment>English (en_US) Localization File</comment>
+	<entry key="itemGroup.ElementalSciences.machines">Elemental Sciences: Machines</entry>
+	<entry key="itemGroup.ElementalSciences.misc">Elemental Sciences: Misc</entry>
 	<entry key="tile.pureColour.white.name">Pure White</entry>
 	<entry key="tile.pureColour.orange.name">Pure Orange</entry>
 	<entry key="tile.pureColour.magenta.name">Pure Magenta</entry>
@@ -19,13 +21,22 @@
 	<entry key="tile.pureColour.red.name">Pure Red</entry>
 	<entry key="tile.pureColour.black.name">Pure Black</entry>
 	<entry key="tile.strengthenedGlass.name">Strengthened Glass</entry>
-	<entry key="tile.chamberBlock.de.name">Chamber Wall</entry>
-	<entry key="tile.chamberBlock.st.name">Strengthened Chamber Wall</entry>
-	<entry key="tile.chamberBlock.re.name">Reinforced Chamber Wall</entry>
-	<entry key="tile.chamberBlock.con.name">Chamber Controller</entry>
+	<entry key="tile.chamberBlock.de.name">Chamber Frame</entry>
+	<entry key="tile.chamberBlock.st.name">Strengthened Chamber Frame</entry>
+	<entry key="tile.chamberBlock.re.name">Reinforced Chamber Frame</entry>
+    <entry key="tile.chamberBlock.case.name">Chamber Casing</entry>
+    <entry key="tile.chamberBlockDummy.de.name">Chamber Frame Dummy</entry>
+	<entry key="tile.chamberBlockDummy.st.name">Strengthened Chamber Frame Dummy</entry>
+	<entry key="tile.chamberBlockDummy.re.name">Reinforced Chamber Frame Dummy</entry>
+    <entry key="tile.chamberBlockDummy.case.name">Chamber Casing Dummy</entry>
 	<entry key="tile.gravCompressor.name">Gravity Field Compressor</entry>
 	<entry key="tile.colliderPipe.name">Hadron Collider Pipe</entry>
 	<entry key="tile.linearEmitter.name">Linear Emitter</entry>
 	<entry key="tile.hadronSensor.name">Hadron Sensor</entry>
+	<entry key="tile.laserEmitter.name">Laser Emitter</entry>
+	<entry key="tile.powerEmitter.name">Power Emitter</entry>
+	<entry key="tile.constructionPlate.name">Atomic Construction Plate</entry>
+	<entry key="tile.powerConduit.name">Power Conduit</entry>
+	<entry key="tile.storageChamber.name">Storage Chamber</entry>
 	<entry key="death.attack.beta">%1$s was horrifically slaughtered by beta radiation.</entry>
 </properties>

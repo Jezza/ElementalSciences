@@ -14,38 +14,32 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
-@Mod(modid=Reference.MOD_ID, name=Reference.MOD_NAME, version=Reference.VERSION)
+@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
 public class ElementalSciences {
-    // The instance of your mod that Forge uses.
+    
     @Instance(Reference.MOD_ID)
     public static ElementalSciences instance;
 
     @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
     public static CommonProxy proxy;
-    
-    public static CreativeTabs machineTab = new MachineTabES(CreativeTabs.getNextID(), Reference.MOD_ID);
-    public static CreativeTabs miscTab = new MiscTabES(CreativeTabs.getNextID(), Reference.MOD_ID);
-    
+
+    public static CreativeTabs machineTab = new MachineTabES(CreativeTabs.getNextID(), Reference.MOD_ID + ".machines");
+    public static CreativeTabs miscTab = new MiscTabES(CreativeTabs.getNextID(), Reference.MOD_ID + ".misc");
+
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        System.out.println("Loading Localizations.");
         LocalizationHandler.loadLanguages();
-        System.out.println("Finished Loading Localizations.");
         ModBlocks.init();
         proxy.runClientSide();
     }
-        
+
     @EventHandler
     public void load(FMLInitializationEvent event) {
         proxy.registerTileEntities();
-        LanguageRegistry.instance().addStringLocalization("itemGroup.ElementalSciences", "en_US", "Elemental Sciences");
     }
-        
+
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-                // Stub Method
     }
-           
 }

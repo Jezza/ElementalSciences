@@ -1,7 +1,7 @@
 ---- Changelog ----
 The temporary changelog file for ES, until I work out a better system.
 
-==== Key as of v0.0.006: ====
+==== Key as of v0.0.010: ====
 |   * Fixed Bug             |
 |   + Added something       |
 |   - Removed something     |
@@ -10,7 +10,19 @@ The temporary changelog file for ES, until I work out a better system.
 =============================
 
 ---- v0.0.010 ----
-< GLASS NOW HAS CONNECTED TEXUTRES! Thanks to mDiyo and fuj1n! :)
+< Strengthened Glass now has Connected Textures.
+< Chamber Wall now has Connected Textures.
+< Strengthened Chamber Wall now has Connected Textures.
+< Reinforced Chamber Wall now has Connected Textures.
+> Thanks to mDiyo and fuj1n for the hints with Connected Textures.
++ Added Creative Tab: Machines.
++ Added Creative Tab: Misc.
++ Added Chamber Casing.
+< Chamber Casing now has Connected Textures.
++ Added Laser Emitters.
+< Changed a lot of textures.
+
+- Removed a lot of unnecessary code.
 
 ---- v0.0.009 ----
 * Pipes no longer connect to the top of the Hadron Sensor.

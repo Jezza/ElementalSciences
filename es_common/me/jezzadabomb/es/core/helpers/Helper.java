@@ -48,8 +48,12 @@ public final class Helper {
     public final static int SETBLOCK_UPDATE = 2;
 
     private Helper(){}
-
+    
     public static Block getBlockInstance(IBlockAccess w, int x, int y, int z){
+        return Block.blocksList[w.getBlockId(x, y, z)];
+    }
+    
+    public static Block getBlockInstance(World w, int x, int y, int z){
         return Block.blocksList[w.getBlockId(x, y, z)];
     }
 

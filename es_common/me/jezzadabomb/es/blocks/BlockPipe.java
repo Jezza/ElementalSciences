@@ -1,6 +1,6 @@
 package me.jezzadabomb.es.blocks;
 
-import me.jezzadabomb.es.blocks.BlockPipeComponent.PipeComponent;
+import me.jezzadabomb.es.api.BlockPipeComponent.PipeComponent;
 import me.jezzadabomb.es.core.helpers.Helper;
 import me.jezzadabomb.es.core.util.DamageSourceRad;
 import me.jezzadabomb.es.lib.BlockIds;
@@ -19,18 +19,17 @@ public class BlockPipe extends BlockES implements PipeComponent {
     public double pipeWidth;
 
     public BlockPipe(int id, String name, double pipeWidth) {
-        super(id, Material.anvil);
+        super(id, Material.anvil, name);
         this.blockID = id;
         this.pipeWidth = pipeWidth;
         setBlockBounds(getMinX(), getMinZ(), getMinY(), getMaxX(), getMaxZ(), getMaxY());
-        setUnlocalizedName(name);
     }
-
+    
     public boolean debugTest() {
         return true;
     }
-    
-    public boolean getDebugDamage(){
+
+    public boolean getDebugDamage() {
         return false;
     }
 
@@ -58,9 +57,9 @@ public class BlockPipe extends BlockES implements PipeComponent {
         return 1f - getMinY();
     }
 
-    public void damageEntity(World world, int x, int y, int z, Entity entity){
+    public void damageEntity(World world, int x, int y, int z, Entity entity) {
         if (getJoints(world, x, y, z) < 2) {
-            if(getDebugDamage()){
+            if (getDebugDamage()) {
                 entity.setFire(1);
                 entity.attackEntityFrom(DamageSourceRad.beta, 10F);
             }
@@ -74,15 +73,15 @@ public class BlockPipe extends BlockES implements PipeComponent {
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9) {
         damageEntity(world, x, y, z, player);
-        printDebug("Min X: " + getMinX());
-        printDebug("Max X: " + getMaxX());
-        printDebug(String.valueOf(par6));
-        printDebug(String.valueOf(par7));
-        printDebug(String.valueOf(par8));
-        printDebug(String.valueOf(par9));
+        log.print("Min X: " + getMinX(), 7);
+        log.print("Max X: " + getMaxX(), 7);
+        log.print(String.valueOf(par6), 7);
+        log.print(String.valueOf(par7), 7);
+        log.print(String.valueOf(par8), 7);
+        log.print(String.valueOf(par9), 7);
         return false;
     }
-
+    
     public int getJoints(World world, int x, int y, int z) {
         int localCounter = 0;
         if (Block.blocksList[world.getBlockId(x - 1, y, z)] instanceof PipeComponent) {
@@ -109,8 +108,41 @@ public class BlockPipe extends BlockES implements PipeComponent {
             if (((PipeComponent) Helper.getBlockInstance(world, x, y, z + 1)).canTubeConnectOnSide(world, x, y, z + 1, Helper.dirZNeg))
                 localCounter += 1;
         }
-        //printDebug("Joints: " + String.valueOf(localCounter));
         return localCounter;
+    }
+
+    public int getJoints(IBlockAccess w, int x, int y, int z) {
+        int localCounter = 0;
+        if (Block.blocksList[w.getBlockId(x - 1, y, z)] instanceof PipeComponent) {
+            if (((PipeComponent) Helper.getBlockInstance(w, x - 1, y, z)).canTubeConnectOnSide(w, x - 1, y, z, Helper.dirXPos))
+                localCounter += 1;
+        }
+        if (Block.blocksList[w.getBlockId(x + 1, y, z)] instanceof PipeComponent) {
+            if (((PipeComponent) Helper.getBlockInstance(w, x + 1, y, z)).canTubeConnectOnSide(w, x + 1, y, z, Helper.dirXNeg))
+                localCounter += 1;
+        }
+        if (Block.blocksList[w.getBlockId(x, y - 1, z)] instanceof PipeComponent) {
+            if (((PipeComponent) Helper.getBlockInstance(w, x, y - 1, z)).canTubeConnectOnSide(w, x, y - 1, z, Helper.dirYPos))
+                localCounter += 1;
+        }
+        if (Block.blocksList[w.getBlockId(x, y + 1, z)] instanceof PipeComponent) {
+            if (((PipeComponent) Helper.getBlockInstance(w, x, y + 1, z)).canTubeConnectOnSide(w, x, y + 1, z, Helper.dirYNeg))
+                localCounter += 1;
+        }
+        if (Block.blocksList[w.getBlockId(x, y, z - 1)] instanceof PipeComponent) {
+            if (((PipeComponent) Helper.getBlockInstance(w, x, y, z - 1)).canTubeConnectOnSide(w, x, y, z - 1, Helper.dirZPos))
+                localCounter += 1;
+        }
+        if (Block.blocksList[w.getBlockId(x, y, z + 1)] instanceof PipeComponent) {
+            if (((PipeComponent) Helper.getBlockInstance(w, x, y, z + 1)).canTubeConnectOnSide(w, x, y, z + 1, Helper.dirZNeg))
+                localCounter += 1;
+        }
+        return localCounter;
+    }
+    
+    @Override
+    public boolean canTubeConnectOnSide(IBlockAccess w, int x, int y, int z, int side) {
+        return true;
     }
 
     @Override
@@ -148,11 +180,6 @@ public class BlockPipe extends BlockES implements PipeComponent {
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World w, int x, int y, int z) {
         this.setBlockBoundsBasedOnState(w, x, y, z);
         return AxisAlignedBB.getAABBPool().getAABB((double) x + this.minX, (double) y + this.minY, (double) z + this.minZ, (double) x + this.maxX, (double) y + this.maxY, (double) z + this.maxZ);
-    }
-
-    @Override
-    public boolean canTubeConnectOnSide(IBlockAccess w, int x, int y, int z, int side) {
-        return true;
     }
 
     @Override
@@ -205,7 +232,7 @@ public class BlockPipe extends BlockES implements PipeComponent {
         if (getYNeg(world, x, y, z, this.blockID)) {
             localCounter += 1;
         }
-        printDebug(String.valueOf("ZPOS: " + localCounter));
+        log.print(String.valueOf("ZPOS: " + localCounter), 7);
         return localCounter;
     }
 
@@ -230,7 +257,7 @@ public class BlockPipe extends BlockES implements PipeComponent {
         if (getYNeg(world, x, y, z, this.blockID)) {
             localCounter += 1;
         }
-        printDebug(String.valueOf("ZNEG: " + localCounter));
+        log.print(String.valueOf("ZNEG: " + localCounter), 7);
         return localCounter;
     }
 
@@ -255,7 +282,7 @@ public class BlockPipe extends BlockES implements PipeComponent {
         if (getYNeg(world, x, y, z, this.blockID)) {
             localCounter += 1;
         }
-        printDebug(String.valueOf("XPOS: " + localCounter));
+        log.print(String.valueOf("XPOS: " + localCounter), 7);
         return localCounter;
     }
 
@@ -280,7 +307,7 @@ public class BlockPipe extends BlockES implements PipeComponent {
         if (getYNeg(world, x, y, z, this.blockID)) {
             localCounter += 1;
         }
-        printDebug(String.valueOf("XNEG: " + localCounter));
+        log.print(String.valueOf("XNEG: " + localCounter), 7);
         return localCounter;
     }
 
@@ -305,7 +332,7 @@ public class BlockPipe extends BlockES implements PipeComponent {
         if (getYNeg(world, x, y, z, this.blockID)) {
             localCounter += 1;
         }
-        printDebug(String.valueOf("YPOS: " + localCounter));
+        log.print(String.valueOf("YPOS: " + localCounter), 7);
         return localCounter;
     }
 
@@ -330,7 +357,7 @@ public class BlockPipe extends BlockES implements PipeComponent {
         if (getYNeg(world, x, y, z, this.blockID)) {
             localCounter += 1;
         }
-        printDebug(String.valueOf("YNEG: " + localCounter));
+        log.print(String.valueOf("YNEG: " + localCounter), 7);
         return localCounter;
     }
 
@@ -396,7 +423,7 @@ public class BlockPipe extends BlockES implements PipeComponent {
         if (compareID(world, x, y - 1, z, this.blockID)) {
             localCounter += checkYNeg(world, x, y - 1, z, this.blockID) + 1;
         }
-        printDebug("checking: " + String.valueOf(localCounter));
+        log.print("checking: " + String.valueOf(localCounter), 7);
         if (localCounter < maxLink()) {
             if (debugTest()) {
                 return true;
@@ -439,7 +466,7 @@ public class BlockPipe extends BlockES implements PipeComponent {
     }
 
     @Override
-    public PipeComponentType getIonComponentType() {
+    public PipeComponentType getPipeComponentType() {
         return PipeComponentType.TUBE;
     }
 }

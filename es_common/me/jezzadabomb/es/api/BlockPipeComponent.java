@@ -1,4 +1,4 @@
-package me.jezzadabomb.es.blocks;
+package me.jezzadabomb.es.api;
 
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -18,15 +18,15 @@ public class BlockPipeComponent {
         }
 
         /** What type of component this IonNetComponent is. */
-        public PipeComponentType getIonComponentType();
+        public PipeComponentType getPipeComponentType();
         /** Whether an ion tube can connect on a specific side or not. */
         public boolean canTubeConnectOnSide(IBlockAccess w, int x, int y, int z, int side);
     }
-    public interface IIonNetSource extends PipeComponent{
+    public interface IPipeNetSource extends PipeComponent{
         /** Request ions from a block. Return as many ions as possible, up to the amount requested. */
-        public int requestIons(World w, int x, int y, int z, int ions);
+        public int requestParticles(World w, int x, int y, int z, int particles);
         /** Put ions back after a request. It's related to StaticIonNetRouter's design. */
-        public void giveBack(World w, int x, int y, int z, int ions);
+        public void giveBack(World w, int x, int y, int z, int particles);
         /** How full this component is (0.0F - 1.0F). StaticIonNetRouter will always get ions from the fullest component available first. */
         public float getFill(World w, int x, int y, int z);
     }

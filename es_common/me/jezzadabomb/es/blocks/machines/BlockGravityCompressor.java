@@ -1,9 +1,10 @@
-package me.jezzadabomb.es.blocks;
+package me.jezzadabomb.es.blocks.machines;
 
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import me.jezzadabomb.es.api.BlockPadBase;
 import me.jezzadabomb.es.lib.Reference;
 import me.jezzadabomb.es.lib.Strings;
 import net.minecraft.block.material.Material;
@@ -23,7 +24,7 @@ public class BlockGravityCompressor extends BlockPadBase {
     public Icon walls;
     public Icon top;
     public Icon bottom;
-
+    
     public double MaxXVel = 3;
     public double MaxZVel = 3;
     public double MaxYVel = 1;
@@ -32,9 +33,8 @@ public class BlockGravityCompressor extends BlockPadBase {
     public double MinYVel = -0.5;
 
     public BlockGravityCompressor(int id, String name) {
-        super(id, Material.anvil);
+        super(id, Material.anvil, name);
         setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.25F, 1.0F);
-        setUnlocalizedName(name);
     }
 
     @Override
@@ -85,15 +85,15 @@ public class BlockGravityCompressor extends BlockPadBase {
                 double motionY = entity.motionY;
                 double motionX = entity.motionX;
                 double motionZ = entity.motionZ;
-                printDebug(String.valueOf(entity.motionX));
-                printDebug(String.valueOf(entity.motionY));
-                printDebug(String.valueOf(entity.motionZ));
-                printDebug(String.valueOf(MaxYVel));
-                printDebug(String.valueOf(MaxXVel));
-                printDebug(String.valueOf(MaxZVel));
-                printDebug(String.valueOf(MinYVel));
-                printDebug(String.valueOf(MinXVel));
-                printDebug(String.valueOf(MinZVel));
+                log.print(String.valueOf(entity.motionX),4);
+                log.print(String.valueOf(entity.motionY),4);
+                log.print(String.valueOf(entity.motionZ),4);
+                log.print(String.valueOf(MaxYVel),4);
+                log.print(String.valueOf(MaxXVel),4);
+                log.print(String.valueOf(MaxZVel),4);
+                log.print(String.valueOf(MinYVel),4);
+                log.print(String.valueOf(MinXVel),4);
+                log.print(String.valueOf(MinZVel),4);
 
                 if (motionX > MaxXVel) {
                     entity.setVelocity(MaxXVel, motionY, motionZ);
@@ -114,7 +114,7 @@ public class BlockGravityCompressor extends BlockPadBase {
                 }
 
                 if (motionY < 0) {
-                    System.out.println("Y Motion < 0");
+                    log.print("Y Motion < 0",4);
                     if (motionY < MinYVel) {
                         entity.setVelocity(motionX, MinYVel, motionZ);
                         entity.velocityChanged = true;
@@ -122,7 +122,7 @@ public class BlockGravityCompressor extends BlockPadBase {
                         entity.setVelocity(motionX, motionY + 0.2, motionZ);
                     }
                 } else if (motionY > 0) {
-                    System.out.println("Y Motion > 0");
+                    log.print("Y Motion > 0",4);
                     if (motionY > MaxYVel) {
                         entity.setVelocity(motionX, MaxYVel, motionZ);
                         entity.velocityChanged = true;
@@ -130,7 +130,7 @@ public class BlockGravityCompressor extends BlockPadBase {
                         entity.setVelocity(motionX, motionY + 0.3, motionZ);
                     }
                 } else {
-                    System.out.println("Y Motion is 0");
+                    log.print("Y Motion is 0",4);
                     entity.setVelocity(motionX, motionY + 0.2, motionZ);
                 }
             }
@@ -164,11 +164,5 @@ public class BlockGravityCompressor extends BlockPadBase {
             double d3 = -height;
             world.spawnParticle("portal", d0, d1, d2, 0, d3, 0);
         }
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int getRenderBlockPass() {
-        return 1;
     }
 }

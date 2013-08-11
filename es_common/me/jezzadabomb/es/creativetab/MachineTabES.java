@@ -8,7 +8,6 @@ import net.minecraft.creativetab.CreativeTabs;
 public class MachineTabES extends CreativeTabs {
 
     public MachineTabES(int par1, String par2Str) {
-
         super(par1, par2Str);
     }
 

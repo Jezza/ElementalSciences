@@ -1,6 +1,7 @@
-package me.jezzadabomb.es.blocks;
+package me.jezzadabomb.es.blocks.machines;
 
-import me.jezzadabomb.es.blocks.BlockPipeComponent.PipeComponent;
+import me.jezzadabomb.es.api.BlockPipeComponent.PipeComponent;
+import me.jezzadabomb.es.blocks.BlockESContainer;
 import me.jezzadabomb.es.lib.Reference;
 import me.jezzadabomb.es.tileentity.TileLinearEmitter;
 import net.minecraft.block.material.Material;
@@ -18,39 +19,16 @@ public class BlockLinearEmitter extends BlockESContainer implements PipeComponen
     public Icon other;
     
     public BlockLinearEmitter(int id, String name) {
-        super(id, Material.anvil);
-        setUnlocalizedName(name);
+        super(id, Material.anvil,name);
     }
     
     @Override
     public Icon getIcon(int side, int metadata)
     {
-        int facing = (metadata & MASK_DIR);
-        if(side == getSideFromFacing(facing)){
+        if(side == metadata){
             return face;
         }
         return other;
-    }
-    
-    private static int getSideFromFacing(int facing)
-    {
-        switch(facing)
-        {
-        case META_DIR_WEST:
-            return 4;
-            
-        case META_DIR_EAST:
-            return 5;
-            
-        case META_DIR_NORTH:
-            return 2;
-            
-        case META_DIR_SOUTH:
-            return 3;
-            
-        default:
-            return 4;
-        }
     }
     
     @Override
@@ -61,14 +39,14 @@ public class BlockLinearEmitter extends BlockESContainer implements PipeComponen
     }
     
     @Override
-    public PipeComponentType getIonComponentType() {
+    public PipeComponentType getPipeComponentType() {
         return PipeComponentType.SOURCE;
     }
 
     @Override
     public boolean canTubeConnectOnSide(IBlockAccess w, int x, int y, int z, int side) {
-        int facing = (w.getBlockMetadata(x, y, z) & MASK_DIR);
-        if(side == getSideFromFacing(facing)){
+        int metadata = w.getBlockMetadata(x, y, z);
+        if(side == metadata){
             return true;
         }
         return false;

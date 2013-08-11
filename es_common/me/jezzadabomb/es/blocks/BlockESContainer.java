@@ -1,7 +1,5 @@
 package me.jezzadabomb.es.blocks;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import me.jezzadabomb.es.ElementalSciences;
 import me.jezzadabomb.es.lib.Reference;
 import net.minecraft.block.BlockContainer;
@@ -11,38 +9,43 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public abstract class BlockESContainer extends BlockContainer{
-
-    public static final int MASK_DIR = 0x00000007;
-    public static final int META_DIR_NORTH = 0x00000001;
-    public static final int META_DIR_SOUTH = 0x00000002;
-    public static final int META_DIR_EAST = 0x00000003;
-    public static final int META_DIR_WEST = 0x00000000;
     
-    protected BlockESContainer(int par1, Material par2Material) {
+    protected BlockESContainer(int par1, Material par2Material, String name) {
         super(par1, par2Material);
+        setUnlocalizedName(name);
         setCreativeTab(ElementalSciences.machineTab);
     }
     
     @Override
     public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack itemStack)
     {
-        int metadata = 0;
-        int facing = META_DIR_WEST;
-        
-        int dir = MathHelper.floor_double((double)(entity.rotationYaw * 4f / 360f) + 0.5) & 3;
-        if(dir == 0)
-            facing = META_DIR_NORTH;
-        if(dir == 1)
-            facing = META_DIR_EAST;
-        if(dir == 2)
-            facing = META_DIR_SOUTH;
-        if(dir == 3)
-            facing = META_DIR_WEST;
-        
-        metadata |= facing;
-        world.setBlockMetadataWithNotify(x, y, z, metadata, 2);
+        int l = determineOrientation(world, x, y, z, entity);
+        world.setBlockMetadataWithNotify(x, y, z, l, 2);
+    }
+    
+    public static int determineOrientation(World par0World, int par1, int par2, int par3, EntityLivingBase par4EntityLivingBase)
+    {
+        if (MathHelper.abs((float)par4EntityLivingBase.posX - (float)par1) < 2.0F && MathHelper.abs((float)par4EntityLivingBase.posZ - (float)par3) < 2.0F)
+        {
+            double d0 = par4EntityLivingBase.posY + 1.82D - (double)par4EntityLivingBase.yOffset;
+
+            if (d0 - (double)par2 > 2.0D)
+            {
+                return 1;
+            }
+
+            if ((double)par2 - d0 > 0.0D)
+            {
+                return 0;
+            }
+        }
+
+        int l = MathHelper.floor_double((double)(par4EntityLivingBase.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+        return l == 0 ? 2 : (l == 1 ? 5 : (l == 2 ? 3 : (l == 3 ? 4 : 0)));
     }
     
     @Override

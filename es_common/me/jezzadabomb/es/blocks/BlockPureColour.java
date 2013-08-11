@@ -18,10 +18,9 @@ public class BlockPureColour extends BlockES {
     public int BlockID;
 
     public BlockPureColour(int id, String name) {
-        super(id, Material.rock);
+        super(id, Material.rock, name);
         setHardness(0.1f);
         this.BlockID = id;
-        this.setUnlocalizedName(name);
         setCreativeTab(ElementalSciences.miscTab);
     }
 

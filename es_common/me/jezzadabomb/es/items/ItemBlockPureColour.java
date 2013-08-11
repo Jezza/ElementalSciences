@@ -2,12 +2,11 @@ package me.jezzadabomb.es.items;
 
 import java.util.List;
 
-import org.lwjgl.input.Keyboard;
-
 import me.jezzadabomb.es.blocks.BlockPureColour;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+
+import org.lwjgl.input.Keyboard;
 
 public class ItemBlockPureColour extends ItemBlockES {
 
