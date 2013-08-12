@@ -125,16 +125,16 @@ public class TileStorageChamber extends TileES {
     }
 
     public boolean checkIfProperlyFormed() {
-
+        
         for (int x = -1; x <= 1; ++x) {
             for (int z = -1; z <= 1; ++z) {
                 for (int y = -1; y <= 1; ++y) {
                     int x2 = xCoord + x;
                     int z2 = zCoord + z;
                     int y2 = yCoord + y;
-
                     int blockId = worldObj.getBlockId(x2, y2, z2);
                     int meta = worldObj.getBlockMetadata(x2, y2, z2);
+                    
                     System.out.println(x);
                     System.out.println(z);
                     System.out.println(y);

@@ -1,5 +1,6 @@
 package me.jezzadabomb.es.tileentity;
 
+import me.jezzadabomb.es.core.util.ESLogger;
 import me.jezzadabomb.es.lib.Strings;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -8,6 +9,8 @@ import net.minecraftforge.common.ForgeDirection;
 
 public class TileES extends TileEntity {
 
+    protected ESLogger log = new ESLogger();
+    
     protected ForgeDirection orientation;
     protected byte state;
     protected String customName;
@@ -19,6 +22,10 @@ public class TileES extends TileEntity {
         customName = "";
     }
 
+    public void printDebug(String msg){
+        log.print(msg, 4);
+    }
+    
     public ForgeDirection getOrientation() {
 
         return orientation;
