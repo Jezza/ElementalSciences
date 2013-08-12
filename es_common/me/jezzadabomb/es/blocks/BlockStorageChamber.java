@@ -23,6 +23,7 @@ public class BlockStorageChamber extends BlockESContainer implements PowerCompon
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
     {
         TileStorageChamber core = (TileStorageChamber)world.getBlockTileEntity(x, y, z);
+        
         core.convertDummies();
         return true;
     }

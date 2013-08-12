@@ -54,6 +54,7 @@ public class BlockChamberDummy extends BlockESContainer {
         
         if(dummy != null && dummy.getCore() != null)
             dummy.getCore().invalidateMultiblock();
+        
         super.breakBlock(world, x, y, z, par5, par6);
     }
     

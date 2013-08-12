@@ -11,18 +11,23 @@ The temporary changelog file for ES, until I work out a better system.
 
 ---- v0.0.010 ----
 < Strengthened Glass now has Connected Textures.
-< Chamber Wall now has Connected Textures.
-< Strengthened Chamber Wall now has Connected Textures.
-< Reinforced Chamber Wall now has Connected Textures.
+< Chamber Wall now has Connected Textures when formed into a storage chamber.
+< Strengthened Chamber Wall now has Connected Textures when formed into a storage chamber.
+< Reinforced Chamber Wall now has Connected Textures when formed into a storage chamber.
 > Thanks to mDiyo and fuj1n for the hints with Connected Textures.
 + Added Creative Tab: Machines.
 + Added Creative Tab: Misc.
 + Added Chamber Casing.
 < Chamber Casing now has Connected Textures.
-+ Added Laser Emitters.
++ Added Laser Emitters. (Pretty much code from buildcraft, for now :3)
++ Added Power Conduits.
++ Added Power Emitters, used for the multiblock, So I'll remove this from the creative soon.
++ Added Storage Chamber. Think ZPM, but a multiblock. See if you can work it out. :P
 < Changed a lot of textures.
+< Power Emitter and Linear Emitter are now properly directional, like a piston.
 
-- Removed a lot of unnecessary code.
+Notes:  Started mucking around with TileEntities, yay! :D
+        Expect a use for power conduits and Hadron Collider Pipes soon. :P
 
 ---- v0.0.009 ----
 * Pipes no longer connect to the top of the Hadron Sensor.
