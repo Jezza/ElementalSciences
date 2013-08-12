@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import me.jezzadabomb.es.api.BlockPadBase;
+import me.jezzadabomb.es.common.BlockPadBase;
 import me.jezzadabomb.es.lib.Reference;
 import me.jezzadabomb.es.lib.Strings;
 import net.minecraft.block.material.Material;

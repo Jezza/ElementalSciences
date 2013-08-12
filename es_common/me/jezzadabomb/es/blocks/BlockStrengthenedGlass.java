@@ -17,7 +17,7 @@ public class BlockStrengthenedGlass extends BlockES {
 
     public BlockStrengthenedGlass(int BlockID, String name) {
         super(BlockID, Material.glass, name);
-        setHardness(4.0f);
+        setHardness(0.5f);
         setResistance(5.0f);
         setStepSound(soundGlassFootstep);
         this.BlockID = BlockID;

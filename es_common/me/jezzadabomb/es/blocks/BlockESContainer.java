@@ -1,6 +1,7 @@
 package me.jezzadabomb.es.blocks;
 
 import me.jezzadabomb.es.ElementalSciences;
+import me.jezzadabomb.es.core.util.ESLogger;
 import me.jezzadabomb.es.lib.Reference;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -14,10 +15,17 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public abstract class BlockESContainer extends BlockContainer{
     
+    protected ESLogger log = new ESLogger();
+    
     protected BlockESContainer(int par1, Material par2Material, String name) {
         super(par1, par2Material);
         setUnlocalizedName(name);
+        setHardness(0.5f);
         setCreativeTab(ElementalSciences.machineTab);
+    }
+    
+    public void printDebug(String msg){
+        log.print(msg, 4);
     }
     
     @Override

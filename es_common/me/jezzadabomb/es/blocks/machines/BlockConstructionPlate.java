@@ -1,5 +1,6 @@
-package me.jezzadabomb.es.blocks;
+package me.jezzadabomb.es.blocks.machines;
 
+import me.jezzadabomb.es.blocks.BlockESContainer;
 import me.jezzadabomb.es.lib.Reference;
 import me.jezzadabomb.es.lib.Strings;
 import net.minecraft.block.material.Material;

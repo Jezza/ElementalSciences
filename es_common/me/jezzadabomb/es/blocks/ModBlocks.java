@@ -1,8 +1,11 @@
 package me.jezzadabomb.es.blocks;
 
+import me.jezzadabomb.es.blocks.machines.BlockConstructionPlate;
 import me.jezzadabomb.es.blocks.machines.BlockGravityCompressor;
 import me.jezzadabomb.es.blocks.machines.BlockHadronSensor;
+import me.jezzadabomb.es.blocks.machines.BlockLaserEmitter;
 import me.jezzadabomb.es.blocks.machines.BlockLinearEmitter;
+import me.jezzadabomb.es.blocks.machines.BlockStorageChamber;
 import me.jezzadabomb.es.items.ItemBlockChamber;
 import me.jezzadabomb.es.items.ItemBlockPureColour;
 import me.jezzadabomb.es.lib.BlockIds;

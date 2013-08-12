@@ -1,4 +1,4 @@
-package me.jezzadabomb.es.api;
+package me.jezzadabomb.es.common;
 
 import me.jezzadabomb.es.blocks.BlockES;
 import net.minecraft.block.material.Material;

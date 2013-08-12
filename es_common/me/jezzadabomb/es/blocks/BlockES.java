@@ -20,6 +20,7 @@ public abstract class BlockES extends Block {
     
     public BlockES(int id, Material material, String name) {
         super(id, material);
+        setHardness(0.5f);
         setUnlocalizedName(name);
         setCreativeTab(ElementalSciences.machineTab);
     }

@@ -1,6 +1,9 @@
 package me.jezzadabomb.es.blocks;
 
-import me.jezzadabomb.es.api.BlockPowerComponent.PowerComponent;
+import java.util.Random;
+
+import me.jezzadabomb.es.common.BlockPowerComponent.PowerComponent;
+import me.jezzadabomb.es.lib.BlockIds;
 import me.jezzadabomb.es.lib.Reference;
 import me.jezzadabomb.es.lib.Strings;
 import me.jezzadabomb.es.tileentity.TilePowerEmitter;
@@ -20,16 +23,34 @@ public class BlockPowerEmitter extends BlockESContainer implements PowerComponen
     
     public BlockPowerEmitter(int id, String name) {
         super(id, Material.iron, name);
+        setHardness(5f);
+        setCreativeTab(null);
+    }
+    
+    public int tickRate(World par1World)
+    {
+        return 10;
     }
     
     @Override
-    public void breakBlock(World world, int x, int y, int z, int par5, int par6)
+    public void breakBlock(World world, int x, int y, int z, int id, int meta)
     {
         TilePowerEmitter dummy = (TilePowerEmitter)world.getBlockTileEntity(x, y, z);
         
         if(dummy != null && dummy.getCore() != null)
             dummy.getCore().invalidateMultiblock();
-        super.breakBlock(world, x, y, z, par5, par6);
+        
+        super.breakBlock(world, x, y, z, BlockIds.CHAMBER_BLOCK_DEFAULT, 3);
+    }
+    
+    public int damageDropped(int par1)
+    {
+        return 3;
+    }
+    
+    public int idDropped(int meta, Random par2Random, int dmg)
+    {
+        return BlockIds.CHAMBER_BLOCK_DEFAULT;
     }
     
     @Override

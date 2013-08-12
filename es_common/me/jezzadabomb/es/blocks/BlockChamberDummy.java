@@ -1,6 +1,7 @@
 package me.jezzadabomb.es.blocks;
 
 import java.util.List;
+import java.util.Random;
 
 import me.jezzadabomb.es.lib.BlockIds;
 import me.jezzadabomb.es.lib.Reference;
@@ -48,14 +49,19 @@ public class BlockChamberDummy extends BlockESContainer {
     }
     
     @Override
-    public void breakBlock(World world, int x, int y, int z, int par5, int par6)
+    public void breakBlock(World world, int x, int y, int z, int id, int meta)
     {
         TileChamberDummy dummy = (TileChamberDummy)world.getBlockTileEntity(x, y, z);
         
         if(dummy != null && dummy.getCore() != null)
             dummy.getCore().invalidateMultiblock();
         
-        super.breakBlock(world, x, y, z, par5, par6);
+        super.breakBlock(world, x, y, z, BlockIds.CHAMBER_BLOCK_DEFAULT, meta);
+    }
+    
+    public int idDropped(int par1, Random par2Random, int par3)
+    {
+        return BlockIds.CHAMBER_BLOCK_DEFAULT;
     }
     
     public Icon[] icons;

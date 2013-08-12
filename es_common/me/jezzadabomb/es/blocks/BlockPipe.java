@@ -1,6 +1,6 @@
 package me.jezzadabomb.es.blocks;
 
-import me.jezzadabomb.es.api.BlockPipeComponent.PipeComponent;
+import me.jezzadabomb.es.common.BlockPipeComponent.PipeComponent;
 import me.jezzadabomb.es.core.helpers.Helper;
 import me.jezzadabomb.es.core.util.DamageSourceRad;
 import me.jezzadabomb.es.lib.BlockIds;

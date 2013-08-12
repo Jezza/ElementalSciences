@@ -1,6 +1,7 @@
-package me.jezzadabomb.es.blocks;
+package me.jezzadabomb.es.blocks.machines;
 
-import me.jezzadabomb.es.api.BlockPowerComponent.PowerComponent;
+import me.jezzadabomb.es.blocks.BlockESContainer;
+import me.jezzadabomb.es.common.BlockPowerComponent.PowerComponent;
 import me.jezzadabomb.es.tileentity.TileStorageChamber;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,6 +15,10 @@ public class BlockStorageChamber extends BlockESContainer implements PowerCompon
         super(id, Material.iron, name);
     }
     
+    public boolean getDebug(){
+        return false;
+    }
+    
     @Override
     public PowerComponentType getPowerComponentType() {
         return PowerComponentType.SOURCE;
@@ -24,7 +29,12 @@ public class BlockStorageChamber extends BlockESContainer implements PowerCompon
     {
         TileStorageChamber core = (TileStorageChamber)world.getBlockTileEntity(x, y, z);
         
-        core.convertDummies();
+        if(getDebug()){
+            core.convertDummies();
+        }else{
+            
+        }
+        
         return true;
     }
     

@@ -1,7 +1,7 @@
 package me.jezzadabomb.es.blocks.machines;
 
-import me.jezzadabomb.es.api.BlockPipeComponent.PipeComponent;
 import me.jezzadabomb.es.blocks.BlockESContainer;
+import me.jezzadabomb.es.common.BlockPipeComponent.PipeComponent;
 import me.jezzadabomb.es.lib.Reference;
 import me.jezzadabomb.es.tileentity.TileLinearEmitter;
 import net.minecraft.block.material.Material;

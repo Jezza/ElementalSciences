@@ -1,7 +1,7 @@
 package me.jezzadabomb.es.blocks;
 
-import me.jezzadabomb.es.api.BlockBasePipe;
-import me.jezzadabomb.es.api.BlockPowerComponent.PowerComponent;
+import me.jezzadabomb.es.common.BlockBasePipe;
+import me.jezzadabomb.es.common.BlockPowerComponent.PowerComponent;
 import me.jezzadabomb.es.core.helpers.Helper;
 import me.jezzadabomb.es.renderers.RenderPowerConduit;
 import net.minecraft.block.Block;

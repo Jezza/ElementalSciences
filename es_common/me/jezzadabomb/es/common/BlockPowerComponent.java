@@ -1,4 +1,4 @@
-package me.jezzadabomb.es.api;
+package me.jezzadabomb.es.common;
 
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;

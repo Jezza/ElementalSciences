@@ -1,7 +1,7 @@
 package me.jezzadabomb.es.blocks.machines;
 
-import me.jezzadabomb.es.api.BlockPipeComponent.PipeComponent;
 import me.jezzadabomb.es.blocks.BlockES;
+import me.jezzadabomb.es.common.BlockPipeComponent.PipeComponent;
 import me.jezzadabomb.es.lib.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;

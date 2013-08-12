@@ -1,4 +1,4 @@
-package me.jezzadabomb.es.api;
+package me.jezzadabomb.es.common;
 
 import java.util.Iterator;
 import java.util.List;
