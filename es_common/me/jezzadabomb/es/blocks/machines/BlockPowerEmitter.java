@@ -1,7 +1,8 @@
-package me.jezzadabomb.es.blocks;
+package me.jezzadabomb.es.blocks.machines;
 
 import java.util.Random;
 
+import me.jezzadabomb.es.blocks.BlockESContainer;
 import me.jezzadabomb.es.common.BlockPowerComponent.PowerComponent;
 import me.jezzadabomb.es.lib.BlockIds;
 import me.jezzadabomb.es.lib.Reference;

@@ -1,4 +1,4 @@
-package me.jezzadabomb.es.blocks;
+package me.jezzadabomb.es.blocks.machines;
 
 import me.jezzadabomb.es.common.BlockBasePipe;
 import me.jezzadabomb.es.common.BlockPowerComponent.PowerComponent;

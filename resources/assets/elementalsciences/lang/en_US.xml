@@ -31,12 +31,11 @@
     <entry key="tile.chamberBlockDummy.case.name">Chamber Casing Dummy</entry>
 	<entry key="tile.gravCompressor.name">Gravity Field Compressor</entry>
 	<entry key="tile.colliderPipe.name">Hadron Collider Pipe</entry>
-	<entry key="tile.linearEmitter.name">Linear Emitter</entry>
 	<entry key="tile.hadronSensor.name">Hadron Sensor</entry>
 	<entry key="tile.laserEmitter.name">Laser Emitter</entry>
-	<entry key="tile.powerEmitter.name">Power Emitter</entry>
+	<entry key="tile.powerEmitter.name">Positron Emitter</entry>
 	<entry key="tile.constructionPlate.name">Atomic Construction Plate</entry>
-	<entry key="tile.powerConduit.name">Power Conduit</entry>
+	<entry key="tile.powerConduit.name">Positron Conduit</entry>
 	<entry key="tile.storageChamber.name">Storage Chamber</entry>
 	<entry key="death.attack.beta">%1$s was horrifically slaughtered by beta radiation.</entry>
 </properties>

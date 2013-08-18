@@ -5,6 +5,8 @@ import me.jezzadabomb.es.blocks.machines.BlockGravityCompressor;
 import me.jezzadabomb.es.blocks.machines.BlockHadronSensor;
 import me.jezzadabomb.es.blocks.machines.BlockLaserEmitter;
 import me.jezzadabomb.es.blocks.machines.BlockLinearEmitter;
+import me.jezzadabomb.es.blocks.machines.BlockPowerConduit;
+import me.jezzadabomb.es.blocks.machines.BlockPowerEmitter;
 import me.jezzadabomb.es.blocks.machines.BlockStorageChamber;
 import me.jezzadabomb.es.items.ItemBlockChamber;
 import me.jezzadabomb.es.items.ItemBlockPureColour;

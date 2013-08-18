@@ -15,6 +15,7 @@ public class BlockPowerComponent {
 
             /** Used as a separate source, then the controller. */
             SOURCE,
+            
             /** Used for the collection of power, for storage or machines.*/
             COLLECTOR
         }

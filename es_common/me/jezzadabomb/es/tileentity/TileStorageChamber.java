@@ -1,6 +1,8 @@
 package me.jezzadabomb.es.tileentity;
 
+import net.minecraft.world.World;
 import me.jezzadabomb.es.lib.BlockIds;
+import me.jezzadabomb.es.lib.Reference;
 
 public class TileStorageChamber extends TileES {
 
@@ -15,10 +17,18 @@ public class TileStorageChamber extends TileES {
 
     public void invalidateMultiblock() {
         revertDummies();
-
+        restartUpdateLoop();
         isValidMultiblock = false;
     }
 
+    public void restartUpdateLoop(){
+        int x = xCoord;
+        int y = yCoord;
+        int z = zCoord;
+        
+        worldObj.scheduleBlockUpdate(x, y, z, worldObj.getBlockId(x, y, z), Reference.tickRate());
+    }
+    
     public void validateMultiblock() {
         convertDummies();
 
@@ -40,7 +50,6 @@ public class TileStorageChamber extends TileES {
                     }
                     if (x == -1 && z == 0 && y == 0) {
                         worldObj.setBlock(x2, y2, z2, BlockIds.POWER_EMITTER_DEFAULT, 4, 3);
-                        System.out.println("Set Core");
                         setPowerCore(x2, y2, z2);
                     } else if (x == 1 && z == 0 && y == 0) {
                         worldObj.setBlock(x2, y2, z2, BlockIds.POWER_EMITTER_DEFAULT, 5, 3);
@@ -135,10 +144,10 @@ public class TileStorageChamber extends TileES {
                     int blockId = worldObj.getBlockId(x2, y2, z2);
                     int meta = worldObj.getBlockMetadata(x2, y2, z2);
                     
-                    System.out.println(x);
-                    System.out.println(z);
-                    System.out.println(y);
-                    System.out.println("ID: " + blockId + ". META: " + meta + ". XCOORD: " + x2 + ". ZCOORD: " + z2 + " . YCOORD: " + y2);
+//                    System.out.println(x);
+//                    System.out.println(z);
+//                    System.out.println(y);
+//                    System.out.println("ID: " + blockId + ". META: " + meta + ". XCOORD: " + x2 + ". ZCOORD: " + z2 + " . YCOORD: " + y2);
                     if (x == 0 && z == 0 && y == 0) {
                         continue;
                     }
@@ -201,13 +210,7 @@ public class TileStorageChamber extends TileES {
         return false;
     }
 
-    @Override
-    public void updateEntity() {
-        if (getIsValid())
-            return;
-
-        if (checkIfProperlyFormed()) {
-            validateMultiblock();
-        }
-    }
+//    @Override
+//    public void updateEntity() {
+//    }
 }
