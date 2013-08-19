@@ -25,6 +25,7 @@ The temporary changelog file for ES, until I work out a better system.
 + Added Storage Chamber. Think ZPM, but a multiblock. See if you can work it out. :P
 < Changed a lot of textures.
 < Power Emitter and Linear Emitter are now properly directional, like a piston.
+< Power Conduits now render properly.
 
 Notes:  Started mucking around with TileEntities, yay! :D
         Expect a use for power conduits and Hadron Collider Pipes soon. :P
