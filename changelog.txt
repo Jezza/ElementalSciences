@@ -1,5 +1,6 @@
 ---- Changelog ----
 The temporary changelog file for ES, until I work out a better system.
+Still haven't worked out a better system.
 
 ==== Key as of v0.0.010: ====
 |   * Fixed Bug             |
