@@ -62,12 +62,10 @@ public class RenderHadronPipe extends BaseBlockRenderer {
         }
         if(Helper.getBlockInstance(world, x, y-1, z) instanceof PipeComponent){
             if(((PipeComponent)Helper.getBlockInstance(world, x, y-1, z)).canTubeConnectOnSide(world, x, y-1, z, Helper.dirYPos)){
-                if(!Helper.getBlockInstance(world, x, y-1, z).equals(ModBlocks.hadronSensor)){
                 block.setBlockBounds(coremin, bordermin, coremin, coremax, coremin, coremax);
                 renderer.setRenderBoundsFromBlock(block);
                 renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.0F, 1.0F, 1.0F);
                 joints++;
-                }
             }
         }
         if(Helper.getBlockInstance(world, x, y+1, z) instanceof PipeComponent){
