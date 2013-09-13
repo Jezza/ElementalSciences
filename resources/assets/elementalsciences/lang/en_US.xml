@@ -36,6 +36,7 @@
 	<entry key="tile.powerEmitter.name">Positron Emitter</entry>
 	<entry key="tile.constructionPlate.name">Atomic Construction Plate</entry>
 	<entry key="tile.powerConduit.name">Positron Conduit</entry>
+	<entry key="tile.protonSensor.name">Proton Sensor</entry>
 	<entry key="tile.storageChamber.name">Storage Chamber</entry>
 	<entry key="death.attack.beta">%1$s was horrifically slaughtered by beta radiation.</entry>
 </properties>

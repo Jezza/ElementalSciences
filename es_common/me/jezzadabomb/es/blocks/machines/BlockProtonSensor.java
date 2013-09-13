@@ -13,12 +13,12 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockLinearEmitter extends BlockESContainer implements PipeComponent {
+public class BlockProtonSensor extends BlockESContainer implements PipeComponent {
 
     public Icon face;
     public Icon other;
     
-    public BlockLinearEmitter(int id, String name) {
+    public BlockProtonSensor(int id, String name) {
         super(id, Material.anvil,name);
     }
     

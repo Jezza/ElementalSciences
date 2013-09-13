@@ -4,6 +4,7 @@ import me.jezzadabomb.es.blocks.ModBlocks;
 import me.jezzadabomb.es.core.handlers.LocalizationHandler;
 import me.jezzadabomb.es.creativetab.MachineTabES;
 import me.jezzadabomb.es.creativetab.MiscTabES;
+import me.jezzadabomb.es.items.ModItems;
 import me.jezzadabomb.es.lib.Reference;
 import me.jezzadabomb.es.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
@@ -31,6 +32,7 @@ public class ElementalSciences {
     public void preInit(FMLPreInitializationEvent event) {
         LocalizationHandler.loadLanguages();
         ModBlocks.init();
+        ModItems.init();
         proxy.runClientSide();
     }
 

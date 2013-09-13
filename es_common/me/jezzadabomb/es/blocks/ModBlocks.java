@@ -4,7 +4,7 @@ import me.jezzadabomb.es.blocks.machines.BlockConstructionPlate;
 import me.jezzadabomb.es.blocks.machines.BlockGravityCompressor;
 import me.jezzadabomb.es.blocks.machines.BlockHadronSensor;
 import me.jezzadabomb.es.blocks.machines.BlockLaserEmitter;
-import me.jezzadabomb.es.blocks.machines.BlockLinearEmitter;
+import me.jezzadabomb.es.blocks.machines.BlockProtonSensor;
 import me.jezzadabomb.es.blocks.machines.BlockPowerConduit;
 import me.jezzadabomb.es.blocks.machines.BlockPowerEmitter;
 import me.jezzadabomb.es.blocks.machines.BlockStorageChamber;
@@ -28,7 +28,7 @@ public class ModBlocks {
     public static Block pureColour;
     public static Block gravCompressor;
     public static Block colliderPipe;
-    public static Block linearEmitter;
+    public static Block protonSensor;
     public static Block hadronSensor;
     public static Block laserEmitter;
     public static Block constructionPlate;
@@ -44,7 +44,7 @@ public class ModBlocks {
         chamberBlockdummy = new BlockChamberDummy(BlockIds.CHAMBER_BLOCK_DUMMY_DEFAULT, Strings.CHAMBER_WALL_DUMMY);
         pureColour = new BlockPureColour(BlockIds.PURE_COLOUR_DEFAULT, Strings.PURE_COLOUR);
         colliderPipe = new BlockPipe(BlockIds.COLLIDER_PIPE_DEFAULT, Strings.COLLIDER_PIPE, 6);
-        linearEmitter = new BlockLinearEmitter(BlockIds.LINEAR_EMITTER_DEFAULT, Strings.LINEAR_EMITTER);
+        protonSensor = new BlockProtonSensor(BlockIds.PROTON_SENSOR_DEFAULT, Strings.PROTON_SENSOR);
         hadronSensor = new BlockHadronSensor(BlockIds.HADRON_SENSOR_DEFAULT, Strings.HADRON_SENSOR);
         laserEmitter = new BlockLaserEmitter(BlockIds.LASER_EMITTER_DEFAULT, Strings.LASER_EMITTER);
         constructionPlate = new BlockConstructionPlate(BlockIds.CONSTRUCTION_PLATE_DEFAULT, Strings.CONSTRUCTION_PLATE);
@@ -56,7 +56,7 @@ public class ModBlocks {
         GameRegistry.registerBlock(strengthenedGlass, Strings.STRENGTHENED_GLASS);
         GameRegistry.registerBlock(gravCompressor, Strings.GRAVITY_COMPRESSOR);
         GameRegistry.registerBlock(colliderPipe, Strings.COLLIDER_PIPE);
-        GameRegistry.registerBlock(linearEmitter, Strings.LINEAR_EMITTER);
+        GameRegistry.registerBlock(protonSensor, Strings.PROTON_SENSOR);
         GameRegistry.registerBlock(hadronSensor, Strings.HADRON_SENSOR);
         GameRegistry.registerBlock(laserEmitter, Strings.LASER_EMITTER);
         GameRegistry.registerBlock(constructionPlate, Strings.CONSTRUCTION_PLATE);

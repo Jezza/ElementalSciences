@@ -4,6 +4,7 @@ import java.util.Random;
 
 import me.jezzadabomb.es.blocks.BlockESContainer;
 import me.jezzadabomb.es.common.BlockPowerComponent.PowerComponent;
+import me.jezzadabomb.es.lib.Reference;
 import me.jezzadabomb.es.tileentity.TileStorageChamber;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -23,7 +24,7 @@ public class BlockStorageChamber extends BlockESContainer implements PowerCompon
 
     @Override
     public int tickRate(World world) {
-        return 40;
+        return Reference.convertSecondsToTicks(1);
     }
 
     public void updateTick(World world, int x, int y, int z, Random par5Random) {
@@ -74,7 +75,7 @@ public class BlockStorageChamber extends BlockESContainer implements PowerCompon
 
     @Override
     public boolean canTubeConnectOnSide(IBlockAccess w, int x, int y, int z, int side) {
-        return true;
+        return false;
     }
 
     @Override

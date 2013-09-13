@@ -8,7 +8,7 @@ public class Strings {
     public static final String PURE_COLOUR = "pureColour";
     public static final String GRAVITY_COMPRESSOR = "gravCompressor";
     public static final String COLLIDER_PIPE = "colliderPipe";
-    public static final String LINEAR_EMITTER = "linearEmitter";
+    public static final String PROTON_SENSOR = "protonSensor";
     public static final String HADRON_SENSOR = "hadronSensor";
     public static final String HADRON_JOINT = "hadronJoint";
     public static final String LASER_EMITTER = "laserEmitter";
@@ -17,6 +17,9 @@ public class Strings {
     public static final String STORAGE_CHAMBER = "storageChamber";
     public static final String POWER_EMITTER = "powerEmitter";
     public static final String CHAMBER_WALL_DUMMY = "chamberBlockDummy";
+    
+    //Item Name Constants
+    public static final String GBOW = "gBow";
 
     // Texture Constants
     public final static String DEFAULT_CHAMBER_TEXTURE = "chamberBlock_de";

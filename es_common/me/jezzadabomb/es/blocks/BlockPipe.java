@@ -432,7 +432,7 @@ public class BlockPipe extends BlockES implements PipeComponent {
                 return true;
             } else if (checkIfNearby(world, x, y, z, BlockIds.HADRON_SENSOR_DEFAULT)) {
                 return true;
-            } else if (checkIfNearby(world, x, y, z, BlockIds.LINEAR_EMITTER_DEFAULT)) {
+            } else if (checkIfNearby(world, x, y, z, BlockIds.PROTON_SENSOR_DEFAULT)) {
                 return true;
             }
             return false;
