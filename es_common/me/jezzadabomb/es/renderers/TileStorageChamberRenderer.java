@@ -19,7 +19,7 @@ public class TileStorageChamberRenderer extends TileEntitySpecialRenderer{
         //modelStorageChamber.render((TileStorageChamber)tileEntity, x, y, z);
         
         if (tileEntity instanceof TileStorageChamber) {
-            this.bindTexture(Textures.MODEL_STORAGE_CHAMBER);
+            this.func_110628_a(Textures.MODEL_STORAGE_CHAMBER);
             
             GL11.glPushMatrix();
 

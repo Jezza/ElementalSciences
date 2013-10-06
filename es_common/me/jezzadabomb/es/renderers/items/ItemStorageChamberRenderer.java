@@ -32,7 +32,6 @@ public class ItemStorageChamberRenderer implements IItemRenderer{
     @Override
     public void renderItem(ItemRenderType type, ItemStack item, Object... data)
     {
-        System.out.println("LOLLOL");
         switch(type)
         {
             case ENTITY:{
@@ -41,10 +40,15 @@ public class ItemStorageChamberRenderer implements IItemRenderer{
             }
              
             case EQUIPPED:{
-                renderStorageChamber(0f, 1f, 1f, 0.5f);
+                renderStorageChamber(0f, 0f, 0f, 0.5f);
                 return;
             }
                  
+            case EQUIPPED_FIRST_PERSON: {
+                renderStorageChamber(1.2F, 0F, 0F, 0.5F);
+                break;
+            }
+            
             case INVENTORY:{
                 renderStorageChamber(0f, 0f, 0f, 0.5f);
                 return;
@@ -55,6 +59,8 @@ public class ItemStorageChamberRenderer implements IItemRenderer{
     }
     
     private void renderStorageChamber(float x, float y, float z, float scale){
+        FMLClientHandler.instance().getClient().renderEngine.func_110628_a(Textures.MODEL_STORAGE_CHAMBER);
+        
         GL11.glPushMatrix();
         
         GL11.glDisable(GL11.GL_LIGHTING);
@@ -64,8 +70,6 @@ public class ItemStorageChamberRenderer implements IItemRenderer{
         GL11.glScalef(scale, scale, scale);
         
         GL11.glRotatef(180f, 0f, 1f, 0f);
-        
-        FMLClientHandler.instance().getClient().renderEngine.func_110577_a(Textures.MODEL_STORAGE_CHAMBER);
         
         modelStorageChamber.render();
         
