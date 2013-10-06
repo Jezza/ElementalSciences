@@ -3,7 +3,7 @@ package me.jezzadabomb.es.blocks;
 import java.util.List;
 
 import me.jezzadabomb.es.lib.Reference;
-import me.jezzadabomb.es.lib.Strings;
+import me.jezzadabomb.es.lib.Textures;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -26,7 +26,7 @@ public class BlockChamber extends BlockES {
         super(BlockID, Material.anvil, name);
         setHardness(5.0f);
         setResistance(20.0f);
-        setStepSound(soundStoneFootstep);
+        setStepSound(soundMetalFootstep);
     }
     
     public Icon[] icons;
@@ -56,9 +56,9 @@ public class BlockChamber extends BlockES {
     
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconReg) {
-        cticons[0] = iconReg.registerIcon(Reference.MOD_ID + ":ct/cw/" + Strings.CHAMBER_WALL);
-        cticons[1] = iconReg.registerIcon(Reference.MOD_ID + ":ct/scw/" + Strings.ST_CHAMBER_WALL);
-        cticons[2] = iconReg.registerIcon(Reference.MOD_ID + ":ct/rcw/" + Strings.RE_CHAMBER_WALL);
-        cticons[3] = iconReg.registerIcon(Reference.MOD_ID + ":ct/casing/" + Strings.CHAMBER_CASING);
+        cticons[0] = iconReg.registerIcon(Reference.MOD_ID + ":ct/cw/" + Textures.CHAMBER_WALL);
+        cticons[1] = iconReg.registerIcon(Reference.MOD_ID + ":ct/scw/" + Textures.ST_CHAMBER_WALL);
+        cticons[2] = iconReg.registerIcon(Reference.MOD_ID + ":ct/rcw/" + Textures.RE_CHAMBER_WALL);
+        cticons[3] = iconReg.registerIcon(Reference.MOD_ID + ":ct/casing/" + Textures.CHAMBER_CASING);
     }
 }

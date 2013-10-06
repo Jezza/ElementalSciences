@@ -6,7 +6,7 @@ import me.jezzadabomb.es.blocks.BlockESContainer;
 import me.jezzadabomb.es.common.BlockPowerComponent.PowerComponent;
 import me.jezzadabomb.es.lib.BlockIds;
 import me.jezzadabomb.es.lib.Reference;
-import me.jezzadabomb.es.lib.Strings;
+import me.jezzadabomb.es.lib.Textures;
 import me.jezzadabomb.es.tileentity.TilePowerEmitter;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -65,7 +65,7 @@ public class BlockPowerEmitter extends BlockESContainer implements PowerComponen
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister par1IconRegister) {
-        other = par1IconRegister.registerIcon(Reference.MOD_ID + ":" + (Strings.DEFAULT_CHAMBER_TEXTURE));
+        other = par1IconRegister.registerIcon(Reference.MOD_ID + ":" + (Textures.DEFAULT_CHAMBER_TEXTURE));
         face = par1IconRegister.registerIcon(Reference.MOD_ID + ":" + (this.getUnlocalizedName().replace("tile.", "")) + "_face");
     }
 

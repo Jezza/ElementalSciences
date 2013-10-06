@@ -15,46 +15,49 @@ public abstract class BlockES extends Block {
 
     protected Icon[] override = new Icon[6];
     protected boolean isOverride = false;
-    
+
     protected ESLogger log = new ESLogger();
-    
+
     public BlockES(int id, Material material, String name) {
         super(id, material);
         setHardness(0.5f);
         setUnlocalizedName(name);
         setCreativeTab(ElementalSciences.machineTab);
     }
-    
-    public void printDebug(String msg){
+
+    public void printDebug(String msg) {
         log.print(msg, 4);
     }
-    
+
     @Override
-    public Icon getIcon(int side, int metadata){
-        if(isOverride) return override[side];
-        else return getTextureFromSide(side, metadata);
+    public Icon getIcon(int side, int metadata) {
+        if (isOverride)
+            return override[side];
+        else
+            return getTextureFromSide(side, metadata);
     }
 
-    public Icon getTextureFromSide(int side, int meta){
+    public Icon getTextureFromSide(int side, int meta) {
         return getTextureFromSide(side);
     }
 
-    public Icon getTextureFromSide(int side){
+    public Icon getTextureFromSide(int side) {
         return getTexture();
     }
 
-    public Icon getTexture(){
+    public Icon getTexture() {
         return this.blockIcon;
     }
-    
-    public void overrideTextures(Icon[] tmap){
+
+    public void overrideTextures(Icon[] tmap) {
         isOverride = true;
         override = tmap;
     }
 
-    public void restoreTextures()
-        { isOverride = false; }
-    
+    public void restoreTextures() {
+        isOverride = false;
+    }
+
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister iconRegister) {

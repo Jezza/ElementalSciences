@@ -14,6 +14,6 @@ public class MachineTabES extends CreativeTabs {
     @Override
     @SideOnly(Side.CLIENT)
     public int getTabIconItemIndex() {
-        return ModBlocks.chamberBlock.blockID;
+        return ModBlocks.hadronSensor.blockID;
     }
 }

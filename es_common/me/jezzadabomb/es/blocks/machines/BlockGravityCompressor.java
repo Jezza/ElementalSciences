@@ -6,7 +6,7 @@ import java.util.Random;
 
 import me.jezzadabomb.es.common.BlockPadBase;
 import me.jezzadabomb.es.lib.Reference;
-import me.jezzadabomb.es.lib.Strings;
+import me.jezzadabomb.es.lib.Textures;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.Entity;
@@ -150,7 +150,7 @@ public class BlockGravityCompressor extends BlockPadBase {
     public void registerIcons(IconRegister iconReg) {
         walls = iconReg.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + (this.getUnlocalizedName().replace("tile.", "")) + "_walls");
         top = iconReg.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + (this.getUnlocalizedName().replace("tile.", "")) + "_top");
-        bottom = iconReg.registerIcon(Reference.MOD_ID + ":" + Strings.DEFAULT_CHAMBER_TEXTURE);
+        bottom = iconReg.registerIcon(Reference.MOD_ID + ":" + Textures.DEFAULT_CHAMBER_TEXTURE);
     }
 
     @Override

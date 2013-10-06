@@ -7,6 +7,7 @@ import me.jezzadabomb.es.core.util.BaseBlockRenderer;
 import me.jezzadabomb.es.core.util.IconRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -135,36 +136,35 @@ public class RenderPowerConduit extends BaseBlockRenderer {
             Icon jointx = IconRegistry.powerConduit_xJoint;
             Icon jointz = IconRegistry.powerConduit_zJoint;
             Icon jointy = IconRegistry.powerConduit_yJoint;
-
-            if (getConnectedX(world, x, y, z)) {
-                block.setBlockBounds(coremin, coremin, coremin, coremax, coremax, coremax);
-                renderer.setRenderBoundsFromBlock(block);
-                renderer.renderFaceZNeg(block, x, y, z, jointz);
-                renderer.renderFaceZPos(block, x, y, z, jointz);
-                renderer.renderFaceYNeg(block, x, y, z, jointx);
-                renderer.renderFaceYPos(block, x, y, z, jointx);
-                // renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.0F, 1.0F, 1.0F);
-            } else if (getConnectedZ(world, x, y, z)) {
-                block.setBlockBounds(coremin, coremin, coremin, coremax, coremax, coremax);
-                renderer.setRenderBoundsFromBlock(block);
-                renderer.renderFaceXNeg(block, x, y, z, jointz);
-                renderer.renderFaceXPos(block, x, y, z, jointz);
-                renderer.renderFaceYNeg(block, x, y, z, jointy);
-                renderer.renderFaceYPos(block, x, y, z, jointy);
-                // renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.0F, 1.0F, 1.0F);
-            } else if (getConnectedY(world, x, y, z)) {
-                block.setBlockBounds(coremin, coremin, coremin, coremax, coremax, coremax);
-                renderer.setRenderBoundsFromBlock(block);
-                renderer.renderFaceZNeg(block, x, y, z, jointy);
-                renderer.renderFaceZPos(block, x, y, z, jointy);
-                renderer.renderFaceXNeg(block, x, y, z, jointy);
-                renderer.renderFaceXPos(block, x, y, z, jointy);
-                // renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.0F, 1.0F, 1.0F);
-            } else {
+//            if (getConnectedX(world, x, y, z)) {
+//                block.setBlockBounds(coremin, coremin, coremin, coremax, coremax, coremax);
+//                renderer.setRenderBoundsFromBlock(block);
+//                renderer.renderFaceZNeg(block, x, y, z, jointz);
+//                renderer.renderFaceZPos(block, x, y, z, jointz);
+//                renderer.renderFaceYNeg(block, x, y, z, jointx);
+//                renderer.renderFaceYPos(block, x, y, z, jointx);
+////                 renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 0.5F, 0.5F, 0.5F);
+//            } else if (getConnectedZ(world, x, y, z)) {
+//                block.setBlockBounds(coremin, coremin, coremin, coremax, coremax, coremax);
+//                renderer.setRenderBoundsFromBlock(block);
+//                renderer.renderFaceXNeg(block, x, y, z, jointz);
+//                renderer.renderFaceXPos(block, x, y, z, jointz);
+//                renderer.renderFaceYNeg(block, x, y, z, jointy);
+//                renderer.renderFaceYPos(block, x, y, z, jointy);
+////                renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.0F, 1.0F, 1.0F);
+//            } else if (getConnectedY(world, x, y, z)) {
+//                block.setBlockBounds(coremin, coremin, coremin, coremax, coremax, coremax);
+//                renderer.setRenderBoundsFromBlock(block);
+//                renderer.renderFaceZNeg(block, x, y, z, jointy);
+//                renderer.renderFaceZPos(block, x, y, z, jointy);
+//                renderer.renderFaceXNeg(block, x, y, z, jointy);
+//                renderer.renderFaceXPos(block, x, y, z, jointy);
+////                 renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.0F, 1.0F, 1.0F);
+//            } else {
                 block.setBlockBounds(coremin, coremin, coremin, coremax, coremax, coremax);
                 renderer.setRenderBoundsFromBlock(block);
                 renderer.renderStandardBlockWithColorMultiplier(block, x, y, z, 1.0F, 1.0F, 1.0F);
-            }
+//            }
         } else {
             block.setBlockBounds(coremin, coremin, coremin, coremax, coremax, coremax);
             renderer.setRenderBoundsFromBlock(block);
