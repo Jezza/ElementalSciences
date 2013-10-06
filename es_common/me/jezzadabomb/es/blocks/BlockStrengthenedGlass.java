@@ -1,13 +1,13 @@
 package me.jezzadabomb.es.blocks;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import me.jezzadabomb.es.lib.CTextures;
 import me.jezzadabomb.es.lib.Reference;
-import me.jezzadabomb.es.lib.Textures;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockStrengthenedGlass extends BlockES {
 
@@ -360,22 +360,22 @@ public class BlockStrengthenedGlass extends BlockES {
 
     @Override
     public void registerIcons(IconRegister par1IconRegister) {
-        icons[0] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + Textures.STRENGTHENED_GLASS);
-        icons[1] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + Textures.STRENGTHENED_GLASS_D);
-        icons[2] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + Textures.STRENGTHENED_GLASS_U);
-        icons[3] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + Textures.STRENGTHENED_GLASS_L);
-        icons[4] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + Textures.STRENGTHENED_GLASS_R);
-        icons[5] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + Textures.STRENGTHENED_GLASS_H);
-        icons[6] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + Textures.STRENGTHENED_GLASS_V);
-        icons[7] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + Textures.STRENGTHENED_GLASS_DL);
-        icons[8] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + Textures.STRENGTHENED_GLASS_DR);
-        icons[9] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + Textures.STRENGTHENED_GLASS_UL);
-        icons[10] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + Textures.STRENGTHENED_GLASS_UR);
-        icons[11] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + Textures.STRENGTHENED_GLASS_SD);
-        icons[12] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + Textures.STRENGTHENED_GLASS_SU);
-        icons[13] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + Textures.STRENGTHENED_GLASS_SL);
-        icons[14] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + Textures.STRENGTHENED_GLASS_SR);
-        icons[15] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + Textures.STRENGTHENED_GLASS_P);
+        icons[0] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + CTextures.STRENGTHENED_GLASS);
+        icons[1] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + CTextures.STRENGTHENED_GLASS_D);
+        icons[2] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + CTextures.STRENGTHENED_GLASS_U);
+        icons[3] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + CTextures.STRENGTHENED_GLASS_L);
+        icons[4] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + CTextures.STRENGTHENED_GLASS_R);
+        icons[5] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + CTextures.STRENGTHENED_GLASS_H);
+        icons[6] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + CTextures.STRENGTHENED_GLASS_V);
+        icons[7] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + CTextures.STRENGTHENED_GLASS_DL);
+        icons[8] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + CTextures.STRENGTHENED_GLASS_DR);
+        icons[9] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + CTextures.STRENGTHENED_GLASS_UL);
+        icons[10] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + CTextures.STRENGTHENED_GLASS_UR);
+        icons[11] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + CTextures.STRENGTHENED_GLASS_SD);
+        icons[12] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + CTextures.STRENGTHENED_GLASS_SU);
+        icons[13] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + CTextures.STRENGTHENED_GLASS_SL);
+        icons[14] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + CTextures.STRENGTHENED_GLASS_SR);
+        icons[15] = par1IconRegister.registerIcon(Reference.MOD_ID + ":ct/" + type + CTextures.STRENGTHENED_GLASS_P);
     }
 
 }
