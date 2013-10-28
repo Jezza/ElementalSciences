@@ -1,6 +1,5 @@
 package me.jezzadabomb.es.tileentity;
 
-import net.minecraft.world.World;
 import me.jezzadabomb.es.lib.BlockIds;
 import me.jezzadabomb.es.lib.Reference;
 

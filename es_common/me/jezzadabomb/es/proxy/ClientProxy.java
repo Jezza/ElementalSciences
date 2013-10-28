@@ -1,13 +1,15 @@
 package me.jezzadabomb.es.proxy;
 
-import net.minecraftforge.client.MinecraftForgeClient;
 import me.jezzadabomb.es.lib.BlockIds;
 import me.jezzadabomb.es.renderers.RenderHadronPipe;
 import me.jezzadabomb.es.renderers.RenderLaserEmitter;
 import me.jezzadabomb.es.renderers.RenderPowerConduit;
-import me.jezzadabomb.es.renderers.TileStorageChamberRenderer;
-import me.jezzadabomb.es.renderers.items.ItemStorageChamberRenderer;
-import me.jezzadabomb.es.tileentity.TileStorageChamber;
+import me.jezzadabomb.es.renderers.TileResearchTableRenderer;
+import me.jezzadabomb.es.renderers.items.ItemResearchTableRenderer;
+import me.jezzadabomb.es.tileentity.TileResearchTable;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.World;
+import net.minecraftforge.client.MinecraftForgeClient;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
@@ -23,7 +25,7 @@ public class ClientProxy extends CommonProxy {
         RenderingRegistry.registerBlockHandler(RenderLaserEmitter.instance());
         RenderingRegistry.registerBlockHandler(RenderPowerConduit.instance());
         
-        ClientRegistry.bindTileEntitySpecialRenderer(TileStorageChamber.class, new TileStorageChamberRenderer());
-        MinecraftForgeClient.registerItemRenderer(BlockIds.STORAGE_CHAMBER_DEFAULT, new ItemStorageChamberRenderer());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileResearchTable.class, new TileResearchTableRenderer());
+        MinecraftForgeClient.registerItemRenderer(BlockIds.RESEARCH_TABLE_DEFAULT, new ItemResearchTableRenderer());
     }
 }

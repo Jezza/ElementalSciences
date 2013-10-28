@@ -10,5 +10,5 @@ public class Textures {
     public final static String DEFAULT_CHAMBER_TEXTURE = "chamberBlock_de";
 
     //Resource Location Constants
-    public static final ResourceLocation MODEL_STORAGE_CHAMBER = ResourceLocationHelper.getResourceLocation(MODEL_SHEET_LOCATION + "testing.png");
+    public static final ResourceLocation MODEL_RESEARCH_TABLE = ResourceLocationHelper.getResourceLocation(MODEL_SHEET_LOCATION + "table.png");
 }

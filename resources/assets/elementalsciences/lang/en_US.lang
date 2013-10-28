@@ -1,0 +1,42 @@
+itemGroup.ElementalSciences.machines=Elemental Sciences: Machines
+itemGroup.ElementalSciences.misc=Elemental Sciences: Misc
+tile.pureColour.white.name=Pure White
+tile.pureColour.orange.name=Pure Orange
+tile.pureColour.magenta.name=Pure Magenta
+tile.pureColour.lightBlue.name=Pure Light Blue
+tile.pureColour.yellow.name=Pure Yellow
+tile.pureColour.lime.name=Pure Lime
+tile.pureColour.pink.name=Pure Pink
+tile.pureColour.gray.name=Pure Grey
+tile.pureColour.silver.name=Pure Light Grey
+tile.pureColour.cyan.name=Pure Cyan
+tile.pureColour.purple.name=Pure Purple
+tile.pureColour.blue.name=Pure Blue
+tile.pureColour.brown.name=Pure Brown
+tile.pureColour.green.name=Pure Green
+tile.pureColour.red.name=Pure Red
+tile.pureColour.black.name=Pure Black
+
+tile.strengthenedGlass.name=Strengthened Glass
+tile.chamberBlock.de.name=Chamber Frame
+tile.chamberBlock.st.name=Strengthened Chamber Frame
+tile.chamberBlock.re.name=Reinforced Chamber Frame
+tile.chamberBlock.case.name=Chamber Casing
+tile.chamberBlockDummy.de.name=Chamber Frame Dummy
+tile.chamberBlockDummy.st.name=Strengthened Chamber Frame Dummy
+tile.chamberBlockDummy.re.name=Reinforced Chamber Frame Dummy
+tile.chamberBlockDummy.case.name=Chamber Casing Dummy
+tile.gravCompressor.name=Gravity Field Compressor
+tile.colliderPipe.name=Hadron Collider Pipe
+tile.hadronSensor.name=Hadron Sensor
+tile.laserEmitter.name=Laser Emitter
+tile.powerEmitter.name=Positron Emitter
+tile.constructionPlate.name=Atomic Construction Plate
+tile.powerConduit.name=Positron Conduit
+tile.protonSensor.name=Proton Sensor
+tile.storageChamber.name=Storage Chamber
+tile.researchTable.name=Research Table
+
+item.chainCatalyst.name=Chain Catalyst
+
+death.attack.beta=%1$s was horrifically slaughtered by beta radiation.

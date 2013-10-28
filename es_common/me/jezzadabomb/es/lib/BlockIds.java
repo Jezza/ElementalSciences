@@ -1,7 +1,6 @@
 package me.jezzadabomb.es.lib;
 
 public class BlockIds {
-
     
     /* Default block ids */
     public static int GLASS_VIEWER_DEFAULT = 2480;
@@ -16,7 +15,7 @@ public class BlockIds {
     public static int STORAGE_CHAMBER_DEFAULT = 2489;
     public static int POWER_EMITTER_DEFAULT = 2490;
     public static int CHAMBER_BLOCK_DUMMY_DEFAULT = 2491;
-    
+    public static int RESEARCH_TABLE_DEFAULT = 2492;
     public static int PURE_COLOUR_DEFAULT = 2500;
     
     /* Current block ids */

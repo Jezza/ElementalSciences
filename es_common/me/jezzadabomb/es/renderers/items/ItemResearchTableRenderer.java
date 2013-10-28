@@ -1,20 +1,19 @@
 package me.jezzadabomb.es.renderers.items;
 
-import org.lwjgl.opengl.GL11;
-
-import cpw.mods.fml.client.FMLClientHandler;
-
 import me.jezzadabomb.es.lib.Textures;
-import me.jezzadabomb.es.renderers.models.ModelStorageChamber;
+import me.jezzadabomb.es.renderers.models.ModelResearchTable;
+import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
 
-public class ItemStorageChamberRenderer implements IItemRenderer{
-    private ModelStorageChamber modelStorageChamber;
+import org.lwjgl.opengl.GL11;
 
-    public ItemStorageChamberRenderer()
+public class ItemResearchTableRenderer implements IItemRenderer{
+    private ModelResearchTable modelResearchTable;
+
+    public ItemResearchTableRenderer()
     {
-        modelStorageChamber = new ModelStorageChamber();
+        modelResearchTable = new ModelResearchTable();
     }
 
     @Override
@@ -35,22 +34,22 @@ public class ItemStorageChamberRenderer implements IItemRenderer{
         switch(type)
         {
             case ENTITY:{
-                renderStorageChamber(0f, 0f, 0f, 0.5f);
+                renderResearchTable(0F, 0F, 0F, 1F);
                 return;
             }
              
             case EQUIPPED:{
-                renderStorageChamber(0f, 0f, 0f, 0.5f);
+                renderResearchTable(0F, 0F, 0F, 1F);
                 return;
             }
                  
             case EQUIPPED_FIRST_PERSON: {
-                renderStorageChamber(1.2F, 0F, 0F, 0.5F);
+                renderResearchTable(1.2F, 0F, 0F, 1F);
                 break;
             }
             
             case INVENTORY:{
-                renderStorageChamber(0f, 0f, 0f, 0.5f);
+                renderResearchTable(0F, -0.4F, 0F, 0.7F);
                 return;
             }
              
@@ -58,20 +57,19 @@ public class ItemStorageChamberRenderer implements IItemRenderer{
         }
     }
     
-    private void renderStorageChamber(float x, float y, float z, float scale){
-        FMLClientHandler.instance().getClient().renderEngine.func_110628_a(Textures.MODEL_STORAGE_CHAMBER);
+    private void renderResearchTable(float x, float y, float z, float scale){
         
         GL11.glPushMatrix();
-        
         GL11.glDisable(GL11.GL_LIGHTING);
         
+        //Translate and Scale
         GL11.glTranslatef(x,  y,  z);
-        
         GL11.glScalef(scale, scale, scale);
-        
         GL11.glRotatef(180f, 0f, 1f, 0f);
-        
-        modelStorageChamber.render();
+        //Bind the texture
+        Minecraft.getMinecraft().renderEngine.bindTexture(Textures.MODEL_RESEARCH_TABLE);
+        //Render the model
+        modelResearchTable.render();
         
         GL11.glEnable(GL11.GL_LIGHTING);
         GL11.glPopMatrix();

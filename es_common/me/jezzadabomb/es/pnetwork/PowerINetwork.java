@@ -1,4 +1,4 @@
-package me.jezzadabomb.es.network;
+package me.jezzadabomb.es.pnetwork;
 
 import me.jezzadabomb.es.lib.Reference;
 

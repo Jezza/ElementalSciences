@@ -5,15 +5,15 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
 
-public class ModelStorageChamber extends ModelBase {
+public class ModelResearchTable extends ModelBase {
 
-    private IModelCustom modelStorageChamber;
+    private IModelCustom modelResearchTable;
 
-    public ModelStorageChamber() {
-        modelStorageChamber = AdvancedModelLoader.loadModel(Models.STORAGE_CHAMBER);
+    public ModelResearchTable() {
+        modelResearchTable = AdvancedModelLoader.loadModel(Models.RESEARCH_TABLE);
     }
 
     public void render() {
-        modelStorageChamber.renderAll();
+        modelResearchTable.renderAll();
     }
 }

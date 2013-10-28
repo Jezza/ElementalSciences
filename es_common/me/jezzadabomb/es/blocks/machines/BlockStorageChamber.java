@@ -59,30 +59,6 @@ public class BlockStorageChamber extends BlockESContainer implements PowerCompon
     public void Update(World world, int x, int y, int z) {
         world.scheduleBlockUpdate(x, y, z, this.blockID, this.tickRate(world));
     }
-
-    @Override
-    public boolean hasTileEntity(int metadata)
-    {
-        return true;
-    }
-    
-    @Override
-    public boolean renderAsNormalBlock()
-    {
-        return false;
-    }
-    
-    @Override
-    public int getRenderType()
-    {
-        return -1;
-    }
-    
-    @Override
-    public boolean isOpaqueCube()
-    {
-        return false;
-    }
     
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {

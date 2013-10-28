@@ -4,9 +4,10 @@ import me.jezzadabomb.es.blocks.machines.BlockConstructionPlate;
 import me.jezzadabomb.es.blocks.machines.BlockGravityCompressor;
 import me.jezzadabomb.es.blocks.machines.BlockHadronSensor;
 import me.jezzadabomb.es.blocks.machines.BlockLaserEmitter;
-import me.jezzadabomb.es.blocks.machines.BlockProtonSensor;
 import me.jezzadabomb.es.blocks.machines.BlockPowerConduit;
 import me.jezzadabomb.es.blocks.machines.BlockPowerEmitter;
+import me.jezzadabomb.es.blocks.machines.BlockProtonSensor;
+import me.jezzadabomb.es.blocks.machines.BlockResearchTable;
 import me.jezzadabomb.es.blocks.machines.BlockStorageChamber;
 import me.jezzadabomb.es.items.ItemBlockChamber;
 import me.jezzadabomb.es.items.ItemBlockPureColour;
@@ -35,6 +36,7 @@ public class ModBlocks {
     public static Block powerConduit;
     public static Block storageChamber;
     public static Block powerEmitter;
+    public static Block researchTable;
 
     public static void init() {
 
@@ -51,6 +53,7 @@ public class ModBlocks {
         powerConduit = new BlockPowerConduit(BlockIds.POWER_CONDUIT_DEFAULT, Strings.POWER_CONDUIT, 6);
         storageChamber = new BlockStorageChamber(BlockIds.STORAGE_CHAMBER_DEFAULT, Strings.STORAGE_CHAMBER);
         powerEmitter = new BlockPowerEmitter(BlockIds.POWER_EMITTER_DEFAULT, Strings.POWER_EMITTER);
+        researchTable = new BlockResearchTable(BlockIds.RESEARCH_TABLE_DEFAULT, Strings.RESEARCH_TABLE);
         
         // Single Data Blocks
         GameRegistry.registerBlock(strengthenedGlass, Strings.STRENGTHENED_GLASS);
@@ -63,6 +66,7 @@ public class ModBlocks {
         GameRegistry.registerBlock(powerConduit, Strings.POWER_CONDUIT);
         GameRegistry.registerBlock(storageChamber, Strings.STORAGE_CHAMBER);
         GameRegistry.registerBlock(powerEmitter, Strings.POWER_EMITTER);
+        GameRegistry.registerBlock(researchTable, Strings.RESEARCH_TABLE);
 
         // Meta Blocks
         GameRegistry.registerBlock(chamberBlock, ItemBlockChamber.class, Strings.CHAMBER_WALL);
@@ -76,8 +80,16 @@ public class ModBlocks {
 
     private static void initBlockRecipes() {
 
-        GameRegistry.addRecipe(new ItemStack(strengthenedGlass), new Object[] { "iii", "isi", "iii", Character.valueOf('i'), Block.glass, Character.valueOf('s'), Block.stone });
-        GameRegistry.addRecipe(new ItemStack(chamberBlock), new Object[] { "isi", "sis", "isi", Character.valueOf('i'), Item.ingotIron, Character.valueOf('s'), Block.stone });
+        GameRegistry.addRecipe(new ItemStack(strengthenedGlass), new Object[] { "iii", 
+                                                                                "isi",
+                                                                                "iii", 
+                                                                                Character.valueOf('i'), Block.glass,
+                                                                                Character.valueOf('s'), Block.stone });
+        GameRegistry.addRecipe(new ItemStack(chamberBlock), new Object[] {  "isi",
+                                                                            "sis",
+                                                                            "isi", 
+                                                                            Character.valueOf('i'), Item.ingotIron,
+                                                                            Character.valueOf('s'), Block.stone });
 
     }
 }

@@ -1,16 +1,13 @@
 package me.jezzadabomb.es.renderers;
 
-import me.jezzadabomb.es.blocks.ModBlocks;
 import me.jezzadabomb.es.common.BlockPowerComponent.PowerComponent;
 import me.jezzadabomb.es.core.helpers.Helper;
 import me.jezzadabomb.es.core.util.BaseBlockRenderer;
 import me.jezzadabomb.es.core.util.IconRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 
 public class RenderPowerConduit extends BaseBlockRenderer {
     private static RenderPowerConduit INSTANCE = new RenderPowerConduit();

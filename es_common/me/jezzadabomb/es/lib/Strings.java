@@ -16,6 +16,7 @@ public class Strings {
     public static final String POWER_CONDUIT = "powerConduit";
     public static final String STORAGE_CHAMBER = "storageChamber";
     public static final String POWER_EMITTER = "powerEmitter";
+    public static final String RESEARCH_TABLE = "researchTable";
     
     public static final String CHAMBER_WALL_DUMMY = "chamberBlockDummy";
     public final static String STRENGTHENED_GLASS = "strengthenedGlass";
@@ -23,6 +24,7 @@ public class Strings {
     
     //Item Name Constants
     public static final String GBOW = "gBow";
+    public static final String CHAIN_CATALYST = "chainCatalyst";
 
     // NBT stuff
     public static final String NBT_TE_DIRECTION_KEY = "teDirection";

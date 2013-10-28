@@ -1,7 +1,6 @@
 package me.jezzadabomb.es;
 
 import me.jezzadabomb.es.blocks.ModBlocks;
-import me.jezzadabomb.es.core.handlers.LocalizationHandler;
 import me.jezzadabomb.es.creativetab.MachineTabES;
 import me.jezzadabomb.es.creativetab.MiscTabES;
 import me.jezzadabomb.es.items.ModItems;
@@ -17,6 +16,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
+//@NetworkMod(channels = { Reference.CHANNEL_NAME }, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)
 public class ElementalSciences {
     
     @Instance(Reference.MOD_ID)
@@ -30,7 +30,6 @@ public class ElementalSciences {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        LocalizationHandler.loadLanguages();
         ModBlocks.init();
         ModItems.init();
         proxy.runClientSide();

@@ -1,6 +1,5 @@
 package me.jezzadabomb.es.renderers;
 
-import me.jezzadabomb.es.blocks.ModBlocks;
 import me.jezzadabomb.es.common.BlockPipeComponent.PipeComponent;
 import me.jezzadabomb.es.core.helpers.Helper;
 import me.jezzadabomb.es.core.util.BaseBlockRenderer;
