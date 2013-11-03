@@ -11,6 +11,14 @@ I'll get one soon.
 |   > Something             |
 =============================
 
+---- v0.0.011 ----
++ Models! Yay, now stuff looks nothing like minecraft..
++ Research table, with custom model and animation.
++ Chain Catalyst, think wand of equal trade, but just breaks those blocks.
+> I should really start writting these down as I do them.
+* Something. Probably. Hopefully.
+< Changed a lot, stuff should run a lot smoother.
+- Removed a large amount of stuff.
 ---- v0.0.010 ----
 < Strengthened Glass now has Connected Textures.
 < Chamber Wall now has Connected Textures when formed into a storage chamber.

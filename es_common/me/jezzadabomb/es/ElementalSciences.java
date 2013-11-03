@@ -1,11 +1,14 @@
 package me.jezzadabomb.es;
 
-import me.jezzadabomb.es.blocks.ModBlocks;
-import me.jezzadabomb.es.creativetab.MachineTabES;
-import me.jezzadabomb.es.creativetab.MiscTabES;
-import me.jezzadabomb.es.items.ModItems;
-import me.jezzadabomb.es.lib.Reference;
-import me.jezzadabomb.es.proxy.CommonProxy;
+import java.io.File;
+
+import me.jezzadabomb.es.common.ModBlocks;
+import me.jezzadabomb.es.common.ModItems;
+import me.jezzadabomb.es.common.creativetab.MachineTabES;
+import me.jezzadabomb.es.common.creativetab.MiscTabES;
+import me.jezzadabomb.es.common.lib.ConfigHandler;
+import me.jezzadabomb.es.common.lib.Reference;
+import me.jezzadabomb.es.common.lib.packets.PacketHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -14,9 +17,11 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import cpw.mods.fml.common.network.NetworkMod;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
-//@NetworkMod(channels = { Reference.CHANNEL_NAME }, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)
+@NetworkMod(channels = { Reference.CHANNEL_NAME }, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)
 public class ElementalSciences {
     
     @Instance(Reference.MOD_ID)
@@ -30,6 +35,7 @@ public class ElementalSciences {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        ConfigHandler.init(event.getModConfigurationDirectory().getAbsolutePath() + File.separator + Reference.CHANNEL_NAME.toLowerCase() + File.separator);
         ModBlocks.init();
         ModItems.init();
         proxy.runClientSide();
@@ -41,6 +47,12 @@ public class ElementalSciences {
     }
 
     @EventHandler
-    public void postInit(FMLPostInitializationEvent event) {
+    public void postLoaded(FMLPostInitializationEvent event) {
+        
+    }
+    
+    @EventHandler
+    public void onServerStart(FMLServerStartingEvent event){
+        proxy.registerTickHandlers();
     }
 }

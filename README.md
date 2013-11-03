@@ -1,5 +1,8 @@
 ElementalSciences
 =================
 
-A mod using forge, designed to give you access to genetics of the players, and other various science-y stuff
-Think forestry bees, but your the bee!
+A mod designed to empower you with awesome tech.
+
+Everything from genetics of the player, to a gravity field compressor. ;)
+
+Stick around, Pond.

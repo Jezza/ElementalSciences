@@ -38,5 +38,6 @@ tile.storageChamber.name=Storage Chamber
 tile.researchTable.name=Research Table
 
 item.chainCatalyst.name=Chain Catalyst
+item.cubeWand.name=Cube Wand
 
 death.attack.beta=%1$s was horrifically slaughtered by beta radiation.
