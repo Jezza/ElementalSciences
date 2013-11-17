@@ -2,7 +2,6 @@ package me.jezzadabomb.es.client;
 
 import me.jezzadabomb.es.CommonProxy;
 import me.jezzadabomb.es.client.renderers.blocks.BlockLaserEmitterRenderer;
-import me.jezzadabomb.es.client.renderers.blocks.BlockPowerConduitRenderer;
 import me.jezzadabomb.es.client.renderers.items.ItemResearchTableRenderer;
 import me.jezzadabomb.es.client.renderers.tile.TileResearchTableRenderer;
 import me.jezzadabomb.es.common.lib.BlockIds;
@@ -20,7 +19,6 @@ public class ClientProxy extends CommonProxy {
     
     private void setupRenderers() {
         RenderingRegistry.registerBlockHandler(BlockLaserEmitterRenderer.instance());
-        RenderingRegistry.registerBlockHandler(BlockPowerConduitRenderer.instance());
         
         ClientRegistry.bindTileEntitySpecialRenderer(TileResearchTable.class, new TileResearchTableRenderer());
         MinecraftForgeClient.registerItemRenderer(BlockIds.RESEARCH_TABLE_DEFAULT, new ItemResearchTableRenderer());

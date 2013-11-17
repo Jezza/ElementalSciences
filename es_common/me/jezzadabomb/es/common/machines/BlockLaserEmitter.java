@@ -2,7 +2,6 @@ package me.jezzadabomb.es.common.machines;
 
 import me.jezzadabomb.es.ElementalSciences;
 import me.jezzadabomb.es.client.renderers.blocks.BlockLaserEmitterRenderer;
-import me.jezzadabomb.es.common.api.BlockPowerComponent.PowerComponent;
 import me.jezzadabomb.es.common.lib.Reference;
 import me.jezzadabomb.es.common.tileentity.TileLaserEmitter;
 import net.minecraft.block.BlockContainer;
@@ -10,13 +9,12 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeDirection;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraftforge.common.ForgeDirection;
 
-public class BlockLaserEmitter extends BlockContainer implements PowerComponent{
+public class BlockLaserEmitter extends BlockContainer{
     
     @SideOnly(Side.CLIENT)
     private Icon textureTop, textureBottom, textureSide;
@@ -76,19 +74,6 @@ public class BlockLaserEmitter extends BlockContainer implements PowerComponent{
         textureTop = par1IconRegister.registerIcon(Reference.MOD_ID + ":" + (this.getUnlocalizedName().replace("tile.", "")) + "_top");
         textureBottom = par1IconRegister.registerIcon(Reference.MOD_ID + ":" + (this.getUnlocalizedName().replace("tile.", "")) + "_bottom");
         textureSide = par1IconRegister.registerIcon(Reference.MOD_ID + ":" + (this.getUnlocalizedName().replace("tile.", "")) + "_side");
-    }
-
-    @Override
-    public PowerComponentType getPowerComponentType() {
-        return PowerComponentType.COLLECTOR;
-    }
-
-    @Override
-    public boolean canTubeConnectOnSide(IBlockAccess w, int x, int y, int z, int side) {
-        if(w.getBlockMetadata(x, y, z) == ForgeDirection.values()[side].getOpposite().ordinal()){
-            return true;
-        }
-        return false;
     }
     
 }

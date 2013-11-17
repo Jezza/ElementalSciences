@@ -2,19 +2,17 @@ package me.jezzadabomb.es.common.machines;
 
 import java.util.Random;
 
-import me.jezzadabomb.es.common.api.BlockESContainer;
-import me.jezzadabomb.es.common.api.BlockPowerComponent.PowerComponent;
-import me.jezzadabomb.es.common.lib.Reference;
-import me.jezzadabomb.es.common.tileentity.TileStorageChamber;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import me.jezzadabomb.es.common.api.BlockESContainer;
+import me.jezzadabomb.es.common.lib.Reference;
+import me.jezzadabomb.es.common.tileentity.TileEnergyHandler;
 
-public class BlockStorageChamber extends BlockESContainer implements PowerComponent {
+public class BlockEnergyHandler extends BlockESContainer{
 
-    public BlockStorageChamber(int id, String name) {
+    public BlockEnergyHandler(int id, String name) {
         super(id, Material.iron, name);
     }
 
@@ -29,7 +27,7 @@ public class BlockStorageChamber extends BlockESContainer implements PowerCompon
 
     public void updateTick(World world, int x, int y, int z, Random par5Random) {
 
-        TileStorageChamber core = (TileStorageChamber) world.getBlockTileEntity(x, y, z);
+        TileEnergyHandler core = (TileEnergyHandler) world.getBlockTileEntity(x, y, z);
         //If the core isn't null
         if (core != null) {
             //If it isn't already formed.
@@ -47,11 +45,6 @@ public class BlockStorageChamber extends BlockESContainer implements PowerCompon
     }
 
     @Override
-    public PowerComponentType getPowerComponentType() {
-        return PowerComponentType.SOURCE;
-    }
-
-    @Override
     public void onBlockAdded(World world, int x, int y, int z) {
         world.scheduleBlockUpdate(x, y, z, this.blockID, this.tickRate(world));
     }
@@ -62,7 +55,7 @@ public class BlockStorageChamber extends BlockESContainer implements PowerCompon
     
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
-        TileStorageChamber core = (TileStorageChamber) world.getBlockTileEntity(x, y, z);
+        TileEnergyHandler core = (TileEnergyHandler) world.getBlockTileEntity(x, y, z);
 
         if (getDebug()) {
             core.convertDummies();
@@ -72,14 +65,10 @@ public class BlockStorageChamber extends BlockESContainer implements PowerCompon
 
         return true;
     }
-
-    @Override
-    public boolean canTubeConnectOnSide(IBlockAccess w, int x, int y, int z, int side) {
-        return false;
-    }
-
+    
     @Override
     public TileEntity createNewTileEntity(World world) {
-        return new TileStorageChamber();
+        return new TileEnergyHandler();
     }
+
 }

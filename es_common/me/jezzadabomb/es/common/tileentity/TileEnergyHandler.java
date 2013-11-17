@@ -3,11 +3,11 @@ package me.jezzadabomb.es.common.tileentity;
 import me.jezzadabomb.es.common.lib.BlockIds;
 import me.jezzadabomb.es.common.lib.Reference;
 
-public class TileStorageChamber extends TileES {
+public class TileEnergyHandler extends TileES {
 
     public boolean isValidMultiblock = false;
 
-    public TileStorageChamber() {
+    public TileEnergyHandler() {
     }
 
     public boolean getIsValid() {
@@ -209,7 +209,7 @@ public class TileStorageChamber extends TileES {
         return false;
     }
 
-//    @Override
-//    public void updateEntity() {
-//    }
+    @Override
+    public void updateEntity() {
+    }
 }

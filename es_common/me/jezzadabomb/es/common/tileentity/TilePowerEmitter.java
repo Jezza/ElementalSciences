@@ -3,7 +3,7 @@ package me.jezzadabomb.es.common.tileentity;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class TilePowerEmitter extends TileES {
-    TileStorageChamber tileEntityCore;
+    TileEnergyHandler tileEntityCore;
     int coreX;
     int coreY;
     int coreZ;
@@ -12,7 +12,7 @@ public class TilePowerEmitter extends TileES {
     {
     }
     
-    public void setCore(TileStorageChamber core)
+    public void setCore(TileEnergyHandler core)
     {
         coreX = core.xCoord;
         coreY = core.yCoord;
@@ -20,10 +20,10 @@ public class TilePowerEmitter extends TileES {
         tileEntityCore = core;
     }
     
-    public TileStorageChamber getCore()
+    public TileEnergyHandler getCore()
     {
         if(tileEntityCore == null)
-            tileEntityCore = (TileStorageChamber)worldObj.getBlockTileEntity(coreX, coreY, coreZ);
+            tileEntityCore = (TileEnergyHandler)worldObj.getBlockTileEntity(coreX, coreY, coreZ);
         
         return tileEntityCore;
     }

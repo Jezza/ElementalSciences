@@ -9,12 +9,10 @@ import me.jezzadabomb.es.common.items.ItemBlockPureColour;
 import me.jezzadabomb.es.common.lib.BlockIds;
 import me.jezzadabomb.es.common.lib.Strings;
 import me.jezzadabomb.es.common.machines.BlockConstructionPlate;
+import me.jezzadabomb.es.common.machines.BlockEnergyHandler;
 import me.jezzadabomb.es.common.machines.BlockGravityCompressor;
 import me.jezzadabomb.es.common.machines.BlockLaserEmitter;
-import me.jezzadabomb.es.common.machines.BlockPowerConduit;
-import me.jezzadabomb.es.common.machines.BlockPowerEmitter;
 import me.jezzadabomb.es.common.machines.BlockResearchTable;
-import me.jezzadabomb.es.common.machines.BlockStorageChamber;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -32,10 +30,8 @@ public class ModBlocks {
     public static Block gravCompressor;
     public static Block laserEmitter;
     public static Block constructionPlate;
-    public static Block powerConduit;
-    public static Block storageChamber;
-    public static Block powerEmitter;
     public static Block researchTable;
+    public static Block energyHandler;
 
     public static void init() {
 
@@ -46,10 +42,8 @@ public class ModBlocks {
         pureColour = new BlockPureColour(BlockIds.PURE_COLOUR, Strings.PURE_COLOUR);
         laserEmitter = new BlockLaserEmitter(BlockIds.LASER_EMITTER, Strings.LASER_EMITTER);
         constructionPlate = new BlockConstructionPlate(BlockIds.CONSTRUCTION_PLATE, Strings.CONSTRUCTION_PLATE);
-        powerConduit = new BlockPowerConduit(BlockIds.POWER_CONDUIT, Strings.POWER_CONDUIT, 6);
-        storageChamber = new BlockStorageChamber(BlockIds.STORAGE_CHAMBER, Strings.STORAGE_CHAMBER);
-        powerEmitter = new BlockPowerEmitter(BlockIds.POWER_EMITTER, Strings.POWER_EMITTER);
         researchTable = new BlockResearchTable(BlockIds.RESEARCH_TABLE, Strings.RESEARCH_TABLE);
+        energyHandler = new BlockEnergyHandler(BlockIds.ENERGY_HANDLER, Strings.ENERGY_HANDLER);
         
         // Single Data Blocks
         
@@ -57,10 +51,8 @@ public class ModBlocks {
         GameRegistry.registerBlock(gravCompressor, Strings.GRAVITY_COMPRESSOR);
         GameRegistry.registerBlock(laserEmitter, Strings.LASER_EMITTER);
         GameRegistry.registerBlock(constructionPlate, Strings.CONSTRUCTION_PLATE);
-        GameRegistry.registerBlock(powerConduit, Strings.POWER_CONDUIT);
-        GameRegistry.registerBlock(storageChamber, Strings.STORAGE_CHAMBER);
-        GameRegistry.registerBlock(powerEmitter, Strings.POWER_EMITTER);
         GameRegistry.registerBlock(researchTable, Strings.RESEARCH_TABLE);
+        GameRegistry.registerBlock(energyHandler, Strings.ENERGY_HANDLER);
 
         // Meta Blocks
         
@@ -74,11 +66,11 @@ public class ModBlocks {
 
     private static void initBlockRecipes() {
 
-        GameRegistry.addRecipe(new ItemStack(strGlass), new Object[] { "iii", 
-                                                                                "isi",
-                                                                                "iii", 
-                                                                                Character.valueOf('i'), Block.glass,
-                                                                                Character.valueOf('s'), Block.stone });
+        GameRegistry.addRecipe(new ItemStack(strGlass), new Object[] {  "iii", 
+                                                                        "isi",
+                                                                        "iii", 
+                                                                        Character.valueOf('i'), Block.glass,
+                                                                        Character.valueOf('s'), Block.stone });
         GameRegistry.addRecipe(new ItemStack(chamberBlock), new Object[] {  "isi",
                                                                             "sis",
                                                                             "isi", 

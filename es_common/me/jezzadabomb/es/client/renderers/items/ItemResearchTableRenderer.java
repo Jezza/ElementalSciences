@@ -44,7 +44,7 @@ public class ItemResearchTableRenderer implements IItemRenderer{
             }
                  
             case EQUIPPED_FIRST_PERSON: {
-                renderResearchTable(1.2F, 0F, 0F, 1F);
+                renderResearchTable(0.9F, -0.2F, 0.25F, 1F);
                 break;
             }
             
