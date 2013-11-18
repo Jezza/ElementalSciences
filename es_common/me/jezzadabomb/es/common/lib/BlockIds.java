@@ -14,6 +14,7 @@ public class BlockIds {
     public static int POWER_EMITTER_DEFAULT = 2238;
     public static int RESEARCH_TABLE_DEFAULT = 2239;
     public static int PURE_COLOUR_DEFAULT = 2241;
+    public static int ENERGY_OUTPUT_DEFAULT = 2242;
     
     //Stored Block Ids
     public static int STRENGTHENED_GLASS;
@@ -27,4 +28,5 @@ public class BlockIds {
     public static int POWER_EMITTER;
     public static int RESEARCH_TABLE;
     public static int PURE_COLOUR;
+    public static int ENERGY_OUTPUT;
 }

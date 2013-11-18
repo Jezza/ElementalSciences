@@ -10,6 +10,7 @@ import me.jezzadabomb.es.common.lib.BlockIds;
 import me.jezzadabomb.es.common.lib.Strings;
 import me.jezzadabomb.es.common.machines.BlockConstructionPlate;
 import me.jezzadabomb.es.common.machines.BlockEnergyHandler;
+import me.jezzadabomb.es.common.machines.BlockEnergyOutput;
 import me.jezzadabomb.es.common.machines.BlockGravityCompressor;
 import me.jezzadabomb.es.common.machines.BlockLaserEmitter;
 import me.jezzadabomb.es.common.machines.BlockResearchTable;
@@ -32,6 +33,7 @@ public class ModBlocks {
     public static Block constructionPlate;
     public static Block researchTable;
     public static Block energyHandler;
+    public static Block energyOutput;
 
     public static void init() {
 
@@ -44,6 +46,7 @@ public class ModBlocks {
         constructionPlate = new BlockConstructionPlate(BlockIds.CONSTRUCTION_PLATE, Strings.CONSTRUCTION_PLATE);
         researchTable = new BlockResearchTable(BlockIds.RESEARCH_TABLE, Strings.RESEARCH_TABLE);
         energyHandler = new BlockEnergyHandler(BlockIds.ENERGY_HANDLER, Strings.ENERGY_HANDLER);
+        energyOutput = new BlockEnergyOutput(BlockIds.ENERGY_OUTPUT, Strings.ENERGY_OUTPUT);
         
         // Single Data Blocks
         
@@ -53,6 +56,7 @@ public class ModBlocks {
         GameRegistry.registerBlock(constructionPlate, Strings.CONSTRUCTION_PLATE);
         GameRegistry.registerBlock(researchTable, Strings.RESEARCH_TABLE);
         GameRegistry.registerBlock(energyHandler, Strings.ENERGY_HANDLER);
+        GameRegistry.registerBlock(energyOutput, Strings.ENERGY_OUTPUT);
 
         // Meta Blocks
         
@@ -66,14 +70,14 @@ public class ModBlocks {
 
     private static void initBlockRecipes() {
 
-        GameRegistry.addRecipe(new ItemStack(strGlass), new Object[] {  "iii", 
+        GameRegistry.addRecipe(new ItemStack(strGlass), new Object[] {  "iii",
                                                                         "isi",
-                                                                        "iii", 
+                                                                        "iii",
                                                                         Character.valueOf('i'), Block.glass,
                                                                         Character.valueOf('s'), Block.stone });
         GameRegistry.addRecipe(new ItemStack(chamberBlock), new Object[] {  "isi",
                                                                             "sis",
-                                                                            "isi", 
+                                                                            "isi",
                                                                             Character.valueOf('i'), Item.ingotIron,
                                                                             Character.valueOf('s'), Block.stone });
 

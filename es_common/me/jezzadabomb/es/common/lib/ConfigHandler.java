@@ -28,6 +28,7 @@ public class ConfigHandler {
             BlockIds.PURE_COLOUR = config.getBlock(Strings.PURE_COLOUR, BlockIds.PURE_COLOUR_DEFAULT).getInt(BlockIds.PURE_COLOUR_DEFAULT);
             BlockIds.RESEARCH_TABLE = config.getBlock(Strings.RESEARCH_TABLE, BlockIds.RESEARCH_TABLE_DEFAULT).getInt(BlockIds.RESEARCH_TABLE_DEFAULT);
             BlockIds.ENERGY_HANDLER = config.getBlock(Strings.ENERGY_HANDLER, BlockIds.ENERGY_HANDLER_DEFAULT).getInt(BlockIds.ENERGY_HANDLER_DEFAULT);
+            BlockIds.ENERGY_OUTPUT = config.getBlock(Strings.ENERGY_OUTPUT, BlockIds.ENERGY_OUTPUT_DEFAULT).getInt(BlockIds.ENERGY_OUTPUT_DEFAULT);
             /* Item configs */
             ItemIds.CHAIN_CATALYST = config.getItem(Strings.CHAIN_CATALYST, ItemIds.CHAIN_CATALYST_DEFAULT).getInt(ItemIds.CHAIN_CATALYST_DEFAULT);
         }

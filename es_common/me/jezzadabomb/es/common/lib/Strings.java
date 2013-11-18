@@ -10,6 +10,7 @@ public class Strings {
     public static final String CONSTRUCTION_PLATE = "constructionPlate";
     public static final String POWER_CONDUIT = "powerConduit";
     public static final String ENERGY_HANDLER = "energyHandler";
+    public static final String ENERGY_OUTPUT = "energyOutput";
     public static final String POWER_EMITTER = "powerEmitter";
     public static final String RESEARCH_TABLE = "researchTable";
     

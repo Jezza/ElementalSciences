@@ -3,6 +3,7 @@ package me.jezzadabomb.es;
 import me.jezzadabomb.es.common.WorldTicker;
 import me.jezzadabomb.es.common.tileentity.TileChamberDummy;
 import me.jezzadabomb.es.common.tileentity.TileConstructionPlate;
+import me.jezzadabomb.es.common.tileentity.TileEnergyOutput;
 import me.jezzadabomb.es.common.tileentity.TileGravCompressor;
 import me.jezzadabomb.es.common.tileentity.TileLaserEmitter;
 import me.jezzadabomb.es.common.tileentity.TilePowerEmitter;
@@ -32,6 +33,7 @@ public class CommonProxy {
         GameRegistry.registerTileEntity(TileResearchTable.class, "researchTable");
         GameRegistry.registerTileEntity(TileGravCompressor.class, "gravCompressor");
         GameRegistry.registerTileEntity(TileEnergyHandler.class, "energyHandler");
+        GameRegistry.registerTileEntity(TileEnergyOutput.class, "energyOutput");
    }
 
 }
