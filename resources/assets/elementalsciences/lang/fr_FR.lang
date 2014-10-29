@@ -1,0 +1,43 @@
+itemGroup.ElementalSciences.machines=Science élementaire : Machines
+itemGroup.ElementalSciences.misc=Science élementaire : Divers
+tile.pureColour.white.name=Blanc pur
+tile.pureColour.orange.name=Orange pur
+tile.pureColour.magenta.name=Magenta pur
+tile.pureColour.lightBlue.name=Bleu clair pur
+tile.pureColour.yellow.name=Jaune pur
+tile.pureColour.lime.name=Citron pur
+tile.pureColour.pink.name=Rose pur
+tile.pureColour.gray.name=Gris pur
+tile.pureColour.silver.name=Gris clair pur
+tile.pureColour.cyan.name=Cyan pur
+tile.pureColour.purple.name=Violet pur
+tile.pureColour.blue.name=Bleu pur
+tile.pureColour.brown.name=Marron pur
+tile.pureColour.green.name=Vert pur
+tile.pureColour.red.name=Rouge pur
+tile.pureColour.black.name=Noir pur
+
+tile.strengthenedGlass.name=Verre renforcé
+tile.chamberBlock.de.name=Châssis de chambre
+tile.chamberBlock.st.name=Châssis de chambre renforcé
+tile.chamberBlock.re.name=Châssis de chambre armé
+tile.chamberBlock.case.name=Enveloppe de chambre
+tile.chamberBlockDummy.de.name=Châssis de chambre factice
+tile.chamberBlockDummy.st.name=Châssis de chambre renforcé factice
+tile.chamberBlockDummy.re.name=Châssis de chambre armé factice
+tile.chamberBlockDummy.case.name=Enveloppe de chambre factice
+tile.gravCompressor.name=Compresseur de champs gravitationnel
+tile.colliderPipe.name=Tuyau de collision d'hadron
+tile.hadronSensor.name=Capteur d'hadron
+tile.laserEmitter.name=Emetteur laser
+tile.powerEmitter.name=Emetteur de positron
+tile.constructionPlate.name=Plaque de condustion atomique
+tile.powerConduit.name=Conduit de positron
+tile.protonSensor.name=Capteur de proton
+tile.storageChamber.name=Chambre de stockage
+tile.researchTable.name=Table de recherche
+
+item.chainCatalyst.name=Catalyseur de chaîne
+item.cubeWand.name=Baquette de cube
+
+death.attack.beta=%1$s a été horriblement brulé par la radiation bêta.
